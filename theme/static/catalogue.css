@@ -200,11 +200,26 @@ html:not(.catalogue-js) .bib-copy { display: none; }
 .row-info td { padding: 0.2rem 0; vertical-align: top; border: 0; background: none; }
 
 /* On a phone an entry row keeps its name, first column and year, and a paper row
-   its title and year; the rest appears when the row is opened. */
+   its title and year; the rest appears when the row is opened. The other columns
+   stay in the table at no width rather than being removed: an open row's detail
+   cell spans every column, so removed columns would come back as an empty strip
+   on the right of the whole table. The name column widens to fit bold names such
+   as "Parameterized networks", and a longer word breaks rather than running into
+   the next column. */
 @media (max-width: 40rem) {
+  .catalogue-entries th:first-child { width: 34%; }
+  .catalogue-table tr.row td:first-child { overflow-wrap: anywhere; }
   .catalogue-entries th:nth-child(n+3):not(:last-child),
   .catalogue-entries tr.row td:nth-child(n+3):not(:last-child),
-  .catalogue-papers th:nth-child(2), .catalogue-papers tr.row td:nth-child(2) { display: none; }
+  .catalogue-papers th:nth-child(2), .catalogue-papers tr.row td:nth-child(2) {
+    width: 0;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+  .catalogue-entries tr.row td:nth-child(n+3):not(:last-child) > *,
+  .catalogue-papers tr.row td:nth-child(2) > * { display: none; }
   .row-info th { width: auto; display: block; padding-bottom: 0; }
   .row-info td { display: block; }
 }
