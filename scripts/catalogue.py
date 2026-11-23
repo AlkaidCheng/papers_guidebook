@@ -221,7 +221,9 @@ def normalise_entry(entry: str, key: str) -> str:
         r"^@\s*(\w+)\s*\{\s*[^,\s]+\s*,", rf"@\1{{{key},", entry.strip(), count=1
     )
     for name in DROPPED_BIBTEX_FIELDS:
-        entry = re.sub(rf"\n\s*{name}\s*=\s*\{{[^\n]*\}},?", "", entry, flags=re.I)
+        entry = re.sub(
+            rf"\n\s*{name}\s*=\s*\{{[^\n]*\}},?", "", entry, flags=re.IGNORECASE
+        )
     # Bibliography styles lower-case a title unless braces protect it, which would
     # turn "Top Quark Tagging Reference Dataset" into "Top quark tagging ...".
     title = bibtex_field(entry, "title")
@@ -961,8 +963,10 @@ def _table(kind: str, columns: list[str], rows: list[str]) -> str:
     head = "".join(f"<th>{html.escape(column)}</th>" for column in columns)
     return "\n".join(
         [
-            f'<div class="table-wrap"><table class="catalogue-table catalogue-{kind}">'
-            f"<thead><tr>{head}</tr></thead><tbody>",
+            (
+                f'<div class="table-wrap"><table class="catalogue-table catalogue-{kind}">'
+                f"<thead><tr>{head}</tr></thead><tbody>"
+            ),
             *rows,
             "</tbody></table></div>",
             "",
@@ -991,8 +995,10 @@ def _detail_row(row_id: str, span: int, body: list[str], tags: str = "") -> str:
     blocks = "\n\n".join(block for block in body if block)
     return "\n".join(
         [
-            f'<tr class="row-detail" id="{row_id}-detail"{tags_attr}>'
-            f'<td colspan="{span}">',
+            (
+                f'<tr class="row-detail" id="{row_id}-detail"{tags_attr}>'
+                f'<td colspan="{span}">'
+            ),
             "",
             blocks,
             "",
@@ -1147,8 +1153,11 @@ def papers_page_markdown(catalogue: Catalogue) -> str:
     lines += [
         _tools(page),
         "",
-        '<div class="tag-filter" hidden><span class="tag-filter-label">Filter</span>'
-        f'{filter_buttons}<button type="button" class="tag-clear">Show all</button></div>',
+        (
+            '<div class="tag-filter" hidden><span class="tag-filter-label">Filter</span>'
+            f'{filter_buttons}<button type="button" class="tag-clear">Show all</button>'
+            "</div>"
+        ),
         "",
     ]
     for category, title in papers_file.categories.items():

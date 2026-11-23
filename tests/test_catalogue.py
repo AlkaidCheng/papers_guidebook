@@ -3,6 +3,7 @@ and the pages a build writes."""
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import sys
 import tempfile
@@ -12,9 +13,14 @@ from dataclasses import asdict
 from pathlib import Path
 from unittest import mock
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
-
-import catalogue  # noqa: E402
+# The generator is a script, not a package, so it is loaded from its path. It is
+# registered before it runs, because its dataclasses look their module up there.
+SCRIPT_PATH = Path(__file__).resolve().parent.parent / "scripts" / "catalogue.py"
+_spec = importlib.util.spec_from_file_location("catalogue", SCRIPT_PATH)
+assert _spec is not None and _spec.loader is not None
+catalogue = importlib.util.module_from_spec(_spec)
+sys.modules["catalogue"] = catalogue
+_spec.loader.exec_module(catalogue)
 
 INSPIRE_ENTRY = """@article{Doe:2020abc,
     author = "Doe, Jane and Roe, Richard",
@@ -425,9 +431,11 @@ class TestFetch(CatalogueDir):
             [json.dumps(record), INSPIRE_ENTRY.replace("Doe:2020abc", "Doe:2020zzz")]
         )
         papers_file, _ = self.settings.load()
-        with mock.patch.object(catalogue, "_get", lambda url, accept: next(responses)):
-            with self.assertRaisesRegex(catalogue.CatalogueError, "use that key"):
-                catalogue.fetch_paper(papers_file.papers["Doe:2020abc"], 0)
+        with (
+            mock.patch.object(catalogue, "_get", lambda url, accept: next(responses)),
+            self.assertRaisesRegex(catalogue.CatalogueError, "use that key"),
+        ):
+            catalogue.fetch_paper(papers_file.papers["Doe:2020abc"], 0)
 
     def test_fetch_record_reads_datacite(self) -> None:
         csl = {
