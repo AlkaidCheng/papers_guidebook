@@ -129,6 +129,7 @@ tr.row.open .row-toggle { color: var(--accent-ink); }
 .row-links a:hover { text-decoration: underline; }
 
 .cite-button,
+.share-button,
 .bib-copy {
   font: inherit;
   padding: 0;
@@ -138,8 +139,9 @@ tr.row.open .row-toggle { color: var(--accent-ink); }
   cursor: pointer;
 }
 .cite-button::after { content: " ▾"; font-size: 0.75em; }
-.cite-button:hover, .bib-copy:hover { text-decoration: underline; }
+.cite-button:hover, .share-button:hover, .bib-copy:hover { text-decoration: underline; }
 html:not(.catalogue-js) .cite-button,
+html:not(.catalogue-js) .share-button,
 html:not(.catalogue-js) .bib-copy { display: none; }
 .bib-copy { font-family: var(--sans); font-size: 0.75rem; margin-left: 0.3rem; }
 

@@ -17,7 +17,7 @@ Machine-learning methods for searches that do not assume a signal model, grouped
 
 Trains a classifier between two mixtures with different signal fractions; the optimal classifier between them is the optimal fully supervised one.
 
-<p class="row-links"><a href="papers.md#metodiev-2017vrx">Paper</a><a href="https://arxiv.org/abs/1708.02949">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Metodiev:2017vrx" data-file="cwola">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1615464">Cited by</a></p>
+<p class="row-links"><a href="papers.md#metodiev-2017vrx">Paper</a><a href="https://arxiv.org/abs/1708.02949">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Metodiev:2017vrx" data-file="cwola">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1615464">Cited by</a><button type="button" class="share-button" data-share="cwola">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Metodiev:2017vrx" data-text="E. M. Metodiev, B. Nachman and J. Thaler, “Classification without labels: Learning from mixed samples in high energy physics”, JHEP 10 (2017) 174, arXiv:1708.02949.">E. M. Metodiev, B. Nachman and J. Thaler, “Classification without labels: Learning from mixed samples in high energy physics”, JHEP 10 (2017) 174, arXiv:1708.02949.</span> <button type="button" class="bib-copy" data-cite="Metodiev:2017vrx">BibTeX</button></li></ul>
 
@@ -27,7 +27,7 @@ Trains a classifier between two mixtures with different signal fractions; the op
 
 A bump hunt in which classifiers trained between a signal region and its sidebands enhance an unknown resonance with features uncorrelated with the resonant one.
 
-<p class="row-links"><a href="papers.md#collins-2018epr">Paper</a><a href="https://arxiv.org/abs/1805.02664">arXiv</a><a href="https://github.com/jackhcollins/CWoLa-Hunting">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Collins:2018epr" data-file="cwola-hunting">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1672143">Cited by</a></p>
+<p class="row-links"><a href="papers.md#collins-2018epr">Paper</a><a href="https://arxiv.org/abs/1805.02664">arXiv</a><a href="https://github.com/jackhcollins/CWoLa-Hunting">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Collins:2018epr" data-file="cwola-hunting">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1672143">Cited by</a><button type="button" class="share-button" data-share="cwola-hunting">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Collins:2018epr" data-text="J. H. Collins, K. Howe and B. Nachman, “Anomaly Detection for Resonant New Physics with Machine Learning”, Phys. Rev. Lett. 121 (2018) 241803, arXiv:1805.02664.">J. H. Collins, K. Howe and B. Nachman, “Anomaly Detection for Resonant New Physics with Machine Learning”, Phys. Rev. Lett. 121 (2018) 241803, arXiv:1805.02664.</span> <button type="button" class="bib-copy" data-cite="Collins:2018epr">BibTeX</button></li><li class="ref-related"><span class="citation" data-key="Collins:2019jip" data-text="J. H. Collins, K. Howe and B. Nachman, “Extending the search for new resonances with machine learning”, Phys. Rev. D 99 (2019) 014038, arXiv:1902.02634.">J. H. Collins, K. Howe and B. Nachman, “Extending the search for new resonances with machine learning”, Phys. Rev. D 99 (2019) 014038, arXiv:1902.02634.</span> <button type="button" class="bib-copy" data-cite="Collins:2019jip">BibTeX</button></li></ul>
 
@@ -39,7 +39,7 @@ Uses a weak classifier on one of two sub-objects to build signal-rich and backgr
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#amram-2020ykb">Paper</a><a href="https://arxiv.org/abs/2002.12376">arXiv</a><a href="https://github.com/OzAmram/TagNTrain">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Amram:2020ykb" data-file="tag-n-train">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1782967">Cited by</a></p>
+<p class="row-links"><a href="papers.md#amram-2020ykb">Paper</a><a href="https://arxiv.org/abs/2002.12376">arXiv</a><a href="https://github.com/OzAmram/TagNTrain">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Amram:2020ykb" data-file="tag-n-train">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1782967">Cited by</a><button type="button" class="share-button" data-share="tag-n-train">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Amram:2020ykb" data-text="O. Amram and C. M. Suarez, “Tag N’ Train: a technique to train improved classifiers on unlabeled data”, JHEP 01 (2021) 153, arXiv:2002.12376.">O. Amram and C. M. Suarez, “Tag N’ Train: a technique to train improved classifiers on unlabeled data”, JHEP 01 (2021) 153, arXiv:2002.12376.</span> <button type="button" class="bib-copy" data-cite="Amram:2020ykb">BibTeX</button></li></ul>
 
@@ -51,7 +51,7 @@ Replaces neural networks by boosted decision trees in weakly supervised anomaly 
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#finke-2023ltw">Paper</a><a href="https://arxiv.org/abs/2309.13111">arXiv</a><a href="https://github.com/uhh-pd-ml/treebased_anomaly_detection">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Finke:2023ltw" data-file="boosted-decision-trees">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2702512">Cited by</a></p>
+<p class="row-links"><a href="papers.md#finke-2023ltw">Paper</a><a href="https://arxiv.org/abs/2309.13111">arXiv</a><a href="https://github.com/uhh-pd-ml/treebased_anomaly_detection">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Finke:2023ltw" data-file="boosted-decision-trees">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2702512">Cited by</a><button type="button" class="share-button" data-share="boosted-decision-trees">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Finke:2023ltw" data-text="T. Finke et al., “Tree-based algorithms for weakly supervised anomaly detection”, Phys. Rev. D 109 (2024) 034033, arXiv:2309.13111.">T. Finke et al., “Tree-based algorithms for weakly supervised anomaly detection”, Phys. Rev. D 109 (2024) 034033, arXiv:2309.13111.</span> <button type="button" class="bib-copy" data-cite="Finke:2023ltw">BibTeX</button></li></ul>
 
@@ -68,7 +68,7 @@ Estimates the density of the data in the signal region and in the sidebands, int
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#nachman-2020lpy">Paper</a><a href="https://arxiv.org/abs/2001.04990">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Nachman:2020lpy" data-file="anode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775739">Cited by</a></p>
+<p class="row-links"><a href="papers.md#nachman-2020lpy">Paper</a><a href="https://arxiv.org/abs/2001.04990">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Nachman:2020lpy" data-file="anode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775739">Cited by</a><button type="button" class="share-button" data-share="anode">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Nachman:2020lpy" data-text="B. Nachman and D. Shih, “Anomaly Detection with Density Estimation”, Phys. Rev. D 101 (2020) 075042, arXiv:2001.04990.">B. Nachman and D. Shih, “Anomaly Detection with Density Estimation”, Phys. Rev. D 101 (2020) 075042, arXiv:2001.04990.</span> <button type="button" class="bib-copy" data-cite="Nachman:2020lpy">BibTeX</button></li></ul>
 
@@ -80,7 +80,7 @@ Fits a normalizing flow to the small signal component in the signal region while
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#das-2023bcj">Paper</a><a href="https://arxiv.org/abs/2312.11629">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Das:2023bcj" data-file="r-anode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2738545">Cited by</a></p>
+<p class="row-links"><a href="papers.md#das-2023bcj">Paper</a><a href="https://arxiv.org/abs/2312.11629">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Das:2023bcj" data-file="r-anode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2738545">Cited by</a><button type="button" class="share-button" data-share="r-anode">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Das:2023bcj" data-text="R. Das, G. Kasieczka and D. Shih, “Residual ANODE”, arXiv:2312.11629.">R. Das, G. Kasieczka and D. Shih, “Residual ANODE”, arXiv:2312.11629.</span> <button type="button" class="bib-copy" data-cite="Das:2023bcj">BibTeX</button></li></ul>
 
@@ -92,7 +92,7 @@ Reweights background simulation to the data in the sidebands, interpolates the r
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#andreassen-2020nkr">Paper</a><a href="https://arxiv.org/abs/2001.05001">arXiv</a><a href="https://github.com/bnachman/DCTRHunting">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Andreassen:2020nkr" data-file="salad">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775741">Cited by</a></p>
+<p class="row-links"><a href="papers.md#andreassen-2020nkr">Paper</a><a href="https://arxiv.org/abs/2001.05001">arXiv</a><a href="https://github.com/bnachman/DCTRHunting">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Andreassen:2020nkr" data-file="salad">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775741">Cited by</a><button type="button" class="share-button" data-share="salad">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Andreassen:2020nkr" data-text="A. Andreassen, B. Nachman and D. Shih, “Simulation Assisted Likelihood-free Anomaly Detection”, Phys. Rev. D 101 (2020) 095004, arXiv:2001.05001.">A. Andreassen, B. Nachman and D. Shih, “Simulation Assisted Likelihood-free Anomaly Detection”, Phys. Rev. D 101 (2020) 095004, arXiv:2001.05001.</span> <button type="button" class="bib-copy" data-cite="Andreassen:2020nkr">BibTeX</button></li></ul>
 
@@ -104,7 +104,7 @@ Samples background events from a sideband density estimator interpolated into th
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#hallin-2021wme">Paper</a><a href="https://arxiv.org/abs/2109.00546">arXiv</a><a href="https://github.com/HEPML-AnomalyDetection/CATHODE">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Hallin:2021wme" data-file="cathode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1915354">Cited by</a></p>
+<p class="row-links"><a href="papers.md#hallin-2021wme">Paper</a><a href="https://arxiv.org/abs/2109.00546">arXiv</a><a href="https://github.com/HEPML-AnomalyDetection/CATHODE">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Hallin:2021wme" data-file="cathode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1915354">Cited by</a><button type="button" class="share-button" data-share="cathode">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Hallin:2021wme" data-text="A. Hallin et al., “Classifying anomalies through outer density estimation”, Phys. Rev. D 106 (2022) 055006, arXiv:2109.00546.">A. Hallin et al., “Classifying anomalies through outer density estimation”, Phys. Rev. D 106 (2022) 055006, arXiv:2109.00546.</span> <button type="button" class="bib-copy" data-cite="Hallin:2021wme">BibTeX</button></li></ul>
 
@@ -116,7 +116,7 @@ Invertible networks conditioned on the resonant observable map sideband data int
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#raine-2022hht">Paper</a><a href="https://arxiv.org/abs/2203.09470">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Raine:2022hht" data-file="curtains">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2054235">Cited by</a></p>
+<p class="row-links"><a href="papers.md#raine-2022hht">Paper</a><a href="https://arxiv.org/abs/2203.09470">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Raine:2022hht" data-file="curtains">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2054235">Cited by</a><button type="button" class="share-button" data-share="curtains">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Raine:2022hht" data-text="J. A. Raine et al., “CURTAINs for your sliding window: Constructing unobserved regions by transforming adjacent intervals”, Front. Big Data 6 (2023) 899345, arXiv:2203.09470.">J. A. Raine et al., “CURTAINs for your sliding window: Constructing unobserved regions by transforming adjacent intervals”, Front. Big Data 6 (2023) 899345, arXiv:2203.09470.</span> <button type="button" class="bib-copy" data-cite="Raine:2022hht">BibTeX</button></li></ul>
 
@@ -128,7 +128,7 @@ A flow conditioned on the resonant mass maps background simulation to sideband d
 
 <p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#golling-2022nkl">Paper</a><a href="https://arxiv.org/abs/2212.11285">arXiv</a><a href="https://github.com/rmastand/FETA">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Golling:2022nkl" data-file="feta">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2617394">Cited by</a></p>
+<p class="row-links"><a href="papers.md#golling-2022nkl">Paper</a><a href="https://arxiv.org/abs/2212.11285">arXiv</a><a href="https://github.com/rmastand/FETA">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Golling:2022nkl" data-file="feta">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2617394">Cited by</a><button type="button" class="share-button" data-share="feta">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Golling:2022nkl" data-text="T. Golling et al., “Flow-enhanced transportation for anomaly detection”, Phys. Rev. D 107 (2023) 096025, arXiv:2212.11285.">T. Golling et al., “Flow-enhanced transportation for anomaly detection”, Phys. Rev. D 107 (2023) 096025, arXiv:2212.11285.</span> <button type="button" class="bib-copy" data-cite="Golling:2022nkl">BibTeX</button></li></ul>
 
@@ -143,7 +143,7 @@ A flow conditioned on the resonant mass maps background simulation to sideband d
 
 An autoencoder trained on QCD jets flags anomalous substructure, with an adversary that de-correlates the jet mass.
 
-<p class="row-links"><a href="papers.md#heimel-2018mkt">Paper</a><a href="https://arxiv.org/abs/1808.08979">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Heimel:2018mkt" data-file="adversarial-autoencoder">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1691810">Cited by</a></p>
+<p class="row-links"><a href="papers.md#heimel-2018mkt">Paper</a><a href="https://arxiv.org/abs/1808.08979">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Heimel:2018mkt" data-file="adversarial-autoencoder">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1691810">Cited by</a><button type="button" class="share-button" data-share="adversarial-autoencoder">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Heimel:2018mkt" data-text="T. Heimel et al., “QCD or What?”, SciPost Phys. 6 (2019) 030, arXiv:1808.08979.">T. Heimel et al., “QCD or What?”, SciPost Phys. 6 (2019) 030, arXiv:1808.08979.</span> <button type="button" class="bib-copy" data-cite="Heimel:2018mkt">BibTeX</button></li></ul>
 
@@ -153,7 +153,7 @@ An autoencoder trained on QCD jets flags anomalous substructure, with an adversa
 
 An autoencoder trained on background, or on data with little signal, fails to reconstruct anomalous jets; the error is the anomaly score.
 
-<p class="row-links"><a href="papers.md#farina-2018fyg">Paper</a><a href="https://arxiv.org/abs/1808.08992">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Farina:2018fyg" data-file="deep-autoencoder">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1691732">Cited by</a></p>
+<p class="row-links"><a href="papers.md#farina-2018fyg">Paper</a><a href="https://arxiv.org/abs/1808.08992">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Farina:2018fyg" data-file="deep-autoencoder">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1691732">Cited by</a><button type="button" class="share-button" data-share="deep-autoencoder">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Farina:2018fyg" data-text="M. Farina, Y. Nakai and D. Shih, “Searching for New Physics with Deep Autoencoders”, Phys. Rev. D 101 (2020) 075021, arXiv:1808.08992.">M. Farina, Y. Nakai and D. Shih, “Searching for New Physics with Deep Autoencoders”, Phys. Rev. D 101 (2020) 075021, arXiv:1808.08992.</span> <button type="button" class="bib-copy" data-cite="Farina:2018fyg">BibTeX</button></li></ul>
 
@@ -165,7 +165,7 @@ An autoencoder with a well-defined probability model, which flags jets of both h
 
 <p class="row-uses">Uses: <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
 
-<p class="row-links"><a href="papers.md#dillon-2022mkq">Paper</a><a href="https://arxiv.org/abs/2206.14225">arXiv</a><a href="https://github.com/heidelberg-hepml/normalized-autoencoders">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Dillon:2022mkq" data-file="normalized-autoencoder">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2103430">Cited by</a></p>
+<p class="row-links"><a href="papers.md#dillon-2022mkq">Paper</a><a href="https://arxiv.org/abs/2206.14225">arXiv</a><a href="https://github.com/heidelberg-hepml/normalized-autoencoders">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Dillon:2022mkq" data-file="normalized-autoencoder">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2103430">Cited by</a><button type="button" class="share-button" data-share="normalized-autoencoder">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Dillon:2022mkq" data-text="B. M. Dillon et al., “A normalized autoencoder for LHC triggers”, SciPost Phys. Core 6 (2023) 074, arXiv:2206.14225.">B. M. Dillon et al., “A normalized autoencoder for LHC triggers”, SciPost Phys. Core 6 (2023) 074, arXiv:2206.14225.</span> <button type="button" class="bib-copy" data-cite="Dillon:2022mkq">BibTeX</button></li></ul>
 
@@ -180,7 +180,7 @@ An autoencoder with a well-defined probability model, which flags jets of both h
 
 A search for A → BC with large-radius jets on the full Run 2 dataset of 139 fb⁻¹, with classifiers trained directly on data.
 
-<p class="row-links"><a href="papers.md#atlas-2020iwa">Paper</a><a href="https://arxiv.org/abs/2005.02983">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="ATLAS:2020iwa" data-file="atlas-weak-supervision">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1794466">Cited by</a></p>
+<p class="row-links"><a href="papers.md#atlas-2020iwa">Paper</a><a href="https://arxiv.org/abs/2005.02983">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="ATLAS:2020iwa" data-file="atlas-weak-supervision">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1794466">Cited by</a><button type="button" class="share-button" data-share="atlas-weak-supervision">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="ATLAS:2020iwa" data-text="ATLAS Collaboration, “Dijet resonance search with weak supervision using $\sqrt{s}=13$ TeV $pp$ collisions in the ATLAS detector”, Phys. Rev. Lett. 125 (2020) 131801, arXiv:2005.02983.">ATLAS Collaboration, “Dijet resonance search with weak supervision using \(\sqrt{s}=13\) TeV \(pp\) collisions in the ATLAS detector”, Phys. Rev. Lett. 125 (2020) 131801, arXiv:2005.02983.</span> <button type="button" class="bib-copy" data-cite="ATLAS:2020iwa">BibTeX</button></li></ul>
 
@@ -190,7 +190,7 @@ A search for A → BC with large-radius jets on the full Run 2 dataset of 139 fb
 
 A search for dijet resonances between 1.8 and 6 TeV whose jets have anomalous substructure, selected by complementary anomaly-detection methods.
 
-<p class="row-links"><a href="papers.md#cms-2024nsz">Paper</a><a href="https://arxiv.org/abs/2412.03747">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="CMS:2024nsz" data-file="cms-anomalous-dijet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2856408">Cited by</a></p>
+<p class="row-links"><a href="papers.md#cms-2024nsz">Paper</a><a href="https://arxiv.org/abs/2412.03747">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="CMS:2024nsz" data-file="cms-anomalous-dijet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2856408">Cited by</a><button type="button" class="share-button" data-share="cms-anomalous-dijet">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="CMS:2024nsz" data-text="CMS Collaboration, “Model-agnostic search for dijet resonances with anomalous jet substructure in proton–proton collisions at $\sqrt{s}$ = 13 TeV”, Rept. Prog. Phys. 88 (2025) 067802, arXiv:2412.03747.">CMS Collaboration, “Model-agnostic search for dijet resonances with anomalous jet substructure in proton–proton collisions at \(\sqrt{s}\) = 13 TeV”, Rept. Prog. Phys. 88 (2025) 067802, arXiv:2412.03747.</span> <button type="button" class="bib-copy" data-cite="CMS:2024nsz">BibTeX</button></li></ul>
 

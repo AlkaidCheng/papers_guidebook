@@ -88,6 +88,7 @@ CITATION_AUTHOR_LIMIT = 3
 PAPER_LABEL = "Paper"
 DATA_LABEL = "Data"
 CITED_BY_LABEL = "Cited by"
+SHARE_LABEL = "Share"
 #: The lines of a detail row that link entries on different pages: what an entry uses,
 #: such as a method's datasets, and, page by page, which entries use it.
 USES_LABEL = "Uses"
@@ -1008,6 +1009,14 @@ def _cite_button(keys: Iterable[str], file_name: str) -> str:
     )
 
 
+def _share_button(row_id: str) -> str:
+    """A button that shares the address of the row `row_id`."""
+    return (
+        f'<button type="button" class="share-button" '
+        f'data-share="{html.escape(row_id)}">{SHARE_LABEL}</button>'
+    )
+
+
 def _bibtex_button(key: str) -> str:
     """A button that copies the BibTeX of one reference."""
     return f'<button type="button" class="bib-copy" data-cite="{html.escape(key)}">BibTeX</button>'
@@ -1149,6 +1158,7 @@ def entry_rows_markdown(
     links.append(_cite_button(entry.cited, entry.id))
     if url := cited_by_url(catalogue.papers[first]):
         links.append(_a(url, CITED_BY_LABEL, "cited-by"))
+    links.append(_share_button(entry.id))
 
     items = []
     for key in entry.cited + entry.related:
@@ -1247,6 +1257,7 @@ def paper_rows_markdown(catalogue: Catalogue, paper: Paper) -> str:
     links.append(_cite_button([paper.key], paper.anchor))
     if url := cited_by_url(paper):
         links.append(_a(url, CITED_BY_LABEL, "cited-by"))
+    links.append(_share_button(paper.anchor))
 
     facts: list[tuple[str, str]] = []
     # A paper INSPIRE knows no journal for gets no venue line rather than a guess.

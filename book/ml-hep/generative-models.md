@@ -19,7 +19,7 @@ Generative adversarial networks for photon, positron and charged-pion showers in
 
 <p class="row-uses">Uses: <a href="datasets.md#calogan">CaloGAN showers</a></p>
 
-<p class="row-links"><a href="papers.md#paganini-2017dwg">Paper</a><a href="https://arxiv.org/abs/1712.10321">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Paganini:2017dwg" data-file="calogan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1645424">Cited by</a></p>
+<p class="row-links"><a href="papers.md#paganini-2017dwg">Paper</a><a href="https://arxiv.org/abs/1712.10321">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Paganini:2017dwg" data-file="calogan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1645424">Cited by</a><button type="button" class="share-button" data-share="calogan">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Paganini:2017dwg" data-text="M. Paganini, L. de Oliveira and B. Nachman, “CaloGAN : Simulating 3D high energy particle showers in multilayer electromagnetic calorimeters with generative adversarial networks”, Phys. Rev. D 97 (2018) 014021, arXiv:1712.10321.">M. Paganini, L. de Oliveira and B. Nachman, “CaloGAN : Simulating 3D high energy particle showers in multilayer electromagnetic calorimeters with generative adversarial networks”, Phys. Rev. D 97 (2018) 014021, arXiv:1712.10321.</span> <button type="button" class="bib-copy" data-cite="Paganini:2017dwg">BibTeX</button></li></ul>
 
@@ -29,7 +29,7 @@ Generative adversarial networks for photon, positron and charged-pion showers in
 
 The Bounded Information Bottleneck Autoencoder for electromagnetic showers in a silicon–tungsten calorimeter.
 
-<p class="row-links"><a href="papers.md#buhmann-2020pmy">Paper</a><a href="https://arxiv.org/abs/2005.05334">arXiv</a><a href="https://github.com/FLC-QU-hep/getting_high">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2020pmy" data-file="bib-ae">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1795887">Cited by</a></p>
+<p class="row-links"><a href="papers.md#buhmann-2020pmy">Paper</a><a href="https://arxiv.org/abs/2005.05334">arXiv</a><a href="https://github.com/FLC-QU-hep/getting_high">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2020pmy" data-file="bib-ae">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1795887">Cited by</a><button type="button" class="share-button" data-share="bib-ae">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Buhmann:2020pmy" data-text="E. Buhmann et al., “Getting High: High Fidelity Simulation of High Granularity Calorimeters with High Speed”, Comput. Softw. Big Sci. 5 (2021) 13, arXiv:2005.05334.">E. Buhmann et al., “Getting High: High Fidelity Simulation of High Granularity Calorimeters with High Speed”, Comput. Softw. Big Sci. 5 (2021) 13, arXiv:2005.05334.</span> <button type="button" class="bib-copy" data-cite="Buhmann:2020pmy">BibTeX</button></li></ul>
 
@@ -41,7 +41,7 @@ Normalizing flows that reproduce many-channel calorimeter showers; CaloFlow v2 d
 
 <p class="row-uses">Uses: <a href="datasets.md#calogan">CaloGAN showers</a></p>
 
-<p class="row-links"><a href="papers.md#krause-2021ilc">Paper</a><a href="https://arxiv.org/abs/2106.05285">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Krause:2021ilc" data-file="caloflow">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1868435">Cited by</a></p>
+<p class="row-links"><a href="papers.md#krause-2021ilc">Paper</a><a href="https://arxiv.org/abs/2106.05285">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Krause:2021ilc" data-file="caloflow">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1868435">Cited by</a><button type="button" class="share-button" data-share="caloflow">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Krause:2021ilc" data-text="C. Krause and D. Shih, “Fast and accurate simulations of calorimeter showers with normalizing flows”, Phys. Rev. D 107 (2023) 113003, arXiv:2106.05285.">C. Krause and D. Shih, “Fast and accurate simulations of calorimeter showers with normalizing flows”, Phys. Rev. D 107 (2023) 113003, arXiv:2106.05285.</span> <button type="button" class="bib-copy" data-cite="Krause:2021ilc">BibTeX</button></li><li class="ref-related"><span class="citation" data-key="Krause:2021wez" data-text="C. Krause and D. Shih, “Accelerating accurate simulations of calorimeter showers with normalizing flows and probability density distillation”, Phys. Rev. D 107 (2023) 113004, arXiv:2110.11377.">C. Krause and D. Shih, “Accelerating accurate simulations of calorimeter showers with normalizing flows and probability density distillation”, Phys. Rev. D 107 (2023) 113004, arXiv:2110.11377.</span> <button type="button" class="bib-copy" data-cite="Krause:2021wez">BibTeX</button></li></ul>
 
@@ -53,7 +53,7 @@ An inductive series of flows, each trained on a pair of consecutive layers, whic
 
 <p class="row-uses">Uses: <a href="datasets.md#calochallenge">CaloChallenge 2022</a></p>
 
-<p class="row-links"><a href="papers.md#buckley-2023daw">Paper</a><a href="https://arxiv.org/abs/2305.11934">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buckley:2023daw" data-file="icaloflow">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2757926">Cited by</a></p>
+<p class="row-links"><a href="papers.md#buckley-2023daw">Paper</a><a href="https://arxiv.org/abs/2305.11934">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buckley:2023daw" data-file="icaloflow">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2757926">Cited by</a><button type="button" class="share-button" data-share="icaloflow">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Buckley:2023daw" data-text="M. R. Buckley et al., “Inductive simulation of calorimeter showers with normalizing flows”, Phys. Rev. D 109 (2024) 033006, arXiv:2305.11934.">M. R. Buckley et al., “Inductive simulation of calorimeter showers with normalizing flows”, Phys. Rev. D 109 (2024) 033006, arXiv:2305.11934.</span> <button type="button" class="bib-copy" data-cite="Buckley:2023daw">BibTeX</button></li></ul>
 
@@ -65,7 +65,7 @@ Score-based diffusion models for calorimeter showers, compared in three variants
 
 <p class="row-uses">Uses: <a href="datasets.md#calochallenge">CaloChallenge 2022</a></p>
 
-<p class="row-links"><a href="papers.md#mikuni-2022xry">Paper</a><a href="https://arxiv.org/abs/2206.11898">arXiv</a><a href="https://github.com/ViniciusMikuni/CaloScore">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2022xry" data-file="caloscore">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2100413">Cited by</a></p>
+<p class="row-links"><a href="papers.md#mikuni-2022xry">Paper</a><a href="https://arxiv.org/abs/2206.11898">arXiv</a><a href="https://github.com/ViniciusMikuni/CaloScore">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2022xry" data-file="caloscore">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2100413">Cited by</a><button type="button" class="share-button" data-share="caloscore">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Mikuni:2022xry" data-text="V. Mikuni and B. Nachman, “Score-based generative models for calorimeter shower simulation”, Phys. Rev. D 106 (2022) 092009, arXiv:2206.11898.">V. Mikuni and B. Nachman, “Score-based generative models for calorimeter shower simulation”, Phys. Rev. D 106 (2022) 092009, arXiv:2206.11898.</span> <button type="button" class="bib-copy" data-cite="Mikuni:2022xry">BibTeX</button></li></ul>
 
@@ -77,7 +77,7 @@ A denoising diffusion model with cylindrical convolutions and geometry adaptatio
 
 <p class="row-uses">Uses: <a href="datasets.md#calochallenge">CaloChallenge 2022</a></p>
 
-<p class="row-links"><a href="papers.md#amram-2023onf">Paper</a><a href="https://arxiv.org/abs/2308.03876">arXiv</a><a href="https://github.com/OzAmram/CaloDiffusionPaper">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Amram:2023onf" data-file="calodiffusion">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2686318">Cited by</a></p>
+<p class="row-links"><a href="papers.md#amram-2023onf">Paper</a><a href="https://arxiv.org/abs/2308.03876">arXiv</a><a href="https://github.com/OzAmram/CaloDiffusionPaper">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Amram:2023onf" data-file="calodiffusion">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2686318">Cited by</a><button type="button" class="share-button" data-share="calodiffusion">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Amram:2023onf" data-text="O. Amram and K. Pedro, “Denoising diffusion models with geometry adaptation for high fidelity calorimeter simulation”, Phys. Rev. D 108 (2023) 072014, arXiv:2308.03876.">O. Amram and K. Pedro, “Denoising diffusion models with geometry adaptation for high fidelity calorimeter simulation”, Phys. Rev. D 108 (2023) 072014, arXiv:2308.03876.</span> <button type="button" class="bib-copy" data-cite="Amram:2023onf">BibTeX</button></li></ul>
 
@@ -87,7 +87,7 @@ A denoising diffusion model with cylindrical convolutions and geometry adaptatio
 
 Generates showers as point clouds of energy depositions, independent of the readout geometry; CaloClouds II makes it faster.
 
-<p class="row-links"><a href="papers.md#buhmann-2023bwk">Paper</a><a href="https://arxiv.org/abs/2305.04847">arXiv</a><a href="https://github.com/FLC-QU-hep/CaloClouds">Code</a><a href="https://github.com/FLC-QU-hep/CaloClouds-2">Code (II)</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2023bwk" data-file="caloclouds">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2657637">Cited by</a></p>
+<p class="row-links"><a href="papers.md#buhmann-2023bwk">Paper</a><a href="https://arxiv.org/abs/2305.04847">arXiv</a><a href="https://github.com/FLC-QU-hep/CaloClouds">Code</a><a href="https://github.com/FLC-QU-hep/CaloClouds-2">Code (II)</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2023bwk" data-file="caloclouds">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2657637">Cited by</a><button type="button" class="share-button" data-share="caloclouds">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Buhmann:2023bwk" data-text="E. Buhmann et al., “CaloClouds: fast geometry-independent highly-granular calorimeter simulation”, JINST 18 (2023) P11025, arXiv:2305.04847.">E. Buhmann et al., “CaloClouds: fast geometry-independent highly-granular calorimeter simulation”, JINST 18 (2023) P11025, arXiv:2305.04847.</span> <button type="button" class="bib-copy" data-cite="Buhmann:2023bwk">BibTeX</button></li><li class="ref-related"><span class="citation" data-key="Buhmann:2023kdg" data-text="E. Buhmann et al., “CaloClouds II: ultra-fast geometry-independent highly-granular calorimeter simulation”, JINST 19 (2024) P04020, arXiv:2309.05704.">E. Buhmann et al., “CaloClouds II: ultra-fast geometry-independent highly-granular calorimeter simulation”, JINST 19 (2024) P04020, arXiv:2309.05704.</span> <button type="button" class="bib-copy" data-cite="Buhmann:2023kdg">BibTeX</button></li></ul>
 
@@ -104,7 +104,7 @@ A location-aware generative adversarial network for jet images that reproduces j
 
 <p class="row-uses">Uses: <a href="datasets.md#jet-images">\(W\) and QCD jet images</a></p>
 
-<p class="row-links"><a href="papers.md#deoliveira-2017pjk">Paper</a><a href="https://arxiv.org/abs/1701.05927">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="deOliveira:2017pjk" data-file="lagan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1510258">Cited by</a></p>
+<p class="row-links"><a href="papers.md#deoliveira-2017pjk">Paper</a><a href="https://arxiv.org/abs/1701.05927">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="deOliveira:2017pjk" data-file="lagan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1510258">Cited by</a><button type="button" class="share-button" data-share="lagan">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="deOliveira:2017pjk" data-text="L. de Oliveira, M. Paganini and B. Nachman, “Learning Particle Physics by Example: Location-Aware Generative Adversarial Networks for Physics Synthesis”, Comput. Softw. Big Sci. 1 (2017) 4, arXiv:1701.05927.">L. de Oliveira, M. Paganini and B. Nachman, “Learning Particle Physics by Example: Location-Aware Generative Adversarial Networks for Physics Synthesis”, Comput. Softw. Big Sci. 1 (2017) 4, arXiv:1701.05927.</span> <button type="button" class="bib-copy" data-cite="deOliveira:2017pjk">BibTeX</button></li></ul>
 
@@ -116,7 +116,7 @@ A message-passing GAN for jets as particle clouds, released with the JetNet data
 
 <p class="row-uses">Uses: <a href="datasets.md#jetnet">JetNet</a></p>
 
-<p class="row-links"><a href="papers.md#kansal-2021cqp">Paper</a><a href="https://arxiv.org/abs/2106.11535">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Kansal:2021cqp" data-file="mpgan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1869687">Cited by</a></p>
+<p class="row-links"><a href="papers.md#kansal-2021cqp">Paper</a><a href="https://arxiv.org/abs/2106.11535">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Kansal:2021cqp" data-file="mpgan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1869687">Cited by</a><button type="button" class="share-button" data-share="mpgan">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Kansal:2021cqp" data-text="R. Kansal et al., “Particle Cloud Generation with Message Passing Generative Adversarial Networks”, Advances in Neural Information Processing Systems 34 (2021), arXiv:2106.11535.">R. Kansal et al., “Particle Cloud Generation with Message Passing Generative Adversarial Networks”, Advances in Neural Information Processing Systems 34 (2021), arXiv:2106.11535.</span> <button type="button" class="bib-copy" data-cite="Kansal:2021cqp">BibTeX</button></li><li class="ref-related"><span class="citation" data-key="Kansal:2023iqy" data-text="R. Kansal et al., “JetNet: A Python Package for Accessing Open Datasets and Benchmarking Machine Learning Methods in High Energy Physics”, J. Open Source Softw. 8 (2023) 5789, doi:10.21105/joss.05789.">R. Kansal et al., “JetNet: A Python Package for Accessing Open Datasets and Benchmarking Machine Learning Methods in High Energy Physics”, J. Open Source Softw. 8 (2023) 5789, doi:10.21105/joss.05789.</span> <button type="button" class="bib-copy" data-cite="Kansal:2023iqy">BibTeX</button></li></ul>
 
@@ -128,7 +128,7 @@ An equivariant GAN built on deep sets that generates particle clouds of variable
 
 <p class="row-uses">Uses: <a href="datasets.md#jetnet">JetNet</a></p>
 
-<p class="row-links"><a href="papers.md#buhmann-2023pmh">Paper</a><a href="https://arxiv.org/abs/2301.08128">arXiv</a><a href="https://github.com/uhh-pd-ml/EPiC-GAN">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2023pmh" data-file="epic-gan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2624651">Cited by</a></p>
+<p class="row-links"><a href="papers.md#buhmann-2023pmh">Paper</a><a href="https://arxiv.org/abs/2301.08128">arXiv</a><a href="https://github.com/uhh-pd-ml/EPiC-GAN">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2023pmh" data-file="epic-gan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2624651">Cited by</a><button type="button" class="share-button" data-share="epic-gan">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Buhmann:2023pmh" data-text="E. Buhmann, G. Kasieczka and J. Thaler, “EPiC-GAN: Equivariant point cloud generation for particle jets”, SciPost Phys. 15 (2023) 130, arXiv:2301.08128.">E. Buhmann, G. Kasieczka and J. Thaler, “EPiC-GAN: Equivariant point cloud generation for particle jets”, SciPost Phys. 15 (2023) 130, arXiv:2301.08128.</span> <button type="button" class="bib-copy" data-cite="Buhmann:2023pmh">BibTeX</button></li></ul>
 
@@ -140,7 +140,7 @@ Score-based diffusion with transformers for jets as particle clouds.
 
 <p class="row-uses">Uses: <a href="datasets.md#jetnet">JetNet</a></p>
 
-<p class="row-links"><a href="papers.md#leigh-2023toe">Paper</a><a href="https://arxiv.org/abs/2303.05376">arXiv</a><a href="https://github.com/rodem-hep/PC-JeDi">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Leigh:2023toe" data-file="pc-jedi">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2640034">Cited by</a></p>
+<p class="row-links"><a href="papers.md#leigh-2023toe">Paper</a><a href="https://arxiv.org/abs/2303.05376">arXiv</a><a href="https://github.com/rodem-hep/PC-JeDi">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Leigh:2023toe" data-file="pc-jedi">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2640034">Cited by</a><button type="button" class="share-button" data-share="pc-jedi">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Leigh:2023toe" data-text="M. Leigh et al., “PC-JeDi: Diffusion for particle cloud generation in high energy physics”, SciPost Phys. 16 (2024) 018, arXiv:2303.05376.">M. Leigh et al., “PC-JeDi: Diffusion for particle cloud generation in high energy physics”, SciPost Phys. 16 (2024) 018, arXiv:2303.05376.</span> <button type="button" class="bib-copy" data-cite="Leigh:2023toe">BibTeX</button></li></ul>
 
@@ -152,7 +152,7 @@ A diffusion model for jets conditioned on the initial particle, with distilled v
 
 <p class="row-uses">Uses: <a href="datasets.md#jetnet">JetNet</a></p>
 
-<p class="row-links"><a href="papers.md#mikuni-2023dvk">Paper</a><a href="https://arxiv.org/abs/2304.01266">arXiv</a><a href="https://github.com/ViniciusMikuni/GSGM">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2023dvk" data-file="fast-point-cloud-diffusion">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2648821">Cited by</a></p>
+<p class="row-links"><a href="papers.md#mikuni-2023dvk">Paper</a><a href="https://arxiv.org/abs/2304.01266">arXiv</a><a href="https://github.com/ViniciusMikuni/GSGM">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2023dvk" data-file="fast-point-cloud-diffusion">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2648821">Cited by</a><button type="button" class="share-button" data-share="fast-point-cloud-diffusion">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Mikuni:2023dvk" data-text="V. Mikuni, B. Nachman and M. Pettee, “Fast point cloud generation with diffusion models in high energy physics”, Phys. Rev. D 108 (2023) 036025, arXiv:2304.01266.">V. Mikuni, B. Nachman and M. Pettee, “Fast point cloud generation with diffusion models in high energy physics”, Phys. Rev. D 108 (2023) 036025, arXiv:2304.01266.</span> <button type="button" class="bib-copy" data-cite="Mikuni:2023dvk">BibTeX</button></li></ul>
 
@@ -164,7 +164,7 @@ Diffusion and flow-matching models built on the Equivariant Point Cloud architec
 
 <p class="row-uses">Uses: <a href="datasets.md#jetnet">JetNet</a></p>
 
-<p class="row-links"><a href="papers.md#buhmann-2023zgc">Paper</a><a href="https://arxiv.org/abs/2310.00049">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2023zgc" data-file="epic-jedi-fm">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2705220">Cited by</a></p>
+<p class="row-links"><a href="papers.md#buhmann-2023zgc">Paper</a><a href="https://arxiv.org/abs/2310.00049">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Buhmann:2023zgc" data-file="epic-jedi-fm">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2705220">Cited by</a><button type="button" class="share-button" data-share="epic-jedi-fm">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Buhmann:2023zgc" data-text="E. Buhmann et al., “EPiC-ly Fast Particle Cloud Generation with Flow-Matching and Diffusion”, arXiv:2310.00049.">E. Buhmann et al., “EPiC-ly Fast Particle Cloud Generation with Flow-Matching and Diffusion”, arXiv:2310.00049.</span> <button type="button" class="bib-copy" data-cite="Buhmann:2023zgc">BibTeX</button></li></ul>
 
@@ -176,7 +176,7 @@ A GAN that aggregates particle information through attention to mean fields.
 
 <p class="row-uses">Uses: <a href="datasets.md#jetnet">JetNet</a></p>
 
-<p class="row-links"><a href="papers.md#kach-2023rqw">Paper</a><a href="https://arxiv.org/abs/2305.15254">arXiv</a><a href="https://github.com/kaechb/MDMA">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Kach:2023rqw" data-file="mean-field-attention-gan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2662296">Cited by</a></p>
+<p class="row-links"><a href="papers.md#kach-2023rqw">Paper</a><a href="https://arxiv.org/abs/2305.15254">arXiv</a><a href="https://github.com/kaechb/MDMA">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Kach:2023rqw" data-file="mean-field-attention-gan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2662296">Cited by</a><button type="button" class="share-button" data-share="mean-field-attention-gan">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Kach:2023rqw" data-text="B. Käch and I. Melzer-Pellmann, “Attention to Mean-Fields for Particle Cloud Generation”, arXiv:2305.15254.">B. Käch and I. Melzer-Pellmann, “Attention to Mean-Fields for Particle Cloud Generation”, arXiv:2305.15254.</span> <button type="button" class="bib-copy" data-cite="Kach:2023rqw">BibTeX</button></li></ul>
 
@@ -191,7 +191,7 @@ A GAN that aggregates particle information through attention to mean fields.
 
 Generates top-pair events without unweighting, with a maximum mean discrepancy term for sharp features.
 
-<p class="row-links"><a href="papers.md#butter-2019cae">Paper</a><a href="https://arxiv.org/abs/1907.03764">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Butter:2019cae" data-file="event-gan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1742987">Cited by</a></p>
+<p class="row-links"><a href="papers.md#butter-2019cae">Paper</a><a href="https://arxiv.org/abs/1907.03764">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Butter:2019cae" data-file="event-gan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1742987">Cited by</a><button type="button" class="share-button" data-share="event-gan">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Butter:2019cae" data-text="A. Butter, T. Plehn and R. Winterhalder, “How to GAN LHC Events”, SciPost Phys. 7 (2019) 075, arXiv:1907.03764.">A. Butter, T. Plehn and R. Winterhalder, “How to GAN LHC Events”, SciPost Phys. 7 (2019) 075, arXiv:1907.03764.</span> <button type="button" class="bib-copy" data-cite="Butter:2019cae">BibTeX</button></li></ul>
 
@@ -201,7 +201,7 @@ Generates top-pair events without unweighting, with a maximum mean discrepancy t
 
 Importance sampling with neural networks for cross sections and unweighted partonic events, with full phase-space coverage.
 
-<p class="row-links"><a href="papers.md#bothmann-2020ywa">Paper</a><a href="https://arxiv.org/abs/2001.05478">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bothmann:2020ywa" data-file="neural-importance-sampling">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775753">Cited by</a></p>
+<p class="row-links"><a href="papers.md#bothmann-2020ywa">Paper</a><a href="https://arxiv.org/abs/2001.05478">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bothmann:2020ywa" data-file="neural-importance-sampling">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775753">Cited by</a><button type="button" class="share-button" data-share="neural-importance-sampling">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Bothmann:2020ywa" data-text="E. Bothmann et al., “Exploring phase space with Neural Importance Sampling”, SciPost Phys. 8 (2020) 069, arXiv:2001.05478.">E. Bothmann et al., “Exploring phase space with Neural Importance Sampling”, SciPost Phys. 8 (2020) 069, arXiv:2001.05478.</span> <button type="button" class="bib-copy" data-cite="Bothmann:2020ywa">BibTeX</button></li></ul>
 
@@ -211,7 +211,7 @@ Importance sampling with neural networks for cross sections and unweighted parto
 
 A Python package for high-dimensional integration and sampling with normalizing flows.
 
-<p class="row-links"><a href="papers.md#gao-2020vdv">Paper</a><a href="https://arxiv.org/abs/2001.05486">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Gao:2020vdv" data-file="i-flow">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775792">Cited by</a></p>
+<p class="row-links"><a href="papers.md#gao-2020vdv">Paper</a><a href="https://arxiv.org/abs/2001.05486">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Gao:2020vdv" data-file="i-flow">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775792">Cited by</a><button type="button" class="share-button" data-share="i-flow">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Gao:2020vdv" data-text="C. Gao, J. Isaacson and C. Krause, “i-flow: High-dimensional Integration and Sampling with Normalizing Flows”, Mach. Learn. Sci. Tech. 1 (2020) 045023, arXiv:2001.05486.">C. Gao, J. Isaacson and C. Krause, “i-flow: High-dimensional Integration and Sampling with Normalizing Flows”, Mach. Learn. Sci. Tech. 1 (2020) 045023, arXiv:2001.05486.</span> <button type="button" class="bib-copy" data-cite="Gao:2020vdv">BibTeX</button></li></ul>
 
@@ -221,7 +221,7 @@ A Python package for high-dimensional integration and sampling with normalizing 
 
 Neural multi-channel importance sampling that combines learned channel weights with a normalizing flow.
 
-<p class="row-links"><a href="papers.md#heimel-2022wyj">Paper</a><a href="https://arxiv.org/abs/2212.06172">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Heimel:2022wyj" data-file="madnis">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2613846">Cited by</a></p>
+<p class="row-links"><a href="papers.md#heimel-2022wyj">Paper</a><a href="https://arxiv.org/abs/2212.06172">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Heimel:2022wyj" data-file="madnis">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2613846">Cited by</a><button type="button" class="share-button" data-share="madnis">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Heimel:2022wyj" data-text="T. Heimel et al., “MadNIS - Neural multi-channel importance sampling”, SciPost Phys. 15 (2023) 141, arXiv:2212.06172.">T. Heimel et al., “MadNIS - Neural multi-channel importance sampling”, SciPost Phys. 15 (2023) 141, arXiv:2212.06172.</span> <button type="button" class="bib-copy" data-cite="Heimel:2022wyj">BibTeX</button></li></ul>
 
@@ -238,7 +238,7 @@ The fast simulation of ATLAS, which replaces Geant4 calorimeter showers with par
 
 - **Data:** the samples that trained its GANs became Dataset 1 of the [CaloChallenge](datasets.md#calochallenge).
 
-<p class="row-links"><a href="papers.md#atlas-2021pzo">Paper</a><a href="https://arxiv.org/abs/2109.02551">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="ATLAS:2021pzo" data-file="atlfast3">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1919304">Cited by</a></p>
+<p class="row-links"><a href="papers.md#atlas-2021pzo">Paper</a><a href="https://arxiv.org/abs/2109.02551">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="ATLAS:2021pzo" data-file="atlfast3">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1919304">Cited by</a><button type="button" class="share-button" data-share="atlfast3">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="ATLAS:2021pzo" data-text="ATLAS Collaboration, “AtlFast3: The Next Generation of Fast Simulation in ATLAS”, Comput. Softw. Big Sci. 6 (2022) 7, arXiv:2109.02551.">ATLAS Collaboration, “AtlFast3: The Next Generation of Fast Simulation in ATLAS”, Comput. Softw. Big Sci. 6 (2022) 7, arXiv:2109.02551.</span> <button type="button" class="bib-copy" data-cite="ATLAS:2021pzo">BibTeX</button></li></ul>
 

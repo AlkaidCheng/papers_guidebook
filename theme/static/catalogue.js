@@ -1,12 +1,14 @@
-// Expandable rows, cite menus, BibTeX copy buttons and the tag filter of the
-// catalogue pages.
+// Expandable rows, cite menus, BibTeX copy buttons, share buttons and the tag
+// filter of the catalogue pages.
 //
 // Each table row (tr.row) opens the detail row that follows it (tr.row-detail,
 // id "<row id>-detail"). A page's references live in the BibTeX file its
 // "Download all" link points to (a.bib-all), and each reference's plain-text
 // citation in the data-text of a .citation element with the reference's key. A
 // cite button names the keys it cites in data-cite; its menu offers every format
-// in FORMATS, so a new format is one more entry.
+// in FORMATS, so a new format is one more entry. A share button names its row in
+// data-share; it copies the row's address, or opens the system share sheet on a
+// touch screen, where copying is the less direct way to pass a link on.
 (function () {
   "use strict";
 
@@ -58,8 +60,16 @@
     return !tag || (tags || "").split("|").indexOf(tag) >= 0;
   }
 
+  // The address of row `id` on the page at `href`, without a query or another row.
+  function rowUrl(href, id) {
+    const url = new URL(href);
+    url.search = "";
+    url.hash = id;
+    return url.href;
+  }
+
   if (typeof module === "object" && module.exports) {
-    module.exports = { parseBibtex, FORMATS, matchesTag };
+    module.exports = { parseBibtex, FORMATS, matchesTag, rowUrl };
   }
   if (typeof document === "undefined") return;
 
@@ -237,6 +247,29 @@
     loadBibtex().catch(() => {});
   }
 
+  // ---- Share buttons ----------------------------------------------------------
+
+  function copyLink(button, url) {
+    copyText(url)
+      .then(() => flash(button, "Link copied"))
+      .catch(() => flash(button, "Unavailable"));
+  }
+
+  function shareRow(button) {
+    const id = button.dataset.share;
+    const url = rowUrl(location.href, id);
+    const toggle = document.querySelector("#" + CSS.escape(id) + " .row-toggle");
+    const title = toggle ? toggle.textContent.trim() + " · " + document.title : document.title;
+    if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+      // A dismissed share sheet rejects with AbortError; any other failure copies.
+      navigator.share({ title, url }).catch((error) => {
+        if (error.name !== "AbortError") copyLink(button, url);
+      });
+      return;
+    }
+    copyLink(button, url);
+  }
+
   // ---- Tag filter -----------------------------------------------------------
 
   let activeTag = "";
@@ -298,6 +331,11 @@
         .then(copyText)
         .then(() => flash(bibButton, "Copied"))
         .catch(() => flash(bibButton, "Unavailable"));
+      return;
+    }
+    const shareButton = event.target.closest(".share-button");
+    if (shareButton) {
+      shareRow(shareButton);
       return;
     }
     const tag = event.target.closest(".tag");

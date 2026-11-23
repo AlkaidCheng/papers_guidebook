@@ -2,8 +2,8 @@
 
 A reference guide to the papers, datasets, methods and models of machine learning in
 science, organised by topic in compact tables. Each row opens to its description, its paper,
-data records and citing papers on INSPIRE-HEP, its citation as BibTeX or text, and the
-citations between the papers of the guide.
+data records and citing papers on INSPIRE-HEP, its citation as BibTeX or text, a link to
+share, and the citations between the papers of the guide.
 
 **Read it at <https://alkaidcheng.github.io/papers_guidebook/>.**
 
