@@ -102,7 +102,7 @@ Generates showers as point clouds of energy depositions, independent of the read
 
 A location-aware generative adversarial network for jet images that reproduces jet mass and n-subjettiness.
 
-<p class="row-uses">Uses: <a href="datasets.md#jet-images">$W$ and QCD jet images</a></p>
+<p class="row-uses">Uses: <a href="datasets.md#jet-images">\(W\) and QCD jet images</a></p>
 
 <p class="row-links"><a href="papers.md#deoliveira-2017pjk">Paper</a><a href="https://arxiv.org/abs/1701.05927">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="deOliveira:2017pjk" data-file="lagan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1510258">Cited by</a></p>
 
