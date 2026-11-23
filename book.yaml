@@ -9,14 +9,15 @@ repo_host: GitHub
 edit_url: https://github.com/AlkaidCheng/papers_guidebook/blob/main/book/
 not_found_page: true
 sitemap: true
+# Readers look entries up instead of reading in order, so pages carry no numbers.
+layout: reference
 
-# Parts are fields; chapters are the topics inside them. Chapters are
-# numbered continuously through the book, parts with Roman numerals.
-# Each part directory needs an index.md. A chapter is one Markdown file with a
-# YAML front matter block (title, summary, optional status, references), or a
-# directory (dir) with an index.md opener and one such file per section page.
+# Parts are fields; their pages are topics. Each part directory needs an
+# index.md. datasets.md and papers.md are written by scripts/catalogue.py from
+# catalogue/*.yaml; edit those files, not the pages.
 parts:
   - dir: ml-hep
     title: Machine Learning for Particle Physics
     chapters:
       - datasets.md
+      - papers.md
