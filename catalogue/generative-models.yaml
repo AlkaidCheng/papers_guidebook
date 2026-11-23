@@ -1,0 +1,198 @@
+# The generative models page, book/ml-hep/generative-models.md, and its BibTeX
+# file. `python scripts/catalogue.py build` writes both from this file and
+# papers.yaml. An entry's year defaults to that of its first paper; code links
+# are those the papers themselves give; `uses` names, as page:id, the datasets
+# the paper's text shows it trains or evaluates on.
+
+page:
+  path: ml-hep/generative-models.md
+  title: Generative Models
+  label: Generative models
+  summary: Generative models for calorimeter showers, jets and collision events, with their papers, code and datasets.
+
+intro: >-
+  Generative models that speed up or replace parts of the simulation chain,
+  grouped by what they generate. Entries were last checked against their papers
+  in November 2026.
+
+table:
+  name: Model
+  columns:
+    - {key: target, title: Generates}
+    - {key: family, title: Type}
+
+sections:
+  - title: Calorimeter showers
+    entries:
+      - id: calogan
+        name: CaloGAN
+        target: Showers in a layered calorimeter
+        family: GAN
+        papers: [Paganini:2017dwg]
+        uses: [datasets:calogan]
+        summary: Generative adversarial networks for photon, positron and charged-pion showers in a longitudinally segmented electromagnetic calorimeter.
+
+      - id: bib-ae
+        name: BIB-AE
+        target: Showers in a highly granular calorimeter
+        family: Autoencoder
+        papers: [Buhmann:2020pmy]
+        links: {Code: "https://github.com/FLC-QU-hep/getting_high"}
+        summary: The Bounded Information Bottleneck Autoencoder for electromagnetic showers in a silicon–tungsten calorimeter.
+
+      - id: caloflow
+        name: CaloFlow
+        target: Showers in a layered calorimeter
+        family: Normalizing flow
+        papers: [Krause:2021ilc]
+        related: [Krause:2021wez]
+        uses: [datasets:calogan]
+        summary: Normalizing flows that reproduce many-channel calorimeter showers; CaloFlow v2 distils them for 500 times faster generation.
+
+      - id: icaloflow
+        name: iCaloFlow
+        target: High-resolution showers
+        family: Normalizing flows per layer pair
+        papers: [Buckley:2023daw]
+        uses: [datasets:calochallenge]
+        summary: An inductive series of flows, each trained on a pair of consecutive layers, which scales CaloFlow to higher resolution.
+
+      - id: caloscore
+        name: CaloScore
+        target: Calorimeter showers
+        family: Score-based diffusion
+        papers: [Mikuni:2022xry]
+        uses: [datasets:calochallenge]
+        links: {Code: "https://github.com/ViniciusMikuni/CaloScore"}
+        summary: Score-based diffusion models for calorimeter showers, compared in three variants.
+
+      - id: calodiffusion
+        name: CaloDiffusion
+        target: Calorimeter showers
+        family: Denoising diffusion
+        papers: [Amram:2023onf]
+        uses: [datasets:calochallenge]
+        links: {Code: "https://github.com/OzAmram/CaloDiffusionPaper"}
+        summary: A denoising diffusion model with cylindrical convolutions and geometry adaptation for calorimeter showers.
+
+      - id: caloclouds
+        name: CaloClouds
+        target: Showers as point clouds
+        family: Diffusion
+        papers: [Buhmann:2023bwk]
+        related: [Buhmann:2023kdg]
+        links:
+          Code: "https://github.com/FLC-QU-hep/CaloClouds"
+          Code (II): "https://github.com/FLC-QU-hep/CaloClouds-2"
+        summary: Generates showers as point clouds of energy depositions, independent of the readout geometry; CaloClouds II makes it faster.
+
+  - title: Jets as particle clouds
+    entries:
+      - id: lagan
+        name: LAGAN
+        target: Jet images
+        family: GAN
+        papers: [deOliveira:2017pjk]
+        uses: [datasets:jet-images]
+        summary: A location-aware generative adversarial network for jet images that reproduces jet mass and n-subjettiness.
+
+      - id: mpgan
+        name: MPGAN
+        target: Particle clouds
+        family: GAN, message passing
+        papers: [Kansal:2021cqp]
+        related: [Kansal:2023iqy]
+        uses: [datasets:jetnet]
+        summary: A message-passing GAN for jets as particle clouds, released with the JetNet dataset and evaluation metrics.
+
+      - id: epic-gan
+        name: EPiC-GAN
+        target: Particle clouds
+        family: GAN, deep sets
+        papers: [Buhmann:2023pmh]
+        uses: [datasets:jetnet]
+        links: {Code: "https://github.com/uhh-pd-ml/EPiC-GAN"}
+        summary: An equivariant GAN built on deep sets that generates particle clouds of variable multiplicity.
+
+      - id: pc-jedi
+        name: PC-JeDi
+        target: Particle clouds
+        family: Diffusion, transformer
+        papers: [Leigh:2023toe]
+        uses: [datasets:jetnet]
+        links: {Code: "https://github.com/rodem-hep/PC-JeDi"}
+        summary: Score-based diffusion with transformers for jets as particle clouds.
+
+      - id: fast-point-cloud-diffusion
+        name: Fast point cloud diffusion
+        target: Particle clouds
+        family: Diffusion, distilled
+        papers: [Mikuni:2023dvk]
+        uses: [datasets:jetnet]
+        links: {Code: "https://github.com/ViniciusMikuni/GSGM"}
+        summary: A diffusion model for jets conditioned on the initial particle, with distilled versions that sample in few steps.
+
+      - id: epic-jedi-fm
+        name: EPiC-JeDi and EPiC-FM
+        target: Particle clouds
+        family: Diffusion, flow matching
+        papers: [Buhmann:2023zgc]
+        uses: [datasets:jetnet]
+        summary: Diffusion and flow-matching models built on the Equivariant Point Cloud architecture, faster than transformer-based diffusion.
+
+      - id: mean-field-attention-gan
+        name: Mean-field attention GAN
+        target: Particle clouds
+        family: GAN, attention
+        papers: [Kach:2023rqw]
+        uses: [datasets:jetnet]
+        links: {Code: "https://github.com/kaechb/MDMA"}
+        summary: A GAN that aggregates particle information through attention to mean fields.
+
+  - title: Events and phase space
+    entries:
+      - id: event-gan
+        name: GAN for LHC events
+        target: Collision events
+        family: GAN
+        papers: [Butter:2019cae]
+        summary: Generates top-pair events without unweighting, with a maximum mean discrepancy term for sharp features.
+
+      - id: neural-importance-sampling
+        name: Neural importance sampling
+        target: Phase-space points
+        family: Normalizing flow
+        papers: [Bothmann:2020ywa]
+        summary: Importance sampling with neural networks for cross sections and unweighted partonic events, with full phase-space coverage.
+
+      - id: i-flow
+        name: i-flow
+        target: Integrals and samples
+        family: Normalizing flow
+        papers: [Gao:2020vdv]
+        summary: A Python package for high-dimensional integration and sampling with normalizing flows.
+
+      - id: madnis
+        name: MadNIS
+        target: Phase-space points
+        family: Flow with channel weights
+        papers: [Heimel:2022wyj]
+        summary: Neural multi-channel importance sampling that combines learned channel weights with a normalizing flow.
+
+  - title: In experiments
+    entries:
+      - id: atlfast3
+        name: AtlFast3
+        target: ATLAS calorimeter showers
+        family: Parametrisation and GANs
+        papers: [ATLAS:2021pzo]
+        summary: The fast simulation of ATLAS, which replaces Geant4 calorimeter showers with parametrisations and generative adversarial networks.
+        details: |
+          - **Data:** the samples that trained its GANs became Dataset 1 of the [CaloChallenge](datasets.md#calochallenge).
+
+see_also: |
+  - Reviews: [generative models for detector simulation](papers.md#hashemi-2023rgo)
+    and [machine learning for LHC event generation](papers.md#butter-2022rso).
+  - The community comparison of shower models: the [CaloChallenge results](papers.md#krause-2024avx).
+  - Foundation models that also generate jets: [OmniJet-α](foundation-models.md#omnijet-alpha)
+    and [OmniLearn](foundation-models.md#omnilearn).

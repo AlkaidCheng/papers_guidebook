@@ -175,6 +175,8 @@ Jets from $H \to b\bar b$ decays against QCD jets in full CMS simulation, with t
 
 <p class="row-facts">Simulation: Pythia 8.219, 14 TeV</p>
 
+<p class="row-uses">Used in Generative Models: <a href="generative-models.md#lagan">LAGAN</a></p>
+
 - **Jets:** anti-$k_T$, $R = 1.0$; $250 < p_T < 300$ GeV,
   $60 < m < 100$ GeV.
 - **Images:** a $0.1 \times 0.1$ grid in $\eta$ and $\phi$ over
@@ -258,6 +260,8 @@ Gluon, light-quark, top, $W$ and $Z$ jets near 1 TeV as particle clouds, for gen
 
 <p class="row-facts">Simulation: 13 TeV, simplified detector</p>
 
+<p class="row-uses">Used in Generative Models: <a href="generative-models.md#mpgan">MPGAN</a>, <a href="generative-models.md#epic-gan">EPiC-GAN</a>, <a href="generative-models.md#pc-jedi">PC-JeDi</a>, <a href="generative-models.md#fast-point-cloud-diffusion">Fast point cloud diffusion</a>, <a href="generative-models.md#epic-jedi-fm">EPiC-JeDi and EPiC-FM</a>, <a href="generative-models.md#mean-field-attention-gan">Mean-field attention GAN</a></p>
+
 - **Particles:** up to 30 (JetNet) or 150 (JetNet150) per jet, with
   $\eta$, $\phi$ and $p_T$ relative to the jet and a mask.
 - **Jets:** $p_T$, $\eta$, mass and multiplicity; between 170,679
@@ -277,6 +281,8 @@ Gluon, light-quark, top, $W$ and $Z$ jets near 1 TeV as particle clouds, for gen
 Geant4 calorimeter showers in three datasets of increasing granularity, from the Fast Calorimeter Simulation Challenge.
 
 <p class="row-facts">Simulation: Geant4 (ATLAS for Dataset 1)</p>
+
+<p class="row-uses">Used in Generative Models: <a href="generative-models.md#icaloflow">iCaloFlow</a>, <a href="generative-models.md#caloscore">CaloScore</a>, <a href="generative-models.md#calodiffusion">CaloDiffusion</a></p>
 
 - **Dataset 1:** ATLAS Geant4 showers of photons and charged pions
   at $0.2 < \eta < 0.25$, 15 energies from 256 MeV to 4 TeV in powers
@@ -299,6 +305,8 @@ Geant4 calorimeter showers in three datasets of increasing granularity, from the
 Photon, positron and charged-pion showers in a longitudinally segmented electromagnetic calorimeter.
 
 <p class="row-facts">Simulation: Geant4</p>
+
+<p class="row-uses">Used in Generative Models: <a href="generative-models.md#calogan">CaloGAN</a>, <a href="generative-models.md#caloflow">CaloFlow</a></p>
 
 <p class="row-links"><a href="papers.md#paganini-2017dwg">Paper</a><a href="https://arxiv.org/abs/1712.10321">arXiv</a><a href="https://doi.org/10.17632/pvn3xc3wy5.1">Data</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Paganini:2017dwg data:calogan" data-file="calogan">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1645424">Cited by</a></p>
 
