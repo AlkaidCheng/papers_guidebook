@@ -11,7 +11,7 @@ Public datasets for training and benchmarking machine-learning models in particl
 
 ## Jet tagging {: #jet-tagging }
 
-<div class="table-wrap"><table class="catalogue-table catalogue-datasets"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
+<div class="table-wrap"><table class="catalogue-table catalogue-entries"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
 <tr class="row" id="top-tagging"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="top-tagging-detail">Top Tagging Reference Dataset</button></td><td>Top vs QCD jets</td><td>Delphes (ATLAS)</td><td>2 M jets</td><td>2019</td></tr>
 <tr class="row-detail" id="top-tagging-detail"><td colspan="5">
 
@@ -197,7 +197,7 @@ Tracks of jets from $t\bar t$ events, labelled by their vertex of origin, for se
 
 ## Jets in collision data {: #jets-in-collision-data }
 
-<div class="table-wrap"><table class="catalogue-table catalogue-datasets"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
+<div class="table-wrap"><table class="catalogue-table catalogue-entries"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
 <tr class="row" id="mod"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="mod-detail">MIT Open Data jets</button></td><td>CMS 2011A jets</td><td>Collision data</td><td>1.7 M jets</td><td>2019</td></tr>
 <tr class="row-detail" id="mod-detail"><td colspan="5">
 
@@ -236,7 +236,7 @@ About 178 M jets from CMS 2016 open data, for pre-training foundation models.
 
 ## Generative models and fast simulation {: #generative-models-and-fast-simulation }
 
-<div class="table-wrap"><table class="catalogue-table catalogue-datasets"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
+<div class="table-wrap"><table class="catalogue-table catalogue-entries"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
 <tr class="row" id="jetnet"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="jetnet-detail">JetNet</button></td><td>g, q, t, W, Z particle clouds</td><td>Simplified detector</td><td>0.88 M jets</td><td>2021</td></tr>
 <tr class="row-detail" id="jetnet-detail"><td colspan="5">
 
@@ -295,7 +295,7 @@ Photon, positron and charged-pion showers in a longitudinally segmented electrom
 
 ## Anomaly detection {: #anomaly-detection }
 
-<div class="table-wrap"><table class="catalogue-table catalogue-datasets"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
+<div class="table-wrap"><table class="catalogue-table catalogue-entries"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
 <tr class="row" id="lhc-olympics"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="lhc-olympics-detail">LHC Olympics 2020</button></td><td>Dijets with a hidden resonance</td><td>Delphes</td><td>5.1 M events</td><td>2019</td></tr>
 <tr class="row-detail" id="lhc-olympics-detail"><td colspan="5">
 
@@ -359,7 +359,7 @@ Lepton-filtered Standard Model events at 13 TeV, for unsupervised new-physics de
 
 ## Event classification and inference {: #event-classification-and-inference }
 
-<div class="table-wrap"><table class="catalogue-table catalogue-datasets"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
+<div class="table-wrap"><table class="catalogue-table catalogue-entries"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
 <tr class="row" id="higgs-susy"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="higgs-susy-detail">HIGGS and SUSY</button></td><td>Tabular signal vs background</td><td>Delphes</td><td>16 M events</td><td>2014</td></tr>
 <tr class="row-detail" id="higgs-susy-detail"><td colspan="5">
 
@@ -450,7 +450,7 @@ $Z$+jet events from Herwig and Pythia at particle and detector level, for unfold
 
 ## Reconstruction {: #reconstruction }
 
-<div class="table-wrap"><table class="catalogue-table catalogue-datasets"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
+<div class="table-wrap"><table class="catalogue-table catalogue-entries"><thead><tr><th>Dataset</th><th>Content</th><th>Simulation</th><th>Size</th><th>Year</th></tr></thead><tbody>
 <tr class="row" id="trackml"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="trackml-detail">TrackML</button></td><td>Tracker hits at pile-up 200</td><td>Fast sim</td><td>10⁴ events</td><td>2018</td></tr>
 <tr class="row-detail" id="trackml-detail"><td colspan="5">
 

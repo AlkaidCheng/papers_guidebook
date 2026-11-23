@@ -20,4 +20,8 @@ parts:
     title: Machine Learning for Particle Physics
     chapters:
       - datasets.md
+      - jet-tagging.md
+      - anomaly-detection.md
+      - simulation-based-inference.md
+      - foundation-models.md
       - papers.md
