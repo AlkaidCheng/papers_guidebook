@@ -68,6 +68,31 @@ Reconstructs masked particles with conditional generative decoders instead of di
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Leigh:2024ked" data-text="M. Leigh et al., “Is Tokenization Needed for Masked Particle Modelling?”, arXiv:2409.12589.">M. Leigh et al., “Is Tokenization Needed for Masked Particle Modelling?”, arXiv:2409.12589.</span> <button type="button" class="bib-copy" data-cite="Leigh:2024ked">BibTeX</button></li></ul>
 
 </td></tr>
+<tr class="row" id="hep-jepa"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="hep-jepa-detail">HEP-JEPA</button></td><td>Joint-embedding prediction</td><td>JetClass</td><td>2025</td></tr>
+<tr class="row-detail" id="hep-jepa-detail"><td colspan="4">
+
+Predicts the embeddings of hidden jet constituents from the visible ones, then transfers to top tagging and quark–gluon discrimination.
+
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a>, <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
+
+<p class="row-links"><a href="papers.md#bardhan-2025icr">Paper</a><a href="https://arxiv.org/abs/2502.03933">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bardhan:2025icr" data-file="hep-jepa">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2877044">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Bardhan:2025icr" data-text="J. Bardhan et al., “HEP-JEPA: A foundation model for collider physics using joint embedding predictive architecture”, arXiv:2502.03933.">J. Bardhan et al., “HEP-JEPA: A foundation model for collider physics using joint embedding predictive architecture”, arXiv:2502.03933.</span> <button type="button" class="bib-copy" data-cite="Bardhan:2025icr">BibTeX</button></li></ul>
+
+</td></tr>
+<tr class="row" id="polar-mae"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="polar-mae-detail">PoLAr-MAE</button></td><td>Masked point modelling</td><td>PILArNet-M (LArTPC)</td><td>2026</td></tr>
+<tr class="row-detail" id="polar-mae-detail"><td colspan="4">
+
+Self-supervised pre-training on 3D images of particle trajectories in liquid-argon time projection chambers.
+
+- **Data:** releases PILArNet-M, over a million simulated events, a larger
+  successor of [PILArNet](datasets.md#pilarnet).
+
+<p class="row-links"><a href="papers.md#young-2025qah">Paper</a><a href="https://arxiv.org/abs/2502.02558">arXiv</a><a href="https://github.com/DeepLearnPhysics/PoLAr-MAE">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Young:2025qah" data-file="polar-mae">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2875246">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Young:2025qah" data-text="S. Young, Y.-j. Jwa and K. Terao, “Particle trajectory representation learning with masked point modeling”, Mach. Learn. Sci. Tech. 7 (2026) 025023, arXiv:2502.02558.">S. Young, Y.-j. Jwa and K. Terao, “Particle trajectory representation learning with masked point modeling”, Mach. Learn. Sci. Tech. 7 (2026) 025023, arXiv:2502.02558.</span> <button type="button" class="bib-copy" data-cite="Young:2025qah">BibTeX</button></li></ul>
+
+</td></tr>
 </tbody></table></div>
 
 ## Multi-task models {: #multi-task-models }
@@ -125,6 +150,26 @@ A Particle Transformer pre-trained on the finely divided jet classes of JetClass
 <p class="row-links"><a href="papers.md#li-2024htp">Paper</a><a href="https://arxiv.org/abs/2405.12972">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Li:2024htp" data-file="sophon">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2788738">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Li:2024htp" data-text="C. Li et al., “Accelerating Resonance Searches via Signature-Oriented Pre-training”, arXiv:2405.12972.">C. Li et al., “Accelerating Resonance Searches via Signature-Oriented Pre-training”, arXiv:2405.12972.</span> <button type="button" class="bib-copy" data-cite="Li:2024htp">BibTeX</button></li></ul>
+
+</td></tr>
+<tr class="row" id="evenet"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="evenet-detail">EveNet</button></td><td>Self-supervised and physics-informed</td><td>500 M simulated events</td><td>2026</td></tr>
+<tr class="row-detail" id="evenet-detail"><td colspan="4">
+
+An event-level foundation model over the physics objects of each collision, applied to searches for heavy resonances and exotic Higgs decays.
+
+<p class="row-links"><a href="papers.md#hsu-2026sww">Paper</a><a href="https://arxiv.org/abs/2601.17126">arXiv</a><a href="https://github.com/EveNet-HEP">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Hsu:2026sww" data-file="evenet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A3111399">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Hsu:2026sww" data-text="T.-H. Hsu et al., “Foundation model for particle collision data analysis”, Nature Machine Intelligence (2026), arXiv:2601.17126.">T.-H. Hsu et al., “Foundation model for particle collision data analysis”, Nature Machine Intelligence (2026), arXiv:2601.17126.</span> <button type="button" class="bib-copy" data-cite="Hsu:2026sww">BibTeX</button></li></ul>
+
+</td></tr>
+<tr class="row" id="bumblebee"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="bumblebee-detail">Bumblebee</button></td><td>Masked prediction</td><td></td><td>2024</td></tr>
+<tr class="row-detail" id="bumblebee-detail"><td colspan="4">
+
+A BERT-like model on particle four-vectors that improves dileptonic top-quark reconstruction after fine-tuning.
+
+<p class="row-links"><a href="papers.md#wildridge-2024yeg">Paper</a><a href="https://arxiv.org/abs/2412.07867">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Wildridge:2024yeg" data-file="bumblebee">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2858264">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Wildridge:2024yeg" data-text="A. J. Wildridge et al., “Bumblebee: Foundation Model for Particle Physics Discovery”, arXiv:2412.07867.">A. J. Wildridge et al., “Bumblebee: Foundation Model for Particle Physics Discovery”, arXiv:2412.07867.</span> <button type="button" class="bib-copy" data-cite="Wildridge:2024yeg">BibTeX</button></li></ul>
 
 </td></tr>
 <tr class="row" id="fm4npp"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="fm4npp-detail">FM4NPP</button></td><td>Self-supervised on detector hits</td><td>11 M sPHENIX events</td><td>2025</td></tr>

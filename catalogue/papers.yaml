@@ -980,6 +980,104 @@ papers:
       Organises the generative approaches to simulating low-level detector
       signatures such as energy depositions and tracks.
 
+  # ---- Added after the topic pages -----------------------------------------------
+  Hsu:2026sww:
+    inspire: 3111399
+    category: method
+    tags: [foundation models, event classification]
+    venue: Nature Machine Intelligence (2026)
+    short: EveNet, an event-level foundation model pre-trained on 500 million simulated collision events.
+    long: >-
+      Builds a shared particle-cloud representation from the physics objects of
+      each event with self-supervised and physics-informed pre-training, and
+      transfers to searches for heavy resonances and exotic Higgs decays.
+  Bardhan:2025icr:
+    inspire: 2877044
+    category: method
+    tags: [foundation models, jet tagging]
+    short: HEP-JEPA, a jet foundation model pre-trained with a joint-embedding predictive architecture.
+    long: >-
+      Predicts the embeddings of unseen constituents from a context of others on
+      JetClass, then transfers to top tagging and quark–gluon discrimination.
+  Wildridge:2024yeg:
+    inspire: 2858264
+    category: method
+    tags: [foundation models]
+    short: Bumblebee, a BERT-like model pre-trained on particle four-vectors with a masked task.
+    long: >-
+      Without positional encodings it is invariant to particle order; fine-tuned,
+      it improves the resolution of dileptonic top-quark reconstruction by
+      10–20%.
+  Young:2025qah:
+    inspire: 2875246
+    category: method
+    tags: [foundation models, neutrino physics, reconstruction]
+    short: PoLAr-MAE, self-supervised masked point modelling for liquid-argon TPC images.
+    long: >-
+      Learns representations of particle trajectories from unlabelled LArTPC
+      data, and releases PILArNet-M, a simulated dataset of over a million
+      events.
+  Das:2023bcj:
+    inspire: 2738545
+    category: method
+    tags: [anomaly detection]
+    short: R-ANODE, a flow fitted to the small signal component while the sideband background is held fixed.
+    long: >-
+      Strengthens the inductive bias of resonant anomaly detection and
+      outperforms classifier-based weakly supervised methods and ANODE on the
+      LHC Olympics R&D data.
+  Dillon:2022mkq:
+    inspire: 2103430
+    category: method
+    tags: [anomaly detection]
+    short: The normalized autoencoder, which flags anomalous jets of both higher and lower complexity.
+    long: >-
+      Combines a bottleneck architecture with a well-defined probabilistic
+      description; it outperforms other autoencoders on top versus QCD jets and
+      identifies dark-jet signals.
+  CMS:2024nsz:
+    inspire: 2856408
+    category: application
+    tags: [anomaly detection]
+    short: A CMS search for dijet resonances with anomalous jet substructure, using several anomaly-detection methods.
+    long: >-
+      Unsupervised, weakly supervised and semi-supervised methods select jets
+      with atypical substructure, for resonances between 1.8 and 6 TeV.
+  Rizvi:2023mws:
+    inspire: 2660867
+    category: method
+    tags: [inference]
+    short: A comparison of classifier losses and parametrisations for learning likelihood ratios.
+    long: >-
+      Studies the neural-network setups that approximate the likelihood ratio
+      through the likelihood-ratio trick.
+  Andreassen:2019nnm:
+    inspire: 1744598
+    category: method
+    tags: [inference, unfolding]
+    short: DCTR, classifier-based reweighting and tuning of simulation over the full phase space.
+    long: >-
+      A classifier trained to distinguish two samples gives per-event weights
+      that reweight one simulation to another, and fits of simulation
+      parameters, using all kinematic and flavour information.
+  Nachman:2021opi:
+    inspire: 1887032
+    category: method
+    tags: [inference, unfolding]
+    short: Neural conditional reweighting, classifier reweighting conditioned on auxiliary features.
+    long: >-
+      Extends marginal reweighting to the conditional case, for analyses where
+      conditioning on a feature is preferable to integrating over it.
+  H1:2021wkz:
+    inspire: 1912842
+    category: application
+    tags: [unfolding]
+    short: Lepton–jet correlations in deep-inelastic scattering measured by H1 and unfolded with machine learning.
+    long: >-
+      Eight observables are corrected for detector effects at once with
+      MultiFold, an unbinned machine-learning method, in its first
+      application.
+
   # ---- Software -----------------------------------------------------------------
   Kansal:2023iqy:
     inspire: 2719606

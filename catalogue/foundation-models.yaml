@@ -65,6 +65,25 @@ sections:
         uses: [datasets:jetclass]
         summary: Reconstructs masked particles with conditional generative decoders instead of discrete tokens.
 
+      - id: hep-jepa
+        name: HEP-JEPA
+        objective: Joint-embedding prediction
+        dataset: JetClass
+        papers: [Bardhan:2025icr]
+        uses: [datasets:jetclass, datasets:top-tagging, datasets:quark-gluon]
+        summary: Predicts the embeddings of hidden jet constituents from the visible ones, then transfers to top tagging and quark–gluon discrimination.
+
+      - id: polar-mae
+        name: PoLAr-MAE
+        objective: Masked point modelling
+        dataset: PILArNet-M (LArTPC)
+        papers: [Young:2025qah]
+        links: {Code: "https://github.com/DeepLearnPhysics/PoLAr-MAE"}
+        summary: Self-supervised pre-training on 3D images of particle trajectories in liquid-argon time projection chambers.
+        details: |
+          - **Data:** releases PILArNet-M, over a million simulated events, a larger
+            successor of [PILArNet](datasets.md#pilarnet).
+
   - title: Multi-task models
     entries:
       - id: omnijet-alpha
@@ -107,6 +126,20 @@ sections:
         papers: [Li:2024htp]
         uses: [datasets:jetclass-ii]
         summary: A Particle Transformer pre-trained on the finely divided jet classes of JetClass-II, for resonance searches through transfer learning.
+
+      - id: evenet
+        name: EveNet
+        objective: Self-supervised and physics-informed
+        dataset: 500 M simulated events
+        papers: [Hsu:2026sww]
+        links: {Code: "https://github.com/EveNet-HEP"}
+        summary: An event-level foundation model over the physics objects of each collision, applied to searches for heavy resonances and exotic Higgs decays.
+
+      - id: bumblebee
+        name: Bumblebee
+        objective: Masked prediction
+        papers: [Wildridge:2024yeg]
+        summary: A BERT-like model on particle four-vectors that improves dileptonic top-quark reconstruction after fine-tuning.
 
       - id: fm4npp
         name: FM4NPP
