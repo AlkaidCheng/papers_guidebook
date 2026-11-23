@@ -1,0 +1,22 @@
+title: Scientific Papers Guidebook
+subtitle: The papers behind the datasets, methods and tools of machine learning in science
+kicker: Reference literature
+author: Alkaid Cheng
+url: https://alkaidcheng.github.io/papers_guidebook/
+repo: https://github.com/AlkaidCheng/papers_guidebook
+repo_host: GitHub
+# A page's edit link is this prefix followed by its path under book/.
+edit_url: https://github.com/AlkaidCheng/papers_guidebook/blob/main/book/
+not_found_page: true
+sitemap: true
+
+# Parts are fields; chapters are the topics inside them. Chapters are
+# numbered continuously through the book, parts with Roman numerals.
+# Each part directory needs an index.md. A chapter is one Markdown file with a
+# YAML front matter block (title, summary, optional status, references), or a
+# directory (dir) with an index.md opener and one such file per section page.
+parts:
+  - dir: ml-hep
+    title: Machine Learning for Particle Physics
+    chapters:
+      - datasets.md
