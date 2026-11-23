@@ -17,7 +17,7 @@ Models pre-trained on large samples of particle physics data, and the self-super
 
 A permutation-invariant transformer encoder trained by contrastive learning to give jet representations with chosen symmetries.
 
-<p class="row-links"><a href="papers.md#dillon-2021gag">Paper</a><a href="https://arxiv.org/abs/2108.04253">arXiv</a><a href="https://github.com/bmdillon/JetCLR">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Dillon:2021gag" data-file="jetclr">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1903053">Cited by</a></p>
+<p class="row-links"><a href="papers.md#dillon-2021gag">Paper</a><a href="https://arxiv.org/abs/2108.04253">arXiv</a><a href="https://github.com/bmdillon/JetCLR">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Dillon:2021gag" data-file="jetclr">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1903053">Cited by</a><button type="button" class="share-button" data-share="jetclr">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Dillon:2021gag" data-text="B. M. Dillon et al., “Symmetries, safety, and self-supervision”, SciPost Phys. 12 (2022) 188, arXiv:2108.04253.">B. M. Dillon et al., “Symmetries, safety, and self-supervision”, SciPost Phys. 12 (2022) 188, arXiv:2108.04253.</span> <button type="button" class="bib-copy" data-cite="Dillon:2021gag">BibTeX</button></li></ul>
 
@@ -27,7 +27,7 @@ A permutation-invariant transformer encoder trained by contrastive learning to g
 
 Contrastive pre-training whose positive pairs are realisations of one event made by rerunning the simulation after an intervention.
 
-<p class="row-links"><a href="papers.md#harris-2024sra">Paper</a><a href="https://arxiv.org/abs/2403.07066">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Harris:2024sra" data-file="rs3l">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2767709">Cited by</a></p>
+<p class="row-links"><a href="papers.md#harris-2024sra">Paper</a><a href="https://arxiv.org/abs/2403.07066">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Harris:2024sra" data-file="rs3l">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2767709">Cited by</a><button type="button" class="share-button" data-share="rs3l">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Harris:2024sra" data-text="P. Harris et al., “Resimulation-based self-supervised learning for pretraining physics foundation models”, Phys. Rev. D 111 (2025) 032010, arXiv:2403.07066.">P. Harris et al., “Resimulation-based self-supervised learning for pretraining physics foundation models”, Phys. Rev. D 111 (2025) 032010, arXiv:2403.07066.</span> <button type="button" class="bib-copy" data-cite="Harris:2024sra">BibTeX</button></li></ul>
 
@@ -39,7 +39,7 @@ Contrastive pre-training on large unlabelled jet samples, fine-tuned for classif
 
 <p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
 
-<p class="row-links"><a href="papers.md#zhao-2024kry">Paper</a><a href="https://arxiv.org/abs/2408.09343">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Zhao:2024kry" data-file="contrastive-at-scale">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2819136">Cited by</a></p>
+<p class="row-links"><a href="papers.md#zhao-2024kry">Paper</a><a href="https://arxiv.org/abs/2408.09343">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Zhao:2024kry" data-file="contrastive-at-scale">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2819136">Cited by</a><button type="button" class="share-button" data-share="contrastive-at-scale">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Zhao:2024kry" data-text="Z. Zhao et al., “Large-Scale Pretraining and Finetuning for Efficient Jet Classification in Particle Physics”, ACAT 2024 proceedings, arXiv:2408.09343.">Z. Zhao et al., “Large-Scale Pretraining and Finetuning for Efficient Jet Classification in Particle Physics”, ACAT 2024 proceedings, arXiv:2408.09343.</span> <button type="button" class="bib-copy" data-cite="Zhao:2024kry">BibTeX</button></li></ul>
 
@@ -51,7 +51,7 @@ Masks particles of a set and predicts them as tokens of a pre-trained vector-qua
 
 <p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a></p>
 
-<p class="row-links"><a href="papers.md#golling-2024abg">Paper</a><a href="https://arxiv.org/abs/2401.13537">arXiv</a><a href="https://github.com/rodem-hep/mpm">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Golling:2024abg" data-file="masked-particle-modelling">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2750977">Cited by</a></p>
+<p class="row-links"><a href="papers.md#golling-2024abg">Paper</a><a href="https://arxiv.org/abs/2401.13537">arXiv</a><a href="https://github.com/rodem-hep/mpm">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Golling:2024abg" data-file="masked-particle-modelling">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2750977">Cited by</a><button type="button" class="share-button" data-share="masked-particle-modelling">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Golling:2024abg" data-text="T. Golling et al., “Masked particle modeling on sets: towards self-supervised high energy physics foundation models”, Mach. Learn. Sci. Tech. 5 (2024) 035074, arXiv:2401.13537.">T. Golling et al., “Masked particle modeling on sets: towards self-supervised high energy physics foundation models”, Mach. Learn. Sci. Tech. 5 (2024) 035074, arXiv:2401.13537.</span> <button type="button" class="bib-copy" data-cite="Golling:2024abg">BibTeX</button></li></ul>
 
@@ -63,7 +63,7 @@ Reconstructs masked particles with conditional generative decoders instead of di
 
 <p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a></p>
 
-<p class="row-links"><a href="papers.md#leigh-2024ked">Paper</a><a href="https://arxiv.org/abs/2409.12589">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Leigh:2024ked" data-file="masked-particle-modelling-without-tokens">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2830443">Cited by</a></p>
+<p class="row-links"><a href="papers.md#leigh-2024ked">Paper</a><a href="https://arxiv.org/abs/2409.12589">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Leigh:2024ked" data-file="masked-particle-modelling-without-tokens">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2830443">Cited by</a><button type="button" class="share-button" data-share="masked-particle-modelling-without-tokens">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Leigh:2024ked" data-text="M. Leigh et al., “Is Tokenization Needed for Masked Particle Modelling?”, arXiv:2409.12589.">M. Leigh et al., “Is Tokenization Needed for Masked Particle Modelling?”, arXiv:2409.12589.</span> <button type="button" class="bib-copy" data-cite="Leigh:2024ked">BibTeX</button></li></ul>
 
@@ -75,7 +75,7 @@ Predicts the embeddings of hidden jet constituents from the visible ones, then t
 
 <p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a>, <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
 
-<p class="row-links"><a href="papers.md#bardhan-2025icr">Paper</a><a href="https://arxiv.org/abs/2502.03933">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bardhan:2025icr" data-file="hep-jepa">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2877044">Cited by</a></p>
+<p class="row-links"><a href="papers.md#bardhan-2025icr">Paper</a><a href="https://arxiv.org/abs/2502.03933">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bardhan:2025icr" data-file="hep-jepa">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2877044">Cited by</a><button type="button" class="share-button" data-share="hep-jepa">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Bardhan:2025icr" data-text="J. Bardhan et al., “HEP-JEPA: A foundation model for collider physics using joint embedding predictive architecture”, arXiv:2502.03933.">J. Bardhan et al., “HEP-JEPA: A foundation model for collider physics using joint embedding predictive architecture”, arXiv:2502.03933.</span> <button type="button" class="bib-copy" data-cite="Bardhan:2025icr">BibTeX</button></li></ul>
 
@@ -88,7 +88,7 @@ Self-supervised pre-training on 3D images of particle trajectories in liquid-arg
 - **Data:** releases PILArNet-M, over a million simulated events, a larger
   successor of [PILArNet](datasets.md#pilarnet).
 
-<p class="row-links"><a href="papers.md#young-2025qah">Paper</a><a href="https://arxiv.org/abs/2502.02558">arXiv</a><a href="https://github.com/DeepLearnPhysics/PoLAr-MAE">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Young:2025qah" data-file="polar-mae">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2875246">Cited by</a></p>
+<p class="row-links"><a href="papers.md#young-2025qah">Paper</a><a href="https://arxiv.org/abs/2502.02558">arXiv</a><a href="https://github.com/DeepLearnPhysics/PoLAr-MAE">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Young:2025qah" data-file="polar-mae">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2875246">Cited by</a><button type="button" class="share-button" data-share="polar-mae">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Young:2025qah" data-text="S. Young, Y.-j. Jwa and K. Terao, “Particle trajectory representation learning with masked point modeling”, Mach. Learn. Sci. Tech. 7 (2026) 025023, arXiv:2502.02558.">S. Young, Y.-j. Jwa and K. Terao, “Particle trajectory representation learning with masked point modeling”, Mach. Learn. Sci. Tech. 7 (2026) 025023, arXiv:2502.02558.</span> <button type="button" class="bib-copy" data-cite="Young:2025qah">BibTeX</button></li></ul>
 
@@ -107,7 +107,7 @@ A transformer pre-trained to generate tokenised jets and fine-tuned for jet tagg
 
 - **Collision data:** pre-training on [Aspen Open Jets](datasets.md#aspen-open-jets) improves the generation of JetClass jets.
 
-<p class="row-links"><a href="papers.md#birk-2024knn">Paper</a><a href="https://arxiv.org/abs/2403.05618">arXiv</a><a href="https://github.com/uhh-pd-ml/omnijet_alpha">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Birk:2024knn" data-file="omnijet-alpha">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2767165">Cited by</a></p>
+<p class="row-links"><a href="papers.md#birk-2024knn">Paper</a><a href="https://arxiv.org/abs/2403.05618">arXiv</a><a href="https://github.com/uhh-pd-ml/omnijet_alpha">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Birk:2024knn" data-file="omnijet-alpha">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2767165">Cited by</a><button type="button" class="share-button" data-share="omnijet-alpha">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Birk:2024knn" data-text="J. Birk, A. Hallin and G. Kasieczka, “OmniJet-α: the first cross-task foundation model for particle physics”, Mach. Learn. Sci. Tech. 5 (2024) 035031, arXiv:2403.05618.">J. Birk, A. Hallin and G. Kasieczka, “OmniJet-α: the first cross-task foundation model for particle physics”, Mach. Learn. Sci. Tech. 5 (2024) 035031, arXiv:2403.05618.</span> <button type="button" class="bib-copy" data-cite="Birk:2024knn">BibTeX</button></li></ul>
 
@@ -119,7 +119,7 @@ A Point-Edge Transformer with classification and generation heads, applied to re
 
 <p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#atlas-top-tagging">ATLAS top tagging</a>, <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
-<p class="row-links"><a href="papers.md#mikuni-2024qsr">Paper</a><a href="https://arxiv.org/abs/2404.16091">arXiv</a><a href="https://github.com/ViniciusMikuni/OmniLearn">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2024qsr" data-file="omnilearn">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2780716">Cited by</a></p>
+<p class="row-links"><a href="papers.md#mikuni-2024qsr">Paper</a><a href="https://arxiv.org/abs/2404.16091">arXiv</a><a href="https://github.com/ViniciusMikuni/OmniLearn">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2024qsr" data-file="omnilearn">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2780716">Cited by</a><button type="button" class="share-button" data-share="omnilearn">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Mikuni:2024qsr" data-text="V. Mikuni and B. Nachman, “Solving key challenges in collider physics with foundation models”, Phys. Rev. D 111 (2025) L051504, arXiv:2404.16091.">V. Mikuni and B. Nachman, “Solving key challenges in collider physics with foundation models”, Phys. Rev. D 111 (2025) L051504, arXiv:2404.16091.</span> <button type="button" class="bib-copy" data-cite="Mikuni:2024qsr">BibTeX</button></li></ul>
 
@@ -135,7 +135,7 @@ The successor of OmniLearn, with an updated architecture and training on over a 
   events and CMS simulation of QCD and new-physics processes; the top-tagging
   and quark–gluon datasets are used for evaluation.
 
-<p class="row-links"><a href="papers.md#bhimji-2025isp">Paper</a><a href="https://arxiv.org/abs/2510.24066">arXiv</a><a href="https://github.com/ViniciusMikuni/OmniLearned">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bhimji:2025isp" data-file="omnilearned">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A3074318">Cited by</a></p>
+<p class="row-links"><a href="papers.md#bhimji-2025isp">Paper</a><a href="https://arxiv.org/abs/2510.24066">arXiv</a><a href="https://github.com/ViniciusMikuni/OmniLearned">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bhimji:2025isp" data-file="omnilearned">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A3074318">Cited by</a><button type="button" class="share-button" data-share="omnilearned">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Bhimji:2025isp" data-text="W. Bhimji et al., “Foundation model framework for all tasks involving jet physics”, Phys. Rev. D 113 (2026) 032020, arXiv:2510.24066.">W. Bhimji et al., “Foundation model framework for all tasks involving jet physics”, Phys. Rev. D 113 (2026) 032020, arXiv:2510.24066.</span> <button type="button" class="bib-copy" data-cite="Bhimji:2025isp">BibTeX</button></li></ul>
 
@@ -147,7 +147,7 @@ A Particle Transformer pre-trained on the finely divided jet classes of JetClass
 
 <p class="row-uses">Uses: <a href="datasets.md#jetclass-ii">JetClass-II</a></p>
 
-<p class="row-links"><a href="papers.md#li-2024htp">Paper</a><a href="https://arxiv.org/abs/2405.12972">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Li:2024htp" data-file="sophon">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2788738">Cited by</a></p>
+<p class="row-links"><a href="papers.md#li-2024htp">Paper</a><a href="https://arxiv.org/abs/2405.12972">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Li:2024htp" data-file="sophon">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2788738">Cited by</a><button type="button" class="share-button" data-share="sophon">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Li:2024htp" data-text="C. Li et al., “Accelerating Resonance Searches via Signature-Oriented Pre-training”, arXiv:2405.12972.">C. Li et al., “Accelerating Resonance Searches via Signature-Oriented Pre-training”, arXiv:2405.12972.</span> <button type="button" class="bib-copy" data-cite="Li:2024htp">BibTeX</button></li></ul>
 
@@ -157,7 +157,7 @@ A Particle Transformer pre-trained on the finely divided jet classes of JetClass
 
 An event-level foundation model over the physics objects of each collision, applied to searches for heavy resonances and exotic Higgs decays.
 
-<p class="row-links"><a href="papers.md#hsu-2026sww">Paper</a><a href="https://arxiv.org/abs/2601.17126">arXiv</a><a href="https://github.com/EveNet-HEP">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Hsu:2026sww" data-file="evenet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A3111399">Cited by</a></p>
+<p class="row-links"><a href="papers.md#hsu-2026sww">Paper</a><a href="https://arxiv.org/abs/2601.17126">arXiv</a><a href="https://github.com/EveNet-HEP">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Hsu:2026sww" data-file="evenet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A3111399">Cited by</a><button type="button" class="share-button" data-share="evenet">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Hsu:2026sww" data-text="T.-H. Hsu et al., “Foundation model for particle collision data analysis”, Nature Machine Intelligence (2026), arXiv:2601.17126.">T.-H. Hsu et al., “Foundation model for particle collision data analysis”, Nature Machine Intelligence (2026), arXiv:2601.17126.</span> <button type="button" class="bib-copy" data-cite="Hsu:2026sww">BibTeX</button></li></ul>
 
@@ -167,7 +167,7 @@ An event-level foundation model over the physics objects of each collision, appl
 
 A BERT-like model on particle four-vectors that improves dileptonic top-quark reconstruction after fine-tuning.
 
-<p class="row-links"><a href="papers.md#wildridge-2024yeg">Paper</a><a href="https://arxiv.org/abs/2412.07867">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Wildridge:2024yeg" data-file="bumblebee">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2858264">Cited by</a></p>
+<p class="row-links"><a href="papers.md#wildridge-2024yeg">Paper</a><a href="https://arxiv.org/abs/2412.07867">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Wildridge:2024yeg" data-file="bumblebee">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2858264">Cited by</a><button type="button" class="share-button" data-share="bumblebee">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Wildridge:2024yeg" data-text="A. J. Wildridge et al., “Bumblebee: Foundation Model for Particle Physics Discovery”, arXiv:2412.07867.">A. J. Wildridge et al., “Bumblebee: Foundation Model for Particle Physics Discovery”, arXiv:2412.07867.</span> <button type="button" class="bib-copy" data-cite="Wildridge:2024yeg">BibTeX</button></li></ul>
 
@@ -177,7 +177,7 @@ A BERT-like model on particle four-vectors that improves dileptonic top-quark re
 
 A foundation model for sparse detector data, with a new dataset of over 11 million events and evidence of neural scaling.
 
-<p class="row-links"><a href="papers.md#park-2025ebs">Paper</a><a href="https://arxiv.org/abs/2508.14087">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Park:2025ebs" data-file="fm4npp">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2962442">Cited by</a></p>
+<p class="row-links"><a href="papers.md#park-2025ebs">Paper</a><a href="https://arxiv.org/abs/2508.14087">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Park:2025ebs" data-file="fm4npp">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2962442">Cited by</a><button type="button" class="share-button" data-share="fm4npp">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Park:2025ebs" data-text="D. Park et al., “FM4NPP: A Scaling Foundation Model for Nuclear and Particle Physics”, arXiv:2508.14087.">D. Park et al., “FM4NPP: A Scaling Foundation Model for Nuclear and Particle Physics”, arXiv:2508.14087.</span> <button type="button" class="bib-copy" data-cite="Park:2025ebs">BibTeX</button></li></ul>
 
@@ -194,7 +194,7 @@ Fine-tunes a network trained on JetClass within a search for heavy resonances de
 
 <p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a></p>
 
-<p class="row-links"><a href="papers.md#vigl-2024lat">Paper</a><a href="https://arxiv.org/abs/2401.13536">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Vigl:2024lat" data-file="analysis-fine-tuning">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2751010">Cited by</a></p>
+<p class="row-links"><a href="papers.md#vigl-2024lat">Paper</a><a href="https://arxiv.org/abs/2401.13536">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Vigl:2024lat" data-file="analysis-fine-tuning">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2751010">Cited by</a><button type="button" class="share-button" data-share="analysis-fine-tuning">Share</button></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Vigl:2024lat" data-text="M. Vigl, N. Hartman and L. Heinrich, “Finetuning foundation models for joint analysis optimization in High Energy Physics”, Mach. Learn. Sci. Tech. 5 (2024) 025075, arXiv:2401.13536.">M. Vigl, N. Hartman and L. Heinrich, “Finetuning foundation models for joint analysis optimization in High Energy Physics”, Mach. Learn. Sci. Tech. 5 (2024) 025075, arXiv:2401.13536.</span> <button type="button" class="bib-copy" data-cite="Vigl:2024lat">BibTeX</button></li></ul>
 

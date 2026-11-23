@@ -3,7 +3,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { parseBibtex, FORMATS, matchesTag } = require("../theme/static/catalogue.js");
+const { parseBibtex, FORMATS, matchesTag, rowUrl } = require("../theme/static/catalogue.js");
 
 const BIB = `% header comment
 @article{Qu:2022mxj,
@@ -43,4 +43,15 @@ test("matchesTag", () => {
   assert.equal(matchesTag("jet tagging", "open"), false);
   assert.equal(matchesTag("", ""), true);
   assert.equal(matchesTag(undefined, "jet tagging"), false);
+});
+
+test("rowUrl points at the row and drops the query and the old row", () => {
+  assert.equal(
+    rowUrl("https://example.org/book/datasets/?v=2#jetclass", "top-tagging"),
+    "https://example.org/book/datasets/#top-tagging"
+  );
+  assert.equal(
+    rowUrl("http://localhost:8000/papers/", "qu-2022mxj"),
+    "http://localhost:8000/papers/#qu-2022mxj"
+  );
 });

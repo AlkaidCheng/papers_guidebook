@@ -476,6 +476,10 @@ class TestBuild(CatalogueDir):
         )
         self.assertIn('href="papers.md#roe-2021xyz"', datasets_page)
         self.assertIn('data-cite="Roe:2021xyz data:jets"', datasets_page)
+        self.assertIn(
+            '<button type="button" class="share-button" data-share="jets">',
+            datasets_page,
+        )
         self.assertIn("\\(t\\bar t\\)", datasets_page)
         self.assertIn('class="ref-related"', datasets_page)
 
@@ -485,6 +489,7 @@ class TestBuild(CatalogueDir):
             '<tr class="row" id="roe-2021xyz" data-tags="open data">', papers_page
         )
         self.assertNotIn("<table>", papers_page)  # bookspine would wrap a bare table
+        self.assertIn('class="share-button" data-share="roe-2021xyz"', papers_page)
         self.assertIn("ATLAS Collaboration (2900 authors)", papers_page)
         self.assertIn('href="datasets.md#jets"', papers_page)
         self.assertIn('<th>Methods</th><td><a href="methods.md#a-method">', papers_page)
