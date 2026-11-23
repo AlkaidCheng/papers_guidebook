@@ -17,6 +17,8 @@ citations between the papers of the guide.
   - *Anomaly Detection*: weakly supervised and unsupervised methods for model-agnostic
     searches.
   - *Simulation-Based Inference*: likelihood-ratio, density and posterior estimators.
+  - *Generative Models*: models for calorimeter showers, jets as particle clouds, and
+    collision events and phase space.
   - *Foundation Models*: pre-trained and self-supervised models for particle data.
   - *Papers*: every paper of the guide, by kind of contribution, with tags.
 

@@ -161,3 +161,4 @@ Fine-tunes a network trained on JetClass within a search for heavy resonances de
 - A review of the field: [Hallin](papers.md#hallin-2025ywf).
 - Pre-training data: [JetClass](datasets.md#jetclass), [JetClass-II](datasets.md#jetclass-ii)
   and [Aspen Open Jets](datasets.md#aspen-open-jets).
+- Models trained for one generative task: [Generative Models](generative-models.md).

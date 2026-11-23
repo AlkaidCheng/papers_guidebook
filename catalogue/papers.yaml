@@ -38,6 +38,7 @@ tags:
   - anomaly detection
   - equivariance
   - event classification
+  - event generation
   - fast simulation
   - foundation models
   - generative models
@@ -811,6 +812,173 @@ papers:
     long: >-
       Summarises and discusses the published work on pre-trained models for
       particle physics.
+
+  # ---- Generative models and fast simulation -------------------------------------
+  Buhmann:2020pmy:
+    inspire: 1795887
+    category: method
+    tags: [fast simulation, generative models]
+    short: The Bounded Information Bottleneck Autoencoder for showers in a highly granular calorimeter.
+    long: >-
+      Models electromagnetic showers in the central region of a silicon–tungsten
+      calorimeter, as a step towards generative fast simulation for future
+      detectors.
+  Krause:2021ilc:
+    inspire: 1868435
+    category: method
+    tags: [fast simulation, generative models]
+    short: CaloFlow, normalizing flows that generate calorimeter showers with high fidelity.
+    long: >-
+      Reproduces many-channel showers in the CaloGAN calorimeter setup, and
+      introduces a classifier trained to tell generated from Geant4 showers as a
+      measure of quality.
+  Krause:2021wez:
+    inspire: 1950448
+    category: method
+    tags: [fast simulation, generative models]
+    short: CaloFlow v2, 500 times faster shower generation by probability density distillation.
+    long: >-
+      Keeps the fidelity of CaloFlow while distilling it into a fast student
+      flow with new loss terms.
+  Buckley:2023daw:
+    inspire: 2757926
+    category: method
+    tags: [fast simulation, generative models]
+    short: iCaloFlow, an inductive series of normalizing flows for high-resolution showers.
+    long: >-
+      Flows trained on pairs of consecutive calorimeter layers avoid the memory
+      limits of a single flow, shown on CaloChallenge Datasets 2 and 3.
+  Mikuni:2022xry:
+    inspire: 2100413
+    category: method
+    tags: [fast simulation, generative models]
+    short: CaloScore, score-based diffusion models for calorimeter showers.
+    long: >-
+      Investigates three diffusion models on the CaloChallenge datasets;
+      described by its authors as the first score-based generative model in
+      collider physics.
+  Amram:2023onf:
+    inspire: 2686318
+    category: method
+    tags: [fast simulation, generative models]
+    short: CaloDiffusion, a denoising diffusion model with geometry adaptation for calorimeter showers.
+    long: >-
+      Uses cylindrical convolutions suited to the symmetries of the showers, and
+      is trained on the public CaloChallenge datasets.
+  Buhmann:2023bwk:
+    inspire: 2657637
+    category: method
+    tags: [fast simulation, generative models]
+    short: CaloClouds, calorimeter showers generated as point clouds without a fixed grid.
+    long: >-
+      Generates a few thousand energy depositions in 3D space with a diffusion
+      model, independent of the readout geometry.
+  Buhmann:2023kdg:
+    inspire: 2696622
+    category: method
+    tags: [fast simulation, generative models]
+    short: CaloClouds II, a faster geometry-independent point-cloud shower model.
+    long: >-
+      Improves CaloClouds for the electromagnetic calorimeter of the planned
+      International Large Detector.
+  ATLAS:2021pzo:
+    inspire: 1919304
+    category: application
+    tags: [fast simulation, generative models]
+    short: AtlFast3, the fast simulation of ATLAS, which uses generative adversarial networks for calorimeter showers.
+    long: >-
+      Replaces the most CPU-intensive part of the ATLAS simulation, the
+      calorimeter showers, with faster methods.
+  Buhmann:2023pmh:
+    inspire: 2624651
+    category: method
+    tags: [generative models]
+    short: EPiC-GAN, an equivariant GAN that generates particle clouds of variable multiplicity.
+    long: >-
+      Generator and discriminator are built on deep sets, which suits the
+      sprays of particles that form jets.
+  Leigh:2023toe:
+    inspire: 2640034
+    category: method
+    tags: [generative models]
+    short: PC-JeDi, score-based diffusion with transformers for jets as particle clouds.
+    long: >-
+      Competitive with the best earlier models across several metrics; slower
+      than them, but much faster than detailed simulation.
+  Mikuni:2023dvk:
+    inspire: 2648821
+    category: method
+    tags: [generative models]
+    short: Fast point cloud diffusion, with distilled models that need few sampling steps.
+    long: >-
+      Generates jets with continuous coordinates, permutation symmetry and
+      variable multiplicity.
+  Buhmann:2023zgc:
+    inspire: 2705220
+    category: method
+    tags: [generative models]
+    short: EPiC-JeDi and EPiC-FM, fast point-cloud generation of jets with diffusion and flow matching.
+    long: >-
+      Combines score-matching diffusion, and separately flow matching, with the
+      Equivariant Point Cloud architecture.
+  Kach:2023rqw:
+    inspire: 2662296
+    category: method
+    tags: [generative models]
+    short: A GAN with mean-field attention for jets as particle clouds.
+    long: >-
+      Models the correlations between particles and the variable size of the
+      particle clouds.
+  Butter:2019cae:
+    inspire: 1742987
+    category: method
+    tags: [event generation, generative models]
+    short: A generative adversarial network for LHC events, shown on top-pair production.
+    long: >-
+      Avoids inefficient unweighting and describes intermediate on-shell
+      particles, phase-space boundaries and tails, helped by a maximum mean
+      discrepancy term.
+  Gao:2020vdv:
+    inspire: 1775792
+    category: software
+    tags: [event generation]
+    short: i-flow, a Python package for high-dimensional integration and sampling with normalizing flows.
+    long: >-
+      Outperforms other algorithms for high-dimensional correlated integrals.
+  Bothmann:2020ywa:
+    inspire: 1775753
+    category: method
+    tags: [event generation]
+    short: Neural importance sampling for cross sections and partonic event generation.
+    long: >-
+      Guarantees full phase-space coverage and exact reproduction of the
+      squared matrix element, shown for top-pair production and multi-gluon
+      final states.
+  Heimel:2022wyj:
+    inspire: 2613846
+    category: method
+    tags: [event generation]
+    short: MadNIS, neural multi-channel importance sampling for phase-space integration.
+    long: >-
+      Combines learned multi-channel weights with a normalizing flow, trained
+      online and from buffers, shown on Drell–Yan production with a narrow
+      resonance.
+  Butter:2022rso:
+    inspire: 2052497
+    category: review
+    tags: [event generation, generative models]
+    short: A review of machine learning for LHC event generation and simulation-based inference.
+    long: >-
+      Covers applications from forward simulation to inference, and the ideas
+      developed at the interface of particle physics and machine learning.
+  Hashemi:2023rgo:
+    inspire: 2737635
+    category: review
+    tags: [fast simulation, generative models]
+    short: A taxonomic review of deep generative models for detector simulation.
+    long: >-
+      Organises the generative approaches to simulating low-level detector
+      signatures such as energy depositions and tracks.
 
   # ---- Software -----------------------------------------------------------------
   Kansal:2023iqy:

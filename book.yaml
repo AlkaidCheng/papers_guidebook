@@ -23,5 +23,6 @@ parts:
       - jet-tagging.md
       - anomaly-detection.md
       - simulation-based-inference.md
+      - generative-models.md
       - foundation-models.md
       - papers.md
