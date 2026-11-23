@@ -82,6 +82,7 @@ entries sit in `sections`.
 | `papers`, `data` | The papers and data records a result obtained with the entry cites. |
 | `related` | Further papers or records listed when the row is opened. |
 | `links` | Further links by label, such as `Code`. |
+| `uses` | Entries of other pages this one uses, each as `page:id` with the page's file name, such as `datasets:jetclass`. Each is linked from this row, and this row from theirs. |
 
 Data records sit in the page's `records` map. A record with a DOI needs only `doi`, and
 `label` when an entry has several records; `title` and `creators` replace poor DataCite

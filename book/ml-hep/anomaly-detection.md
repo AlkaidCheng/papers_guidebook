@@ -37,6 +37,8 @@ A bump hunt in which classifiers trained between a signal region and its sideban
 
 Uses a weak classifier on one of two sub-objects to build signal-rich and background-rich samples for a stronger classifier on the other.
 
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
+
 <p class="row-links"><a href="papers.md#amram-2020ykb">Paper</a><a href="https://arxiv.org/abs/2002.12376">arXiv</a><a href="https://github.com/OzAmram/TagNTrain">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Amram:2020ykb" data-file="tag-n-train">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1782967">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Amram:2020ykb" data-text="O. Amram and C. M. Suarez, “Tag N’ Train: a technique to train improved classifiers on unlabeled data”, JHEP 01 (2021) 153, arXiv:2002.12376.">O. Amram and C. M. Suarez, “Tag N’ Train: a technique to train improved classifiers on unlabeled data”, JHEP 01 (2021) 153, arXiv:2002.12376.</span> <button type="button" class="bib-copy" data-cite="Amram:2020ykb">BibTeX</button></li></ul>
@@ -46,6 +48,8 @@ Uses a weak classifier on one of two sub-objects to build signal-rich and backgr
 <tr class="row-detail" id="boosted-decision-trees-detail"><td colspan="4">
 
 Replaces neural networks by boosted decision trees in weakly supervised anomaly detection, which train faster and keep their performance with many noisy features.
+
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
 <p class="row-links"><a href="papers.md#finke-2023ltw">Paper</a><a href="https://arxiv.org/abs/2309.13111">arXiv</a><a href="https://github.com/uhh-pd-ml/treebased_anomaly_detection">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Finke:2023ltw" data-file="boosted-decision-trees">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2702512">Cited by</a></p>
 
@@ -62,6 +66,8 @@ Replaces neural networks by boosted decision trees in weakly supervised anomaly 
 
 Estimates the density of the data in the signal region and in the sidebands, interpolates the latter, and forms a likelihood ratio of data to background.
 
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
+
 <p class="row-links"><a href="papers.md#nachman-2020lpy">Paper</a><a href="https://arxiv.org/abs/2001.04990">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Nachman:2020lpy" data-file="anode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775739">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Nachman:2020lpy" data-text="B. Nachman and D. Shih, “Anomaly Detection with Density Estimation”, Phys. Rev. D 101 (2020) 075042, arXiv:2001.04990.">B. Nachman and D. Shih, “Anomaly Detection with Density Estimation”, Phys. Rev. D 101 (2020) 075042, arXiv:2001.04990.</span> <button type="button" class="bib-copy" data-cite="Nachman:2020lpy">BibTeX</button></li></ul>
@@ -71,6 +77,8 @@ Estimates the density of the data in the signal region and in the sidebands, int
 <tr class="row-detail" id="salad-detail"><td colspan="4">
 
 Reweights background simulation to the data in the sidebands, interpolates the reweighting into the signal region, and uses the reweighted simulation as background.
+
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
 <p class="row-links"><a href="papers.md#andreassen-2020nkr">Paper</a><a href="https://arxiv.org/abs/2001.05001">arXiv</a><a href="https://github.com/bnachman/DCTRHunting">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Andreassen:2020nkr" data-file="salad">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1775741">Cited by</a></p>
 
@@ -82,6 +90,8 @@ Reweights background simulation to the data in the sidebands, interpolates the r
 
 Samples background events from a sideband density estimator interpolated into the signal region and trains a classifier between them and the data.
 
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
+
 <p class="row-links"><a href="papers.md#hallin-2021wme">Paper</a><a href="https://arxiv.org/abs/2109.00546">arXiv</a><a href="https://github.com/HEPML-AnomalyDetection/CATHODE">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Hallin:2021wme" data-file="cathode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1915354">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Hallin:2021wme" data-text="A. Hallin et al., “Classifying anomalies through outer density estimation”, Phys. Rev. D 106 (2022) 055006, arXiv:2109.00546.">A. Hallin et al., “Classifying anomalies through outer density estimation”, Phys. Rev. D 106 (2022) 055006, arXiv:2109.00546.</span> <button type="button" class="bib-copy" data-cite="Hallin:2021wme">BibTeX</button></li></ul>
@@ -92,6 +102,8 @@ Samples background events from a sideband density estimator interpolated into th
 
 Invertible networks conditioned on the resonant observable map sideband data into the signal region as the background template.
 
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
+
 <p class="row-links"><a href="papers.md#raine-2022hht">Paper</a><a href="https://arxiv.org/abs/2203.09470">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Raine:2022hht" data-file="curtains">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2054235">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Raine:2022hht" data-text="J. A. Raine et al., “CURTAINs for your sliding window: Constructing unobserved regions by transforming adjacent intervals”, Front. Big Data 6 (2023) 899345, arXiv:2203.09470.">J. A. Raine et al., “CURTAINs for your sliding window: Constructing unobserved regions by transforming adjacent intervals”, Front. Big Data 6 (2023) 899345, arXiv:2203.09470.</span> <button type="button" class="bib-copy" data-cite="Raine:2022hht">BibTeX</button></li></ul>
@@ -101,6 +113,8 @@ Invertible networks conditioned on the resonant observable map sideband data int
 <tr class="row-detail" id="feta-detail"><td colspan="4">
 
 A flow conditioned on the resonant mass maps background simulation to sideband data and is interpolated into the signal region to give the template.
+
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
 
 <p class="row-links"><a href="papers.md#golling-2022nkl">Paper</a><a href="https://arxiv.org/abs/2212.11285">arXiv</a><a href="https://github.com/rmastand/FETA">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Golling:2022nkl" data-file="feta">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2617394">Cited by</a></p>
 

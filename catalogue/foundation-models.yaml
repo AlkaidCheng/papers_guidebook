@@ -1,7 +1,8 @@
 # The foundation models page, book/ml-hep/foundation-models.md, and its BibTeX
 # file. `python scripts/catalogue.py build` writes both from this file and
 # papers.yaml. An entry's year defaults to that of its first paper; code links
-# are those the papers themselves give. Pre-training data is as each paper's
+# are those the papers themselves give; `uses` names, as page:id, the datasets
+# the paper's text shows it trains or evaluates on. Pre-training data is as each paper's
 # text names it.
 
 page:
@@ -44,6 +45,7 @@ sections:
         objective: Contrastive
         dataset: JetClass
         papers: [Zhao:2024kry]
+        uses: [datasets:jetclass, datasets:top-tagging]
         summary: Contrastive pre-training on large unlabelled jet samples, fine-tuned for classification with small labelled samples.
 
       - id: masked-particle-modelling
@@ -51,6 +53,7 @@ sections:
         objective: Predict masked particles (tokens)
         dataset: JetClass
         papers: [Golling:2024abg]
+        uses: [datasets:jetclass]
         links: {Code: "https://github.com/rodem-hep/mpm"}
         summary: Masks particles of a set and predicts them as tokens of a pre-trained vector-quantised autoencoder.
 
@@ -59,6 +62,7 @@ sections:
         objective: Reconstruct masked particles
         dataset: JetClass
         papers: [Leigh:2024ked]
+        uses: [datasets:jetclass]
         summary: Reconstructs masked particles with conditional generative decoders instead of discrete tokens.
 
   - title: Multi-task models
@@ -68,6 +72,7 @@ sections:
         objective: Next-token generation
         dataset: JetClass
         papers: [Birk:2024knn]
+        uses: [datasets:jetclass]
         links: {Code: "https://github.com/uhh-pd-ml/omnijet_alpha"}
         summary: A transformer pre-trained to generate tokenised jets and fine-tuned for jet tagging.
         details: |
@@ -78,6 +83,7 @@ sections:
         objective: Classification and generation
         dataset: JetClass
         papers: [Mikuni:2024qsr]
+        uses: [datasets:jetclass, datasets:atlas-top-tagging, datasets:lhc-olympics]
         links: {Code: "https://github.com/ViniciusMikuni/OmniLearn"}
         summary: A Point-Edge Transformer with classification and generation heads, applied to reconstruction, unfolding and anomaly detection.
 
@@ -86,22 +92,21 @@ sections:
         objective: Classification and generation
         dataset: About 10⁹ pooled public jets
         papers: [Bhimji:2025isp]
+        uses: [datasets:jetclass, datasets:jetclass-ii, datasets:aspen-open-jets, datasets:atlas-top-tagging, datasets:top-tagging, datasets:quark-gluon]
         links: {Code: "https://github.com/ViniciusMikuni/OmniLearned"}
         summary: The successor of OmniLearn, with an updated architecture and training on over a billion jets pooled from public datasets.
         details: |
-          - **Data:** 1.06 × 10⁹ training jets from [JetClass](datasets.md#jetclass),
-            [JetClass-II](datasets.md#jetclass-ii), [Aspen Open Jets](datasets.md#aspen-open-jets),
-            the [ATLAS top-tagging data](datasets.md#atlas-top-tagging), H1 deep-inelastic
-            scattering events and CMS simulation of QCD and new-physics processes.
+          - **Pre-training:** 1.06 × 10⁹ jets, also from H1 deep-inelastic scattering
+            events and CMS simulation of QCD and new-physics processes; the top-tagging
+            and quark–gluon datasets are used for evaluation.
 
       - id: sophon
         name: Sophon
         objective: Classification into 188 classes
         dataset: JetClass-II
         papers: [Li:2024htp]
+        uses: [datasets:jetclass-ii]
         summary: A Particle Transformer pre-trained on the finely divided jet classes of JetClass-II, for resonance searches through transfer learning.
-        details: |
-          - **Data:** [JetClass-II](datasets.md#jetclass-ii).
 
       - id: fm4npp
         name: FM4NPP
@@ -117,6 +122,7 @@ sections:
         objective: JetClass classification
         dataset: JetClass
         papers: [Vigl:2024lat]
+        uses: [datasets:jetclass]
         summary: Fine-tunes a network trained on JetClass within a search for heavy resonances decaying via di-Higgs to four b-jets.
 
 see_also: |

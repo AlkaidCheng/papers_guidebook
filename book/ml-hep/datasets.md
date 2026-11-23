@@ -19,6 +19,8 @@ Hadronic top-quark jets against QCD jets at 14 TeV, the common benchmark of the 
 
 <p class="row-facts">Simulation: Pythia 8, Delphes (ATLAS card)</p>
 
+<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#particlenet">ParticleNet</a>, <a href="jet-tagging.md#jedi-net">JEDI-net</a>, <a href="jet-tagging.md#point-cloud-transformer">Point Cloud Transformer</a>, <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a>, <a href="jet-tagging.md#lorentz-group-network">Lorentz Group Network</a>, <a href="jet-tagging.md#lorentznet">LorentzNet</a>, <a href="jet-tagging.md#pelican">PELICAN</a>, <a href="jet-tagging.md#l-gatr">L-GATr</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#contrastive-at-scale">Contrastive pre-training at scale</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
+
 - **Events:** Pythia 8 at $\sqrt{s} = 14$ TeV, without multiple parton
   interactions or pile-up.
 - **Jets:** anti-$k_T$, $R = 0.8$, from Delphes particle-flow objects;
@@ -42,6 +44,8 @@ Quark and gluon jets from $Z$+jet events at 14 TeV, at generator level, in Pythi
 
 <p class="row-facts">Simulation: Pythia 8 or Herwig 7.1.4, generator level</p>
 
+<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#efn-pfn">Energy and Particle Flow Networks</a>, <a href="jet-tagging.md#particlenet">ParticleNet</a>, <a href="jet-tagging.md#point-cloud-transformer">Point Cloud Transformer</a>, <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a>, <a href="jet-tagging.md#lorentznet">LorentzNet</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
+
 - **Events:** quarks from $qg \to Z(\to \nu\bar\nu)q$, gluons from
   $q\bar q \to Z(\to \nu\bar\nu)g$; no detector simulation.
 - **Jets:** anti-$k_T$, $R = 0.4$; $500 < p_T < 550$ GeV,
@@ -62,6 +66,8 @@ Quark and gluon jets from $Z$+jet events at 14 TeV, at generator level, in Pythi
 125 M jets in ten classes of boosted-jet signatures, released with the Particle Transformer.
 
 <p class="row-facts">Simulation: MadGraph5_aMC@NLO, Pythia, Delphes (CMS card)</p>
+
+<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#contrastive-at-scale">Contrastive pre-training at scale</a>, <a href="foundation-models.md#masked-particle-modelling">Masked particle modelling</a>, <a href="foundation-models.md#masked-particle-modelling-without-tokens">Masked particle modelling without tokens</a>, <a href="foundation-models.md#omnijet-alpha">OmniJet-α</a>, <a href="foundation-models.md#omnilearn">OmniLearn</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a>, <a href="foundation-models.md#analysis-fine-tuning">Fine-tuning for analysis</a></p>
 
 - **Classes:** $q/g$ background; $H \to b\bar b$, $H \to c\bar c$,
   $H \to gg$, $H \to 4q$, $H \to \ell\nu qq'$, $Z \to q\bar q$,
@@ -88,6 +94,8 @@ Jets in 188 finely divided classes, made to pre-train the Sophon model for reson
 
 <p class="row-facts">Simulation: JetClass workflow with pile-up</p>
 
+<p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearned">OmniLearned</a>, <a href="foundation-models.md#sophon">Sophon</a></p>
+
 - **Classes:** include resonant jets with two, three or four prongs
   initiated by quarks, gluons or leptons, over a wider mass range
   than JetClass.
@@ -107,6 +115,8 @@ Light-quark, gluon, $W$, $Z$ and top jets near 1 TeV, prepared for studies of ne
 
 <p class="row-facts">Simulation: MadGraph5_aMC@NLO, Pythia 8, 13 TeV</p>
 
+<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#jedi-net">JEDI-net</a>, <a href="jet-tagging.md#point-cloud-transformer">Point Cloud Transformer</a></p>
+
 - **Content:** high-level jet features (Duarte et al.), jet images
   and lists of up to 150 constituents (Moreno et al.).
 - **Events:** partons generated in a narrow $p_T$ window centred at
@@ -123,6 +133,8 @@ Light-quark, gluon, $W$, $Z$ and top jets near 1 TeV, prepared for studies of ne
 Top-quark and QCD jets in full ATLAS simulation, with samples that vary one systematic effect at a time.
 
 <p class="row-facts">Simulation: Full ATLAS simulation</p>
+
+<p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearn">OmniLearn</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
 
 - **Nominal:** 92.8 M training and 10.3 M test jets, equal numbers of
   top jets and light-quark or gluon jets.
@@ -220,6 +232,8 @@ About 178 M jets from CMS 2016 open data, for pre-training foundation models.
 
 <p class="row-facts">Simulation: CMS collision data (2016 JetHT)</p>
 
+<p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
+
 - **Source:** the CMS 2016 JetHT open data in the MINIAOD format;
   processing code at <https://github.com/OzAmram/AOJProcessing>.
 - **Use:** pre-training OmniJet-α on it improves the generation of
@@ -302,6 +316,8 @@ Photon, positron and charged-pion showers in a longitudinally segmented electrom
 Dijet events with a hidden $W' \to XY$ resonance, for resonant anomaly detection.
 
 <p class="row-facts">Simulation: Pythia 8, Delphes 3.4.1</p>
+
+<p class="row-uses">Used in Anomaly Detection: <a href="anomaly-detection.md#tag-n-train">Tag N&#x27; Train</a>, <a href="anomaly-detection.md#boosted-decision-trees">Boosted decision trees</a>, <a href="anomaly-detection.md#anode">ANODE</a>, <a href="anomaly-detection.md#salad">SALAD</a>, <a href="anomaly-detection.md#cathode">CATHODE</a>, <a href="anomaly-detection.md#curtains">CURTAINs</a>, <a href="anomaly-detection.md#feta">FETA</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearn">OmniLearn</a></p>
 
 - **R&D set:** 1 M QCD dijet events and 100,000 $W' \to XY$,
   $X \to jj$, $Y \to jj$ events with masses 3.5 TeV, 500 GeV and
