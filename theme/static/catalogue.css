@@ -111,6 +111,9 @@ tr.row.open .row-toggle { color: var(--accent-ink); }
 .catalogue-table tr.row-detail ul { margin: 0.35rem 0; }
 
 .row-facts { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-3); }
+.row-uses { font-family: var(--sans); font-size: 0.85rem; color: var(--ink-2); }
+.row-uses a { text-decoration: none; }
+.row-uses a:hover { text-decoration: underline; }
 .row-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 
 .row-links {

@@ -88,6 +88,10 @@ CITATION_AUTHOR_LIMIT = 3
 PAPER_LABEL = "Paper"
 DATA_LABEL = "Data"
 CITED_BY_LABEL = "Cited by"
+#: The lines of a detail row that link entries on different pages: what an entry uses,
+#: such as a method's datasets, and, page by page, which entries use it.
+USES_LABEL = "Uses"
+USED_IN_LABEL = "Used in"
 #: The last column of every entries table.
 YEAR_COLUMN = "Year"
 #: The columns of the papers tables; every other fact appears when a row is opened.
@@ -135,6 +139,7 @@ ENTRY_KEYS = {
     "related",
     "details",
     "links",
+    "uses",
 }
 
 
@@ -387,6 +392,7 @@ class Entry:
     cells: dict[str, str] = field(default_factory=dict)
     facts: dict[str, str] = field(default_factory=dict)
     links: dict[str, str] = field(default_factory=dict)
+    uses: tuple[str, ...] = ()
 
     @property
     def cited(self) -> tuple[str, ...]:
@@ -465,6 +471,31 @@ class EntriesFile:
         """Every entry, in page order."""
         for section in self.sections:
             yield from section.entries
+
+    @property
+    def name(self) -> str:
+        """The page's name in entry references, as in ``datasets:jetclass``."""
+        return self.source_path.stem
+
+
+def find_entry(pages: Iterable[EntriesFile], ref: str) -> tuple[EntriesFile, Entry]:
+    """Return the page and entry a reference ``page:id`` names.
+
+    Raises
+    ------
+    CatalogueError
+        If no page has that name, or the page has no entry with that id.
+    """
+    name, _, entry_id = ref.partition(":")
+    for page in pages:
+        if page.name == name:
+            for entry in page.entries:
+                if entry.id == entry_id:
+                    return page, entry
+            raise CatalogueError(
+                f"{page.source_path}: no entry {entry_id!r} for {ref!r}"
+            )
+    raise CatalogueError(f"no catalogue page {name!r} for {ref!r}")
 
 
 # ---- Loading -----------------------------------------------------------------
@@ -611,6 +642,7 @@ def _entry(raw: Any, table: Table, where: str) -> Entry:
             if raw.get(column.key)
         },
         links={str(label): str(url) for label, url in links.items()},
+        uses=tuple(str(ref) for ref in raw.get("uses") or ()),
     )
 
 
@@ -818,6 +850,7 @@ class Catalogue:
     cites: dict[str, list[str]] = field(default_factory=dict)
     cited_by: dict[str, list[str]] = field(default_factory=dict)
     introduces: dict[str, list[tuple[EntriesFile, Entry]]] = field(default_factory=dict)
+    used_by: dict[str, list[tuple[EntriesFile, Entry]]] = field(default_factory=dict)
 
     @property
     def papers(self) -> dict[str, Paper]:
@@ -922,6 +955,8 @@ def resolve(
         for entry in page.entries:
             for key in entry.papers:
                 catalogue.introduces.setdefault(key, []).append((page, entry))
+            for ref in entry.uses:
+                catalogue.used_by.setdefault(ref, []).append((page, entry))
     return catalogue
 
 
@@ -1131,6 +1166,7 @@ def entry_rows_markdown(
     body = [
         entry.summary,
         facts,
+        _uses_html(catalogue, page_file, entry),
         entry.details,
         f'<p class="row-links">{"".join(links)}</p>',
         f'<p class="row-label">References</p><ul class="row-refs">{"".join(items)}</ul>',
@@ -1143,6 +1179,30 @@ def entry_rows_markdown(
     ]
     main = _main_row(entry.id, [html_text(cell) for cell in cells])
     return main + "\n" + _detail_row(entry.id, len(cells), body)
+
+
+def _uses_html(catalogue: Catalogue, page_file: EntriesFile, entry: Entry) -> str:
+    """The lines linking an entry to the entries it uses and to those that use it.
+
+    The entries that use it are listed one line per page, in reading order.
+    """
+    lines = []
+    if entry.uses:
+        targets = [find_entry(catalogue.pages, ref) for ref in entry.uses]
+        links = ", ".join(
+            _a(_relative(page_file.page, page.page) + "#" + target.id, target.name)
+            for page, target in targets
+        )
+        lines.append(f'<p class="row-uses">{USES_LABEL}: {links}</p>')
+    users = catalogue.used_by.get(f"{page_file.name}:{entry.id}", [])
+    for user_page in catalogue.pages:
+        names = [user for page, user in users if page is user_page]
+        if names:
+            href = _relative(page_file.page, user_page.page)
+            links = ", ".join(_a(href + "#" + user.id, user.name) for user in names)
+            title = html.escape(user_page.page.title)
+            lines.append(f'<p class="row-uses">{USED_IN_LABEL} {title}: {links}</p>')
+    return "".join(lines)
 
 
 def entries_page_markdown(catalogue: Catalogue, page_file: EntriesFile) -> str:
@@ -1329,6 +1389,15 @@ class Settings:
                         f"{page.source_path}: record {key!r} is also in {seen[key]}"
                     )
                 seen[key] = page.source_path
+        for page in pages:
+            for entry in page.entries:
+                for ref in entry.uses:
+                    try:
+                        find_entry(pages, ref)
+                    except CatalogueError as error:
+                        raise CatalogueError(
+                            f"{page.source_path}: entry {entry.id}: {error}"
+                        ) from None
         return papers_file, pages
 
     def read_cache(self) -> dict:

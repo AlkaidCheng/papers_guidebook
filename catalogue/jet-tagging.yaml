@@ -1,7 +1,8 @@
 # The jet-tagging architectures page, book/ml-hep/jet-tagging.md, and its BibTeX
 # file. `python scripts/catalogue.py build` writes both from this file and
 # papers.yaml. An entry's year defaults to that of its first paper; code links
-# are those the papers themselves give.
+# are those the papers themselves give; `uses` names, as page:id, the datasets
+# the paper's text shows it trains or evaluates on.
 
 page:
   path: ml-hep/jet-tagging.md
@@ -51,15 +52,15 @@ sections:
         idea: Per-particle map, sum, then map (Deep Sets)
         input: Particle set
         papers: [Komiske:2018cqr]
+        uses: [datasets:quark-gluon]
         summary: Permutation-invariant networks built on Deep Sets; the Energy Flow Network is infrared and collinear safe by construction.
-        details: |
-          - **Data:** released with the [quark and gluon jets](datasets.md#quark-gluon).
 
       - id: particlenet
         name: ParticleNet
         idea: Dynamic graph convolution
         input: Particle cloud
         papers: [Qu:2019gqs]
+        uses: [datasets:top-tagging, datasets:quark-gluon]
         summary: Treats the jet as an unordered particle cloud and classifies it with a dynamic graph convolutional network.
 
       - id: jedi-net
@@ -67,9 +68,8 @@ sections:
         idea: Interaction network over particle pairs
         input: Particle set
         papers: [Moreno:2019bmu]
+        uses: [datasets:hls4ml-jets, datasets:top-tagging]
         summary: Describes the jet as one-to-one interactions between its constituents and classifies it from the representation learned from them.
-        details: |
-          - **Data:** the [hls4ml jets](datasets.md#hls4ml-jets).
 
       - id: abcnet
         name: ABCNet
@@ -85,6 +85,7 @@ sections:
         idea: Transformer adapted to unordered particles
         input: Particle cloud
         papers: [Mikuni:2021pou]
+        uses: [datasets:hls4ml-jets, datasets:top-tagging, datasets:quark-gluon]
         summary: Applies a transformer designed for point clouds to the particles of boosted jets.
 
       - id: particle-transformer
@@ -92,10 +93,11 @@ sections:
         idea: Attention with pairwise particle features
         input: Particle set
         papers: [Qu:2022mxj]
+        uses: [datasets:jetclass, datasets:top-tagging, datasets:quark-gluon]
         links: {Code: "https://github.com/jet-universe/particle_transformer"}
         summary: A transformer whose attention includes pairwise interaction features between particles.
         details: |
-          - **Data:** released with [JetClass](datasets.md#jetclass); pre-trained models improve other tagging tasks after fine-tuning.
+          - **Fine-tuning:** models pre-trained on JetClass improve the top-tagging and quark–gluon results.
 
   - title: Lorentz-symmetric networks
     entries:
@@ -111,6 +113,7 @@ sections:
         idea: Layers built from Lorentz-group representations
         input: Four-vectors
         papers: [Bogatskiy:2020tje]
+        uses: [datasets:top-tagging]
         links: {Code: "https://github.com/fizisist/LorentzGroupNetwork"}
         summary: A network fully equivariant under the Lorentz group, with few parameters and competitive top tagging.
 
@@ -119,6 +122,7 @@ sections:
         idea: Message passing with Minkowski dot-product attention
         input: Four-vectors
         papers: [Gong:2022lye]
+        uses: [datasets:top-tagging, datasets:quark-gluon]
         links: {Code: "https://github.com/sdogsq/LorentzNet-release"}
         summary: A Lorentz-equivariant graph network that avoids high-order tensors by attending through Minkowski dot products.
 
@@ -127,6 +131,7 @@ sections:
         idea: Permutation-equivariant layers on Lorentz invariants
         input: Four-vectors
         papers: [Bogatskiy:2022czk]
+        uses: [datasets:top-tagging]
         related: [Bogatskiy:2023nnw]
         links: {Code: "https://github.com/abogatskiy/PELICAN"}
         summary: Takes inputs maximally reduced with respect to Lorentz symmetry and is permutation-equivariant throughout; a covariant variant regresses four-momenta.
@@ -136,6 +141,7 @@ sections:
         idea: Lorentz-equivariant transformer in spacetime geometric algebra
         input: Four-vectors
         papers: [Spinner:2024hjm]
+        uses: [datasets:top-tagging]
         links: {Code: "https://github.com/heidelberg-hepml/lorentz-gatr"}
         summary: A transformer whose features live in the geometric algebra of spacetime and transform equivariantly under the Lorentz group, used for regression, classification and generation.
 

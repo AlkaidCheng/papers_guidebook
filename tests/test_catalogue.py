@@ -118,6 +118,7 @@ sections:
         name: A method
         idea: An idea
         papers: [Doe:2020abc]
+        uses: [datasets:jets]
         links: {Code: "https://example.org/code"}
         summary: A method for tagging.
 """
@@ -367,6 +368,20 @@ class TestLoading(CatalogueDir):
             METHODS_YAML.replace("{key: idea, title: Idea}", "{key: papers, title: P}"),
         )
 
+    def test_rejects_a_use_of_an_unknown_page_or_entry(self) -> None:
+        self.assert_load_error(
+            PAPERS_YAML,
+            DATASETS_YAML,
+            "no entry 'nothing'",
+            METHODS_YAML.replace("datasets:jets", "datasets:nothing"),
+        )
+        self.assert_load_error(
+            PAPERS_YAML,
+            DATASETS_YAML,
+            "no catalogue page 'nowhere'",
+            METHODS_YAML.replace("datasets:jets", "nowhere:jets"),
+        )
+
     def test_rejects_a_record_defined_twice(self) -> None:
         methods = (
             METHODS_YAML.replace(
@@ -483,6 +498,16 @@ class TestBuild(CatalogueDir):
         self.assertIn("<td>An idea</td><td>2020</td></tr>", methods_page)
         self.assertIn('<a href="https://example.org/code">Code</a>', methods_page)
         self.assertIn("<th>Method</th><th>Idea</th><th>Year</th>", methods_page)
+        # The use is linked both ways, on the using row and on the dataset's row.
+        self.assertIn(
+            '<p class="row-uses">Uses: <a href="datasets.md#jets">Jets</a></p>',
+            methods_page,
+        )
+        self.assertIn(
+            '<p class="row-uses">Used in Method Catalogue: '
+            '<a href="methods.md#a-method">A method</a></p>',
+            datasets_page,
+        )
 
         bib = (self.book_dir / "part/datasets.bib").read_text(encoding="utf-8")
         self.assertEqual(

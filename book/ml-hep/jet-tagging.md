@@ -52,7 +52,7 @@ Builds the jet embedding recursively along its sequential-recombination clusteri
 
 Permutation-invariant networks built on Deep Sets; the Energy Flow Network is infrared and collinear safe by construction.
 
-- **Data:** released with the [quark and gluon jets](datasets.md#quark-gluon).
+<p class="row-uses">Uses: <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
 
 <p class="row-links"><a href="papers.md#komiske-2018cqr">Paper</a><a href="https://arxiv.org/abs/1810.05165">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Komiske:2018cqr" data-file="efn-pfn">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1698236">Cited by</a></p>
 
@@ -64,6 +64,8 @@ Permutation-invariant networks built on Deep Sets; the Energy Flow Network is in
 
 Treats the jet as an unordered particle cloud and classifies it with a dynamic graph convolutional network.
 
+<p class="row-uses">Uses: <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a>, <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
+
 <p class="row-links"><a href="papers.md#qu-2019gqs">Paper</a><a href="https://arxiv.org/abs/1902.08570">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Qu:2019gqs" data-file="particlenet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1721352">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Qu:2019gqs" data-text="H. Qu and L. Gouskos, “ParticleNet: Jet Tagging via Particle Clouds”, Phys. Rev. D 101 (2020) 056019, arXiv:1902.08570.">H. Qu and L. Gouskos, “ParticleNet: Jet Tagging via Particle Clouds”, Phys. Rev. D 101 (2020) 056019, arXiv:1902.08570.</span> <button type="button" class="bib-copy" data-cite="Qu:2019gqs">BibTeX</button></li></ul>
@@ -74,7 +76,7 @@ Treats the jet as an unordered particle cloud and classifies it with a dynamic g
 
 Describes the jet as one-to-one interactions between its constituents and classifies it from the representation learned from them.
 
-- **Data:** the [hls4ml jets](datasets.md#hls4ml-jets).
+<p class="row-uses">Uses: <a href="datasets.md#hls4ml-jets">hls4ml LHC jets</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
 
 <p class="row-links"><a href="papers.md#moreno-2019bmu">Paper</a><a href="https://arxiv.org/abs/1908.05318">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Moreno:2019bmu" data-file="jedi-net">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1749751">Cited by</a></p>
 
@@ -101,6 +103,8 @@ A graph network with attention for point-cloud collider data, applied to quark�
 
 Applies a transformer designed for point clouds to the particles of boosted jets.
 
+<p class="row-uses">Uses: <a href="datasets.md#hls4ml-jets">hls4ml LHC jets</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a>, <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
+
 <p class="row-links"><a href="papers.md#mikuni-2021pou">Paper</a><a href="https://arxiv.org/abs/2102.05073">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2021pou" data-file="point-cloud-transformer">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1845779">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Mikuni:2021pou" data-text="V. Mikuni and F. Canelli, “Point cloud transformers applied to collider physics”, Mach. Learn. Sci. Tech. 2 (2021) 035027, arXiv:2102.05073.">V. Mikuni and F. Canelli, “Point cloud transformers applied to collider physics”, Mach. Learn. Sci. Tech. 2 (2021) 035027, arXiv:2102.05073.</span> <button type="button" class="bib-copy" data-cite="Mikuni:2021pou">BibTeX</button></li></ul>
@@ -111,7 +115,9 @@ Applies a transformer designed for point clouds to the particles of boosted jets
 
 A transformer whose attention includes pairwise interaction features between particles.
 
-- **Data:** released with [JetClass](datasets.md#jetclass); pre-trained models improve other tagging tasks after fine-tuning.
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a>, <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
+
+- **Fine-tuning:** models pre-trained on JetClass improve the top-tagging and quark–gluon results.
 
 <p class="row-links"><a href="papers.md#qu-2022mxj">Paper</a><a href="https://arxiv.org/abs/2202.03772">arXiv</a><a href="https://github.com/jet-universe/particle_transformer">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Qu:2022mxj" data-file="particle-transformer">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2029602">Cited by</a></p>
 
@@ -138,6 +144,8 @@ A top tagger whose layers work with particle four-vectors and the Minkowski metr
 
 A network fully equivariant under the Lorentz group, with few parameters and competitive top tagging.
 
+<p class="row-uses">Uses: <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
+
 <p class="row-links"><a href="papers.md#bogatskiy-2020tje">Paper</a><a href="https://arxiv.org/abs/2006.04780">arXiv</a><a href="https://github.com/fizisist/LorentzGroupNetwork">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bogatskiy:2020tje" data-file="lorentz-group-network">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1799848">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Bogatskiy:2020tje" data-text="A. Bogatskiy et al., “Lorentz Group Equivariant Neural Network for Particle Physics”, arXiv:2006.04780.">A. Bogatskiy et al., “Lorentz Group Equivariant Neural Network for Particle Physics”, arXiv:2006.04780.</span> <button type="button" class="bib-copy" data-cite="Bogatskiy:2020tje">BibTeX</button></li></ul>
@@ -147,6 +155,8 @@ A network fully equivariant under the Lorentz group, with few parameters and com
 <tr class="row-detail" id="lorentznet-detail"><td colspan="4">
 
 A Lorentz-equivariant graph network that avoids high-order tensors by attending through Minkowski dot products.
+
+<p class="row-uses">Uses: <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a>, <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
 
 <p class="row-links"><a href="papers.md#gong-2022lye">Paper</a><a href="https://arxiv.org/abs/2201.08187">arXiv</a><a href="https://github.com/sdogsq/LorentzNet-release">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Gong:2022lye" data-file="lorentznet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2014148">Cited by</a></p>
 
@@ -158,6 +168,8 @@ A Lorentz-equivariant graph network that avoids high-order tensors by attending 
 
 Takes inputs maximally reduced with respect to Lorentz symmetry and is permutation-equivariant throughout; a covariant variant regresses four-momenta.
 
+<p class="row-uses">Uses: <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
+
 <p class="row-links"><a href="papers.md#bogatskiy-2022czk">Paper</a><a href="https://arxiv.org/abs/2211.00454">arXiv</a><a href="https://github.com/abogatskiy/PELICAN">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bogatskiy:2022czk" data-file="pelican">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2174635">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Bogatskiy:2022czk" data-text="A. Bogatskiy et al., “PELICAN: Permutation Equivariant and Lorentz Invariant or Covariant Aggregator Network for Particle Physics”, arXiv:2211.00454.">A. Bogatskiy et al., “PELICAN: Permutation Equivariant and Lorentz Invariant or Covariant Aggregator Network for Particle Physics”, arXiv:2211.00454.</span> <button type="button" class="bib-copy" data-cite="Bogatskiy:2022czk">BibTeX</button></li><li class="ref-related"><span class="citation" data-key="Bogatskiy:2023nnw" data-text="A. Bogatskiy et al., “Explainable equivariant neural networks for particle physics: PELICAN”, JHEP 03 (2024) 113, arXiv:2307.16506.">A. Bogatskiy et al., “Explainable equivariant neural networks for particle physics: PELICAN”, JHEP 03 (2024) 113, arXiv:2307.16506.</span> <button type="button" class="bib-copy" data-cite="Bogatskiy:2023nnw">BibTeX</button></li></ul>
@@ -167,6 +179,8 @@ Takes inputs maximally reduced with respect to Lorentz symmetry and is permutati
 <tr class="row-detail" id="l-gatr-detail"><td colspan="4">
 
 A transformer whose features live in the geometric algebra of spacetime and transform equivariantly under the Lorentz group, used for regression, classification and generation.
+
+<p class="row-uses">Uses: <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
 
 <p class="row-links"><a href="papers.md#spinner-2024hjm">Paper</a><a href="https://arxiv.org/abs/2405.14806">arXiv</a><a href="https://github.com/heidelberg-hepml/lorentz-gatr">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Spinner:2024hjm" data-file="l-gatr">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2789600">Cited by</a></p>
 

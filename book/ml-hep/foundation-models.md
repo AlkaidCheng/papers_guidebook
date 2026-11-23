@@ -37,6 +37,8 @@ Contrastive pre-training whose positive pairs are realisations of one event made
 
 Contrastive pre-training on large unlabelled jet samples, fine-tuned for classification with small labelled samples.
 
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
+
 <p class="row-links"><a href="papers.md#zhao-2024kry">Paper</a><a href="https://arxiv.org/abs/2408.09343">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Zhao:2024kry" data-file="contrastive-at-scale">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2819136">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Zhao:2024kry" data-text="Z. Zhao et al., “Large-Scale Pretraining and Finetuning for Efficient Jet Classification in Particle Physics”, ACAT 2024 proceedings, arXiv:2408.09343.">Z. Zhao et al., “Large-Scale Pretraining and Finetuning for Efficient Jet Classification in Particle Physics”, ACAT 2024 proceedings, arXiv:2408.09343.</span> <button type="button" class="bib-copy" data-cite="Zhao:2024kry">BibTeX</button></li></ul>
@@ -47,6 +49,8 @@ Contrastive pre-training on large unlabelled jet samples, fine-tuned for classif
 
 Masks particles of a set and predicts them as tokens of a pre-trained vector-quantised autoencoder.
 
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a></p>
+
 <p class="row-links"><a href="papers.md#golling-2024abg">Paper</a><a href="https://arxiv.org/abs/2401.13537">arXiv</a><a href="https://github.com/rodem-hep/mpm">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Golling:2024abg" data-file="masked-particle-modelling">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2750977">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Golling:2024abg" data-text="T. Golling et al., “Masked particle modeling on sets: towards self-supervised high energy physics foundation models”, Mach. Learn. Sci. Tech. 5 (2024) 035074, arXiv:2401.13537.">T. Golling et al., “Masked particle modeling on sets: towards self-supervised high energy physics foundation models”, Mach. Learn. Sci. Tech. 5 (2024) 035074, arXiv:2401.13537.</span> <button type="button" class="bib-copy" data-cite="Golling:2024abg">BibTeX</button></li></ul>
@@ -56,6 +60,8 @@ Masks particles of a set and predicts them as tokens of a pre-trained vector-qua
 <tr class="row-detail" id="masked-particle-modelling-without-tokens-detail"><td colspan="4">
 
 Reconstructs masked particles with conditional generative decoders instead of discrete tokens.
+
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a></p>
 
 <p class="row-links"><a href="papers.md#leigh-2024ked">Paper</a><a href="https://arxiv.org/abs/2409.12589">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Leigh:2024ked" data-file="masked-particle-modelling-without-tokens">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2830443">Cited by</a></p>
 
@@ -72,6 +78,8 @@ Reconstructs masked particles with conditional generative decoders instead of di
 
 A transformer pre-trained to generate tokenised jets and fine-tuned for jet tagging.
 
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a></p>
+
 - **Collision data:** pre-training on [Aspen Open Jets](datasets.md#aspen-open-jets) improves the generation of JetClass jets.
 
 <p class="row-links"><a href="papers.md#birk-2024knn">Paper</a><a href="https://arxiv.org/abs/2403.05618">arXiv</a><a href="https://github.com/uhh-pd-ml/omnijet_alpha">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Birk:2024knn" data-file="omnijet-alpha">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2767165">Cited by</a></p>
@@ -84,6 +92,8 @@ A transformer pre-trained to generate tokenised jets and fine-tuned for jet tagg
 
 A Point-Edge Transformer with classification and generation heads, applied to reconstruction, unfolding and anomaly detection.
 
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#atlas-top-tagging">ATLAS top tagging</a>, <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
+
 <p class="row-links"><a href="papers.md#mikuni-2024qsr">Paper</a><a href="https://arxiv.org/abs/2404.16091">arXiv</a><a href="https://github.com/ViniciusMikuni/OmniLearn">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Mikuni:2024qsr" data-file="omnilearn">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2780716">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Mikuni:2024qsr" data-text="V. Mikuni and B. Nachman, “Solving key challenges in collider physics with foundation models”, Phys. Rev. D 111 (2025) L051504, arXiv:2404.16091.">V. Mikuni and B. Nachman, “Solving key challenges in collider physics with foundation models”, Phys. Rev. D 111 (2025) L051504, arXiv:2404.16091.</span> <button type="button" class="bib-copy" data-cite="Mikuni:2024qsr">BibTeX</button></li></ul>
@@ -94,10 +104,11 @@ A Point-Edge Transformer with classification and generation heads, applied to re
 
 The successor of OmniLearn, with an updated architecture and training on over a billion jets pooled from public datasets.
 
-- **Data:** 1.06 × 10⁹ training jets from [JetClass](datasets.md#jetclass),
-  [JetClass-II](datasets.md#jetclass-ii), [Aspen Open Jets](datasets.md#aspen-open-jets),
-  the [ATLAS top-tagging data](datasets.md#atlas-top-tagging), H1 deep-inelastic
-  scattering events and CMS simulation of QCD and new-physics processes.
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a>, <a href="datasets.md#jetclass-ii">JetClass-II</a>, <a href="datasets.md#aspen-open-jets">Aspen Open Jets</a>, <a href="datasets.md#atlas-top-tagging">ATLAS top tagging</a>, <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a>, <a href="datasets.md#quark-gluon">Quark and gluon jets</a></p>
+
+- **Pre-training:** 1.06 × 10⁹ jets, also from H1 deep-inelastic scattering
+  events and CMS simulation of QCD and new-physics processes; the top-tagging
+  and quark–gluon datasets are used for evaluation.
 
 <p class="row-links"><a href="papers.md#bhimji-2025isp">Paper</a><a href="https://arxiv.org/abs/2510.24066">arXiv</a><a href="https://github.com/ViniciusMikuni/OmniLearned">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Bhimji:2025isp" data-file="omnilearned">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A3074318">Cited by</a></p>
 
@@ -109,7 +120,7 @@ The successor of OmniLearn, with an updated architecture and training on over a 
 
 A Particle Transformer pre-trained on the finely divided jet classes of JetClass-II, for resonance searches through transfer learning.
 
-- **Data:** [JetClass-II](datasets.md#jetclass-ii).
+<p class="row-uses">Uses: <a href="datasets.md#jetclass-ii">JetClass-II</a></p>
 
 <p class="row-links"><a href="papers.md#li-2024htp">Paper</a><a href="https://arxiv.org/abs/2405.12972">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Li:2024htp" data-file="sophon">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2788738">Cited by</a></p>
 
@@ -135,6 +146,8 @@ A foundation model for sparse detector data, with a new dataset of over 11 milli
 <tr class="row-detail" id="analysis-fine-tuning-detail"><td colspan="4">
 
 Fine-tunes a network trained on JetClass within a search for heavy resonances decaying via di-Higgs to four b-jets.
+
+<p class="row-uses">Uses: <a href="datasets.md#jetclass">JetClass</a></p>
 
 <p class="row-links"><a href="papers.md#vigl-2024lat">Paper</a><a href="https://arxiv.org/abs/2401.13536">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Vigl:2024lat" data-file="analysis-fine-tuning">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2751010">Cited by</a></p>
 

@@ -1,7 +1,8 @@
 # The anomaly-detection methods page, book/ml-hep/anomaly-detection.md, and its
 # BibTeX file. `python scripts/catalogue.py build` writes both from this file and
 # papers.yaml. An entry's year defaults to that of its first paper; code links
-# are those the papers themselves give.
+# are those the papers themselves give; `uses` names, as page:id, the datasets
+# the paper's text shows it trains or evaluates on.
 
 page:
   path: ml-hep/anomaly-detection.md
@@ -44,6 +45,7 @@ sections:
         idea: Weak tagger on one object trains another
         supervision: Weak
         papers: [Amram:2020ykb]
+        uses: [datasets:lhc-olympics]
         links: {Code: "https://github.com/OzAmram/TagNTrain"}
         summary: Uses a weak classifier on one of two sub-objects to build signal-rich and background-rich samples for a stronger classifier on the other.
 
@@ -52,6 +54,7 @@ sections:
         idea: Tree ensembles as the weakly supervised classifier
         supervision: Weak
         papers: [Finke:2023ltw]
+        uses: [datasets:lhc-olympics]
         links: {Code: "https://github.com/uhh-pd-ml/treebased_anomaly_detection"}
         summary: Replaces neural networks by boosted decision trees in weakly supervised anomaly detection, which train faster and keep their performance with many noisy features.
 
@@ -62,6 +65,7 @@ sections:
         idea: Density ratio of data to interpolated sidebands
         supervision: Unsupervised
         papers: [Nachman:2020lpy]
+        uses: [datasets:lhc-olympics]
         summary: Estimates the density of the data in the signal region and in the sidebands, interpolates the latter, and forms a likelihood ratio of data to background.
 
       - id: salad
@@ -69,6 +73,7 @@ sections:
         idea: Simulation reweighted to sideband data
         supervision: Weak, with simulation
         papers: [Andreassen:2020nkr]
+        uses: [datasets:lhc-olympics]
         links: {Code: "https://github.com/bnachman/DCTRHunting"}
         summary: Reweights background simulation to the data in the sidebands, interpolates the reweighting into the signal region, and uses the reweighted simulation as background.
 
@@ -77,6 +82,7 @@ sections:
         idea: Classifier against sampled background
         supervision: Weak
         papers: [Hallin:2021wme]
+        uses: [datasets:lhc-olympics]
         links: {Code: "https://github.com/HEPML-AnomalyDetection/CATHODE"}
         summary: Samples background events from a sideband density estimator interpolated into the signal region and trains a classifier between them and the data.
 
@@ -85,6 +91,7 @@ sections:
         idea: Sideband data mapped into the signal region
         supervision: Weak
         papers: [Raine:2022hht]
+        uses: [datasets:lhc-olympics]
         summary: Invertible networks conditioned on the resonant observable map sideband data into the signal region as the background template.
 
       - id: feta
@@ -92,6 +99,7 @@ sections:
         idea: Flow maps simulation to sideband data
         supervision: Weak, with simulation
         papers: [Golling:2022nkl]
+        uses: [datasets:lhc-olympics]
         links: {Code: "https://github.com/rmastand/FETA"}
         summary: A flow conditioned on the resonant mass maps background simulation to sideband data and is interpolated into the signal region to give the template.
 
