@@ -996,7 +996,7 @@ def html_text(text: str) -> str:
 
 def _a(href: str, label: str, css_class: str = "") -> str:
     class_attr = f' class="{css_class}"' if css_class else ""
-    return f'<a{class_attr} href="{html.escape(href)}">{html.escape(label)}</a>'
+    return f'<a{class_attr} href="{html.escape(href)}">{html_text(label)}</a>'
 
 
 def _cite_button(keys: Iterable[str], file_name: str) -> str:

@@ -115,7 +115,7 @@ sections:
   - title: Networks
     entries:
       - id: a-method
-        name: A method
+        name: A $k_T$ method
         idea: An idea
         papers: [Doe:2020abc]
         uses: [datasets:jets]
@@ -498,14 +498,15 @@ class TestBuild(CatalogueDir):
         self.assertIn("<td>An idea</td><td>2020</td></tr>", methods_page)
         self.assertIn('<a href="https://example.org/code">Code</a>', methods_page)
         self.assertIn("<th>Method</th><th>Idea</th><th>Year</th>", methods_page)
-        # The use is linked both ways, on the using row and on the dataset's row.
+        # The use is linked both ways, on the using row and on the dataset's row,
+        # with the math of the linked names marked for MathJax.
         self.assertIn(
             '<p class="row-uses">Uses: <a href="datasets.md#jets">Jets</a></p>',
             methods_page,
         )
         self.assertIn(
             '<p class="row-uses">Used in Method Catalogue: '
-            '<a href="methods.md#a-method">A method</a></p>',
+            '<a href="methods.md#a-method">A \\(k_T\\) method</a></p>',
             datasets_page,
         )
 
