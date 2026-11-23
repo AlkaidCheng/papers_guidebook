@@ -31,6 +31,14 @@ sections:
         links: {Code: "https://github.com/diana-hep/carl"}
         summary: A classifier trained between simulated samples at two parameter points, once calibrated, approximates their likelihood ratio.
 
+      - id: classifier-losses
+        name: Classifier losses for ratios
+        idea: Losses and parametrisations compared
+        estimates: Likelihood ratio
+        papers: [Rizvi:2023mws]
+        links: {Code: "https://github.com/shahzarrizvi/reweighting-schemes"}
+        summary: Compares the classifier losses and output parametrisations that turn a trained network into a likelihood-ratio estimate.
+
       - id: parameterized-networks
         name: Parameterized networks
         idea: Physics parameters as network inputs
@@ -105,6 +113,39 @@ sections:
         papers: [Ghosh:2021roe]
         links: {Code: "https://github.com/hep-lbdl/systaware"}
         summary: A classifier that depends on the nuisance parameters, which can increase the sensitivity to the parameters of interest.
+
+  - title: Reweighting and unfolding
+    entries:
+      - id: dctr
+        name: DCTR
+        idea: Classifier weights one sample to another
+        estimates: Per-event weights
+        papers: [Andreassen:2019nnm]
+        links: {Code: "https://github.com/bnachman/DCTR"}
+        summary: Reweights one simulation to another, and tunes simulation parameters, with a classifier on the full phase space.
+
+      - id: neural-conditional-reweighting
+        name: Neural conditional reweighting
+        idea: Reweighting conditioned on auxiliary features
+        estimates: Conditional weights
+        papers: [Nachman:2021opi]
+        links: {Code: "https://github.com/hep-lbdl/neuralconditional"}
+        summary: Extends classifier reweighting from marginal to conditional distributions.
+
+      - id: omnifold
+        name: OmniFold
+        idea: Iterated reweighting at detector and particle level
+        estimates: Unfolded distributions
+        papers: [Andreassen:2019cjw]
+        uses: [datasets:omnifold]
+        summary: Unfolds all observables at once, without binning, by iterating classifier reweighting between detector and particle level.
+
+      - id: h1-lepton-jet
+        name: H1 lepton–jet measurement
+        idea: Unbinned unfolding of eight observables
+        estimates: Unfolded cross sections
+        papers: [H1:2021wkz]
+        summary: Lepton–jet correlations in deep-inelastic scattering at HERA, corrected for detector effects with MultiFold.
 
   - title: Software
     entries:

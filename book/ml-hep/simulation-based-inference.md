@@ -22,6 +22,16 @@ A classifier trained between simulated samples at two parameter points, once cal
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Cranmer:2015bka" data-text="K. Cranmer, J. Pavez and G. Louppe, “Approximating Likelihood Ratios with Calibrated Discriminative  Classifiers”, arXiv:1506.02169.">K. Cranmer, J. Pavez and G. Louppe, “Approximating Likelihood Ratios with Calibrated Discriminative  Classifiers”, arXiv:1506.02169.</span> <button type="button" class="bib-copy" data-cite="Cranmer:2015bka">BibTeX</button></li></ul>
 
 </td></tr>
+<tr class="row" id="classifier-losses"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="classifier-losses-detail">Classifier losses for ratios</button></td><td>Losses and parametrisations compared</td><td>Likelihood ratio</td><td>2024</td></tr>
+<tr class="row-detail" id="classifier-losses-detail"><td colspan="4">
+
+Compares the classifier losses and output parametrisations that turn a trained network into a likelihood-ratio estimate.
+
+<p class="row-links"><a href="papers.md#rizvi-2023mws">Paper</a><a href="https://arxiv.org/abs/2305.10500">arXiv</a><a href="https://github.com/shahzarrizvi/reweighting-schemes">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Rizvi:2023mws" data-file="classifier-losses">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2660867">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Rizvi:2023mws" data-text="S. Rizvi, M. Pettee and B. Nachman, “Learning likelihood ratios with neural network classifiers”, JHEP 02 (2024) 136, arXiv:2305.10500.">S. Rizvi, M. Pettee and B. Nachman, “Learning likelihood ratios with neural network classifiers”, JHEP 02 (2024) 136, arXiv:2305.10500.</span> <button type="button" class="bib-copy" data-cite="Rizvi:2023mws">BibTeX</button></li></ul>
+
+</td></tr>
 <tr class="row" id="parameterized-networks"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="parameterized-networks-detail">Parameterized networks</button></td><td>Physics parameters as network inputs</td><td>Classifier over parameters</td><td>2016</td></tr>
 <tr class="row-detail" id="parameterized-networks-detail"><td colspan="4">
 
@@ -120,6 +130,53 @@ A classifier that depends on the nuisance parameters, which can increase the sen
 <p class="row-links"><a href="papers.md#ghosh-2021roe">Paper</a><a href="https://arxiv.org/abs/2105.08742">arXiv</a><a href="https://github.com/hep-lbdl/systaware">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Ghosh:2021roe" data-file="uncertainty-aware">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1864133">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Ghosh:2021roe" data-text="A. Ghosh, B. Nachman and D. Whiteson, “Uncertainty-aware machine learning for high energy physics”, Phys. Rev. D 104 (2021) 056026, arXiv:2105.08742.">A. Ghosh, B. Nachman and D. Whiteson, “Uncertainty-aware machine learning for high energy physics”, Phys. Rev. D 104 (2021) 056026, arXiv:2105.08742.</span> <button type="button" class="bib-copy" data-cite="Ghosh:2021roe">BibTeX</button></li></ul>
+
+</td></tr>
+</tbody></table></div>
+
+## Reweighting and unfolding {: #reweighting-and-unfolding }
+
+<div class="table-wrap"><table class="catalogue-table catalogue-entries"><thead><tr><th>Method</th><th>Idea</th><th>Estimates</th><th>Year</th></tr></thead><tbody>
+<tr class="row" id="dctr"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="dctr-detail">DCTR</button></td><td>Classifier weights one sample to another</td><td>Per-event weights</td><td>2020</td></tr>
+<tr class="row-detail" id="dctr-detail"><td colspan="4">
+
+Reweights one simulation to another, and tunes simulation parameters, with a classifier on the full phase space.
+
+<p class="row-links"><a href="papers.md#andreassen-2019nnm">Paper</a><a href="https://arxiv.org/abs/1907.08209">arXiv</a><a href="https://github.com/bnachman/DCTR">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Andreassen:2019nnm" data-file="dctr">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1744598">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Andreassen:2019nnm" data-text="A. Andreassen and B. Nachman, “Neural Networks for Full Phase-space Reweighting and Parameter Tuning”, Phys. Rev. D 101 (2020) 091901, arXiv:1907.08209.">A. Andreassen and B. Nachman, “Neural Networks for Full Phase-space Reweighting and Parameter Tuning”, Phys. Rev. D 101 (2020) 091901, arXiv:1907.08209.</span> <button type="button" class="bib-copy" data-cite="Andreassen:2019nnm">BibTeX</button></li></ul>
+
+</td></tr>
+<tr class="row" id="neural-conditional-reweighting"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="neural-conditional-reweighting-detail">Neural conditional reweighting</button></td><td>Reweighting conditioned on auxiliary features</td><td>Conditional weights</td><td>2022</td></tr>
+<tr class="row-detail" id="neural-conditional-reweighting-detail"><td colspan="4">
+
+Extends classifier reweighting from marginal to conditional distributions.
+
+<p class="row-links"><a href="papers.md#nachman-2021opi">Paper</a><a href="https://arxiv.org/abs/2107.08979">arXiv</a><a href="https://github.com/hep-lbdl/neuralconditional">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Nachman:2021opi" data-file="neural-conditional-reweighting">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1887032">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Nachman:2021opi" data-text="B. Nachman and J. Thaler, “Neural conditional reweighting”, Phys. Rev. D 105 (2022) 076015, arXiv:2107.08979.">B. Nachman and J. Thaler, “Neural conditional reweighting”, Phys. Rev. D 105 (2022) 076015, arXiv:2107.08979.</span> <button type="button" class="bib-copy" data-cite="Nachman:2021opi">BibTeX</button></li></ul>
+
+</td></tr>
+<tr class="row" id="omnifold"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="omnifold-detail">OmniFold</button></td><td>Iterated reweighting at detector and particle level</td><td>Unfolded distributions</td><td>2020</td></tr>
+<tr class="row-detail" id="omnifold-detail"><td colspan="4">
+
+Unfolds all observables at once, without binning, by iterating classifier reweighting between detector and particle level.
+
+<p class="row-uses">Uses: <a href="datasets.md#omnifold">OmniFold \(Z\)+jets</a></p>
+
+<p class="row-links"><a href="papers.md#andreassen-2019cjw">Paper</a><a href="https://arxiv.org/abs/1911.09107">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Andreassen:2019cjw" data-file="omnifold">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1766424">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Andreassen:2019cjw" data-text="A. Andreassen et al., “OmniFold: A Method to Simultaneously Unfold All Observables”, Phys. Rev. Lett. 124 (2020) 182001, arXiv:1911.09107.">A. Andreassen et al., “OmniFold: A Method to Simultaneously Unfold All Observables”, Phys. Rev. Lett. 124 (2020) 182001, arXiv:1911.09107.</span> <button type="button" class="bib-copy" data-cite="Andreassen:2019cjw">BibTeX</button></li></ul>
+
+</td></tr>
+<tr class="row" id="h1-lepton-jet"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="h1-lepton-jet-detail">H1 lepton–jet measurement</button></td><td>Unbinned unfolding of eight observables</td><td>Unfolded cross sections</td><td>2022</td></tr>
+<tr class="row-detail" id="h1-lepton-jet-detail"><td colspan="4">
+
+Lepton–jet correlations in deep-inelastic scattering at HERA, corrected for detector effects with MultiFold.
+
+<p class="row-links"><a href="papers.md#h1-2021wkz">Paper</a><a href="https://arxiv.org/abs/2108.12376">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="H1:2021wkz" data-file="h1-lepton-jet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1912842">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="H1:2021wkz" data-text="H1 Collaboration, “Measurement of Lepton-Jet Correlation in Deep-Inelastic Scattering with the H1 Detector Using Machine Learning for Unfolding”, Phys. Rev. Lett. 128 (2022) 132002, arXiv:2108.12376.">H1 Collaboration, “Measurement of Lepton-Jet Correlation in Deep-Inelastic Scattering with the H1 Detector Using Machine Learning for Unfolding”, Phys. Rev. Lett. 128 (2022) 132002, arXiv:2108.12376.</span> <button type="button" class="bib-copy" data-cite="H1:2021wkz">BibTeX</button></li></ul>
 
 </td></tr>
 </tbody></table></div>

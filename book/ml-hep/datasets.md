@@ -19,7 +19,7 @@ Hadronic top-quark jets against QCD jets at 14 TeV, the common benchmark of the 
 
 <p class="row-facts">Simulation: Pythia 8, Delphes (ATLAS card)</p>
 
-<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#particlenet">ParticleNet</a>, <a href="jet-tagging.md#jedi-net">JEDI-net</a>, <a href="jet-tagging.md#point-cloud-transformer">Point Cloud Transformer</a>, <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a>, <a href="jet-tagging.md#lorentz-group-network">Lorentz Group Network</a>, <a href="jet-tagging.md#lorentznet">LorentzNet</a>, <a href="jet-tagging.md#pelican">PELICAN</a>, <a href="jet-tagging.md#l-gatr">L-GATr</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#contrastive-at-scale">Contrastive pre-training at scale</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
+<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#particlenet">ParticleNet</a>, <a href="jet-tagging.md#jedi-net">JEDI-net</a>, <a href="jet-tagging.md#point-cloud-transformer">Point Cloud Transformer</a>, <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a>, <a href="jet-tagging.md#lorentz-group-network">Lorentz Group Network</a>, <a href="jet-tagging.md#lorentznet">LorentzNet</a>, <a href="jet-tagging.md#pelican">PELICAN</a>, <a href="jet-tagging.md#l-gatr">L-GATr</a></p><p class="row-uses">Used in Anomaly Detection: <a href="anomaly-detection.md#normalized-autoencoder">Normalized autoencoder</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#contrastive-at-scale">Contrastive pre-training at scale</a>, <a href="foundation-models.md#hep-jepa">HEP-JEPA</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
 
 - **Events:** Pythia 8 at $\sqrt{s} = 14$ TeV, without multiple parton
   interactions or pile-up.
@@ -44,7 +44,7 @@ Quark and gluon jets from $Z$+jet events at 14 TeV, at generator level, in Pythi
 
 <p class="row-facts">Simulation: Pythia 8 or Herwig 7.1.4, generator level</p>
 
-<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#efn-pfn">Energy and Particle Flow Networks</a>, <a href="jet-tagging.md#particlenet">ParticleNet</a>, <a href="jet-tagging.md#point-cloud-transformer">Point Cloud Transformer</a>, <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a>, <a href="jet-tagging.md#lorentznet">LorentzNet</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
+<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#efn-pfn">Energy and Particle Flow Networks</a>, <a href="jet-tagging.md#particlenet">ParticleNet</a>, <a href="jet-tagging.md#point-cloud-transformer">Point Cloud Transformer</a>, <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a>, <a href="jet-tagging.md#lorentznet">LorentzNet</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#hep-jepa">HEP-JEPA</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a></p>
 
 - **Events:** quarks from $qg \to Z(\to \nu\bar\nu)q$, gluons from
   $q\bar q \to Z(\to \nu\bar\nu)g$; no detector simulation.
@@ -67,7 +67,7 @@ Quark and gluon jets from $Z$+jet events at 14 TeV, at generator level, in Pythi
 
 <p class="row-facts">Simulation: MadGraph5_aMC@NLO, Pythia, Delphes (CMS card)</p>
 
-<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#contrastive-at-scale">Contrastive pre-training at scale</a>, <a href="foundation-models.md#masked-particle-modelling">Masked particle modelling</a>, <a href="foundation-models.md#masked-particle-modelling-without-tokens">Masked particle modelling without tokens</a>, <a href="foundation-models.md#omnijet-alpha">OmniJet-α</a>, <a href="foundation-models.md#omnilearn">OmniLearn</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a>, <a href="foundation-models.md#analysis-fine-tuning">Fine-tuning for analysis</a></p>
+<p class="row-uses">Used in Jet-Tagging Architectures: <a href="jet-tagging.md#particle-transformer">Particle Transformer (ParT)</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#contrastive-at-scale">Contrastive pre-training at scale</a>, <a href="foundation-models.md#masked-particle-modelling">Masked particle modelling</a>, <a href="foundation-models.md#masked-particle-modelling-without-tokens">Masked particle modelling without tokens</a>, <a href="foundation-models.md#hep-jepa">HEP-JEPA</a>, <a href="foundation-models.md#omnijet-alpha">OmniJet-α</a>, <a href="foundation-models.md#omnilearn">OmniLearn</a>, <a href="foundation-models.md#omnilearned">OmniLearned</a>, <a href="foundation-models.md#analysis-fine-tuning">Fine-tuning for analysis</a></p>
 
 - **Classes:** $q/g$ background; $H \to b\bar b$, $H \to c\bar c$,
   $H \to gg$, $H \to 4q$, $H \to \ell\nu qq'$, $Z \to q\bar q$,
@@ -325,7 +325,7 @@ Dijet events with a hidden $W' \to XY$ resonance, for resonant anomaly detection
 
 <p class="row-facts">Simulation: Pythia 8, Delphes 3.4.1</p>
 
-<p class="row-uses">Used in Anomaly Detection: <a href="anomaly-detection.md#tag-n-train">Tag N&#x27; Train</a>, <a href="anomaly-detection.md#boosted-decision-trees">Boosted decision trees</a>, <a href="anomaly-detection.md#anode">ANODE</a>, <a href="anomaly-detection.md#salad">SALAD</a>, <a href="anomaly-detection.md#cathode">CATHODE</a>, <a href="anomaly-detection.md#curtains">CURTAINs</a>, <a href="anomaly-detection.md#feta">FETA</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearn">OmniLearn</a></p>
+<p class="row-uses">Used in Anomaly Detection: <a href="anomaly-detection.md#tag-n-train">Tag N&#x27; Train</a>, <a href="anomaly-detection.md#boosted-decision-trees">Boosted decision trees</a>, <a href="anomaly-detection.md#anode">ANODE</a>, <a href="anomaly-detection.md#r-anode">R-ANODE</a>, <a href="anomaly-detection.md#salad">SALAD</a>, <a href="anomaly-detection.md#cathode">CATHODE</a>, <a href="anomaly-detection.md#curtains">CURTAINs</a>, <a href="anomaly-detection.md#feta">FETA</a></p><p class="row-uses">Used in Foundation Models: <a href="foundation-models.md#omnilearn">OmniLearn</a></p>
 
 - **R&D set:** 1 M QCD dijet events and 100,000 $W' \to XY$,
   $X \to jj$, $Y \to jj$ events with masses 3.5 TeV, 500 GeV and
@@ -458,6 +458,8 @@ $H \to \tau\tau$ events with systematic variations, for confidence intervals on 
 $Z$+jet events from Herwig and Pythia at particle and detector level, for unfolding.
 
 <p class="row-facts">Simulation: Herwig 7.1.5, Pythia 8.243, Delphes 3.4.2 (CMS card)</p>
+
+<p class="row-uses">Used in Simulation-Based Inference: <a href="simulation-based-inference.md#omnifold">OmniFold</a></p>
 
 - **Events:** 14 TeV, $Z$ with $p_T > 150$ GeV; Herwig default tune
   and Pythia A14 tune with two of its variations.

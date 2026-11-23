@@ -73,6 +73,18 @@ Estimates the density of the data in the signal region and in the sidebands, int
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Nachman:2020lpy" data-text="B. Nachman and D. Shih, “Anomaly Detection with Density Estimation”, Phys. Rev. D 101 (2020) 075042, arXiv:2001.04990.">B. Nachman and D. Shih, “Anomaly Detection with Density Estimation”, Phys. Rev. D 101 (2020) 075042, arXiv:2001.04990.</span> <button type="button" class="bib-copy" data-cite="Nachman:2020lpy">BibTeX</button></li></ul>
 
 </td></tr>
+<tr class="row" id="r-anode"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="r-anode-detail">R-ANODE</button></td><td>Signal flow fitted with background held fixed</td><td>Unsupervised</td><td>2023</td></tr>
+<tr class="row-detail" id="r-anode-detail"><td colspan="4">
+
+Fits a normalizing flow to the small signal component in the signal region while a sideband-trained background flow stays fixed.
+
+<p class="row-uses">Uses: <a href="datasets.md#lhc-olympics">LHC Olympics 2020</a></p>
+
+<p class="row-links"><a href="papers.md#das-2023bcj">Paper</a><a href="https://arxiv.org/abs/2312.11629">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Das:2023bcj" data-file="r-anode">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2738545">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Das:2023bcj" data-text="R. Das, G. Kasieczka and D. Shih, “Residual ANODE”, arXiv:2312.11629.">R. Das, G. Kasieczka and D. Shih, “Residual ANODE”, arXiv:2312.11629.</span> <button type="button" class="bib-copy" data-cite="Das:2023bcj">BibTeX</button></li></ul>
+
+</td></tr>
 <tr class="row" id="salad"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="salad-detail">SALAD</button></td><td>Simulation reweighted to sideband data</td><td>Weak, with simulation</td><td>2020</td></tr>
 <tr class="row-detail" id="salad-detail"><td colspan="4">
 
@@ -146,6 +158,18 @@ An autoencoder trained on background, or on data with little signal, fails to re
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Farina:2018fyg" data-text="M. Farina, Y. Nakai and D. Shih, “Searching for New Physics with Deep Autoencoders”, Phys. Rev. D 101 (2020) 075021, arXiv:1808.08992.">M. Farina, Y. Nakai and D. Shih, “Searching for New Physics with Deep Autoencoders”, Phys. Rev. D 101 (2020) 075021, arXiv:1808.08992.</span> <button type="button" class="bib-copy" data-cite="Farina:2018fyg">BibTeX</button></li></ul>
 
 </td></tr>
+<tr class="row" id="normalized-autoencoder"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="normalized-autoencoder-detail">Normalized autoencoder</button></td><td>Autoencoder with a probabilistic description</td><td>Unsupervised</td><td>2023</td></tr>
+<tr class="row-detail" id="normalized-autoencoder-detail"><td colspan="4">
+
+An autoencoder with a well-defined probability model, which flags jets of both higher and lower complexity than the background.
+
+<p class="row-uses">Uses: <a href="datasets.md#top-tagging">Top Tagging Reference Dataset</a></p>
+
+<p class="row-links"><a href="papers.md#dillon-2022mkq">Paper</a><a href="https://arxiv.org/abs/2206.14225">arXiv</a><a href="https://github.com/heidelberg-hepml/normalized-autoencoders">Code</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="Dillon:2022mkq" data-file="normalized-autoencoder">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2103430">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="Dillon:2022mkq" data-text="B. M. Dillon et al., “A normalized autoencoder for LHC triggers”, SciPost Phys. Core 6 (2023) 074, arXiv:2206.14225.">B. M. Dillon et al., “A normalized autoencoder for LHC triggers”, SciPost Phys. Core 6 (2023) 074, arXiv:2206.14225.</span> <button type="button" class="bib-copy" data-cite="Dillon:2022mkq">BibTeX</button></li></ul>
+
+</td></tr>
 </tbody></table></div>
 
 ## In LHC searches {: #in-lhc-searches }
@@ -159,6 +183,16 @@ A search for A → BC with large-radius jets on the full Run 2 dataset of 139 fb
 <p class="row-links"><a href="papers.md#atlas-2020iwa">Paper</a><a href="https://arxiv.org/abs/2005.02983">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="ATLAS:2020iwa" data-file="atlas-weak-supervision">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A1794466">Cited by</a></p>
 
 <p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="ATLAS:2020iwa" data-text="ATLAS Collaboration, “Dijet resonance search with weak supervision using $\sqrt{s}=13$ TeV $pp$ collisions in the ATLAS detector”, Phys. Rev. Lett. 125 (2020) 131801, arXiv:2005.02983.">ATLAS Collaboration, “Dijet resonance search with weak supervision using \(\sqrt{s}=13\) TeV \(pp\) collisions in the ATLAS detector”, Phys. Rev. Lett. 125 (2020) 131801, arXiv:2005.02983.</span> <button type="button" class="bib-copy" data-cite="ATLAS:2020iwa">BibTeX</button></li></ul>
+
+</td></tr>
+<tr class="row" id="cms-anomalous-dijet"><td><button type="button" class="row-toggle" aria-expanded="false" aria-controls="cms-anomalous-dijet-detail">CMS dijet search</button></td><td>Several methods on jet substructure</td><td>Unsupervised, weak and semi-supervised</td><td>2025</td></tr>
+<tr class="row-detail" id="cms-anomalous-dijet-detail"><td colspan="4">
+
+A search for dijet resonances between 1.8 and 6 TeV whose jets have anomalous substructure, selected by complementary anomaly-detection methods.
+
+<p class="row-links"><a href="papers.md#cms-2024nsz">Paper</a><a href="https://arxiv.org/abs/2412.03747">arXiv</a><button type="button" class="cite-button" aria-haspopup="menu" aria-expanded="false" data-cite="CMS:2024nsz" data-file="cms-anomalous-dijet">Cite</button><a class="cited-by" href="https://inspirehep.net/literature?q=refersto%3Arecid%3A2856408">Cited by</a></p>
+
+<p class="row-label">References</p><ul class="row-refs"><li class="ref-cite"><span class="citation" data-key="CMS:2024nsz" data-text="CMS Collaboration, “Model-agnostic search for dijet resonances with anomalous jet substructure in proton–proton collisions at $\sqrt{s}$ = 13 TeV”, Rept. Prog. Phys. 88 (2025) 067802, arXiv:2412.03747.">CMS Collaboration, “Model-agnostic search for dijet resonances with anomalous jet substructure in proton–proton collisions at \(\sqrt{s}\) = 13 TeV”, Rept. Prog. Phys. 88 (2025) 067802, arXiv:2412.03747.</span> <button type="button" class="bib-copy" data-cite="CMS:2024nsz">BibTeX</button></li></ul>
 
 </td></tr>
 </tbody></table></div>

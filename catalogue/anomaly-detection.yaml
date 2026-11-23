@@ -68,6 +68,14 @@ sections:
         uses: [datasets:lhc-olympics]
         summary: Estimates the density of the data in the signal region and in the sidebands, interpolates the latter, and forms a likelihood ratio of data to background.
 
+      - id: r-anode
+        name: R-ANODE
+        idea: Signal flow fitted with background held fixed
+        supervision: Unsupervised
+        papers: [Das:2023bcj]
+        uses: [datasets:lhc-olympics]
+        summary: Fits a normalizing flow to the small signal component in the signal region while a sideband-trained background flow stays fixed.
+
       - id: salad
         name: SALAD
         idea: Simulation reweighted to sideband data
@@ -119,6 +127,15 @@ sections:
         papers: [Farina:2018fyg]
         summary: An autoencoder trained on background, or on data with little signal, fails to reconstruct anomalous jets; the error is the anomaly score.
 
+      - id: normalized-autoencoder
+        name: Normalized autoencoder
+        idea: Autoencoder with a probabilistic description
+        supervision: Unsupervised
+        papers: [Dillon:2022mkq]
+        uses: [datasets:top-tagging]
+        links: {Code: "https://github.com/heidelberg-hepml/normalized-autoencoders"}
+        summary: An autoencoder with a well-defined probability model, which flags jets of both higher and lower complexity than the background.
+
   - title: In LHC searches
     entries:
       - id: atlas-weak-supervision
@@ -127,6 +144,13 @@ sections:
         supervision: Weak
         papers: [ATLAS:2020iwa]
         summary: A search for A → BC with large-radius jets on the full Run 2 dataset of 139 fb⁻¹, with classifiers trained directly on data.
+
+      - id: cms-anomalous-dijet
+        name: CMS dijet search
+        idea: Several methods on jet substructure
+        supervision: Unsupervised, weak and semi-supervised
+        papers: [CMS:2024nsz]
+        summary: A search for dijet resonances between 1.8 and 6 TeV whose jets have anomalous substructure, selected by complementary anomaly-detection methods.
 
 see_also: |
   - Benchmarks: the [LHC Olympics](datasets.md#lhc-olympics), [Dark Machines](datasets.md#dark-machines)
