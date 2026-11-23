@@ -27,6 +27,8 @@ categories:
     title: Challenges and comparisons
   - id: method
     title: Methods
+  - id: application
+    title: Applications in experiments
   - id: software
     title: Software
   - id: review
@@ -34,6 +36,7 @@ categories:
 
 tags:
   - anomaly detection
+  - equivariance
   - event classification
   - fast simulation
   - foundation models
@@ -388,6 +391,426 @@ papers:
       Upgrades the OmniLearn model's architecture and training, pools over a
       billion public jets for training, and provides documented software for
       all datasets and models.
+
+  # ---- Jet-tagging architectures ------------------------------------------------
+  Komiske:2016rsd:
+    inspire: 1501944
+    category: method
+    tags: [jet tagging]
+    short: Convolutional networks on multi-channel jet images for quark–gluon discrimination.
+    long: >-
+      Jet images get colour channels for charged and neutral transverse momentum
+      and for charged-particle counts; the deep networks match or outperform
+      traditional jet observables.
+  Louppe:2017ipp:
+    inspire: 1511884
+    category: method
+    tags: [jet tagging]
+    short: Recursive neural networks that follow a jet's clustering history.
+    long: >-
+      Treats four-momenta as words and the sequential-recombination clustering
+      tree as the parse of a sentence; the recursive networks are more accurate
+      and data efficient than image-based ones.
+  Qu:2019gqs:
+    inspire: 1721352
+    category: method
+    tags: [jet tagging]
+    short: ParticleNet, a dynamic graph convolutional network on jets as particle clouds.
+    long: >-
+      Represents a jet as an unordered set of its particles, which respects their
+      permutation symmetry, and improves markedly on earlier methods on two
+      tagging benchmarks.
+  Mikuni:2020wpr:
+    inspire: 1775788
+    category: method
+    tags: [jet tagging]
+    short: ABCNet, a graph network with attention for point-cloud collider data.
+    long: >-
+      Applied to quark–gluon discrimination, a jet-level task, and to pile-up
+      removal, which scores every particle.
+  Mikuni:2021pou:
+    inspire: 1845779
+    category: method
+    tags: [jet tagging]
+    short: The point cloud transformer applied to the particles of collision events.
+    long: >-
+      Adapts a transformer for unordered point sets to jet tagging of highly
+      boosted particles.
+  Bogatskiy:2020tje:
+    inspire: 1799848
+    category: method
+    tags: [jet tagging, equivariance]
+    short: A neural network fully equivariant under the Lorentz group.
+    long: >-
+      Built on finite-dimensional representations of the Lorentz group with
+      tensor-product nonlinearities, it gives simpler, more interpretable models
+      with competitive top-tagging performance.
+  Gong:2022lye:
+    inspire: 2014148
+    category: method
+    tags: [jet tagging, equivariance]
+    short: LorentzNet, a Lorentz-equivariant graph network with Minkowski dot-product attention.
+    long: >-
+      Keeps Lorentz symmetry without the costly high-order tensors of earlier
+      equivariant models, and performs strongly on two jet-tagging benchmarks.
+  Bogatskiy:2022czk:
+    inspire: 2174635
+    category: method
+    tags: [jet tagging, equivariance]
+    short: PELICAN, a permutation-equivariant network on Lorentz-invariant inputs.
+    long: >-
+      Outperforms earlier top taggers with much lower model complexity; a
+      Lorentz-covariant variant regresses four-momenta.
+  Bogatskiy:2023nnw:
+    inspire: 2683691
+    category: method
+    tags: [jet tagging, equivariance]
+    short: A detailed study of PELICAN for tagging and reconstructing boosted top quarks.
+    long: >-
+      Examines the complexity, interpretability and performance of the
+      architecture for classification and four-momentum regression.
+  Spinner:2024hjm:
+    inspire: 2789600
+    category: method
+    tags: [jet tagging, equivariance, generative models]
+    venue: Advances in Neural Information Processing Systems (NeurIPS 2024)
+    short: L-GATr, a Lorentz-equivariant transformer over the geometric algebra of spacetime.
+    long: >-
+      Shown on regression and classification, and used to build what the authors
+      describe as the first Lorentz-equivariant generative model, a continuous
+      normalizing flow.
+
+  # ---- Anomaly detection --------------------------------------------------------
+  Metodiev:2017vrx:
+    inspire: 1615464
+    category: method
+    tags: [anomaly detection]
+    short: Classification without labels (CWoLa), training on mixed samples with different signal fractions.
+    long: >-
+      Needs neither event labels nor class proportions; the optimal classifier
+      between the mixtures is the optimal fully supervised classifier.
+  Collins:2018epr:
+    inspire: 1672143
+    category: method
+    tags: [anomaly detection]
+    short: CWoLa hunting, a weakly supervised bump hunt for signals localised in one feature.
+    long: >-
+      Classifiers trained between a signal region and its sidebands use other,
+      uncorrelated features to enhance an unknown signal; shown on a dijet
+      resonance search.
+  Collins:2019jip:
+    inspire: 1718003
+    category: method
+    tags: [anomaly detection]
+    short: The CWoLa-hunting extension of the bump hunt, in full detail.
+    long: >-
+      Uses the invariant mass to build a signal-rich and a signal-poor sample and
+      trains classifiers on features uncorrelated with it.
+  Heimel:2018mkt:
+    inspire: 1691810
+    category: method
+    tags: [anomaly detection]
+    short: Autoencoders trained on QCD jets to find anomalous jet substructure.
+    long: >-
+      Works on images or four-vectors, and an adversary de-correlates the jet
+      mass so that backgrounds and systematics stay controllable.
+  Farina:2018fyg:
+    inspire: 1691732
+    category: method
+    tags: [anomaly detection]
+    short: Deep autoencoders whose reconstruction error flags anomalous jets.
+    long: >-
+      Trained on background, or on data with a small signal admixture, they
+      enhance top and RPV gluino jets over QCD jets.
+  Nachman:2020lpy:
+    inspire: 1775739
+    category: method
+    tags: [anomaly detection]
+    short: ANODE, anomaly detection with neural density estimates in the signal region and sidebands.
+    long: >-
+      Interpolates the sideband density into the signal region to form a
+      likelihood ratio of data to background, which also estimates the
+      background directly.
+  Andreassen:2020nkr:
+    inspire: 1775741
+    category: method
+    tags: [anomaly detection]
+    short: SALAD, simulation reweighted to sideband data as the background model of a resonant search.
+    long: >-
+      Learns a parametrised reweighting of simulation to data in the sidebands
+      and interpolates it into the signal region.
+  Amram:2020ykb:
+    inspire: 1782967
+    category: method
+    tags: [anomaly detection]
+    short: Tag N' Train, classifiers trained on unlabelled data with two sub-objects.
+    long: >-
+      A weak classifier on one object tags signal-rich and background-rich
+      samples, on which a stronger classifier for the other object is trained.
+  Hallin:2021wme:
+    inspire: 1915354
+    category: method
+    tags: [anomaly detection]
+    short: CATHODE, a classifier between data and background events sampled from a sideband density estimator.
+    long: >-
+      A conditional density estimator trained outside the signal region is
+      interpolated into it and sampled, approaching the optimal anomaly
+      detector.
+  Raine:2022hht:
+    inspire: 2054235
+    category: method
+    tags: [anomaly detection]
+    short: CURTAINs, invertible networks that map sideband data into the signal region as a background template.
+    long: >-
+      The transformation is conditioned on the resonant observable; the template
+      is used for anomaly detection in a sliding-window bump hunt.
+  Golling:2022nkl:
+    inspire: 2617394
+    category: method
+    tags: [anomaly detection]
+    short: FETA, a flow that maps background simulation to sideband data to build the background template.
+    long: >-
+      Conditioned on the resonant mass and trained with the signal region
+      blinded, the flow is interpolated into it; shown on the LHC Olympics data.
+  Finke:2023ltw:
+    inspire: 2702512
+    category: method
+    tags: [anomaly detection]
+    short: Boosted decision trees as the classifiers of weakly supervised anomaly detection.
+    long: >-
+      They outperform neural networks when there are many noisy input features,
+      and train and evaluate much faster.
+  ATLAS:2020iwa:
+    inspire: 1794466
+    category: application
+    tags: [anomaly detection]
+    short: A dijet resonance search in ATLAS data with classifiers trained by weak supervision.
+    long: >-
+      Searches for A → BC with large-radius jets B and C on 139 fb⁻¹ of 13 TeV
+      data, using the two jet masses as features and no signal simulation to
+      develop the selection.
+  Belis:2023mqs:
+    inspire: 2740326
+    category: review
+    tags: [anomaly detection]
+    short: A review of machine-learning anomaly detection in particle physics.
+    long: >-
+      Covers detector monitoring and searches for unexpected events, their
+      challenges and the successful applications.
+
+  # ---- Simulation-based inference ---------------------------------------------
+  Cranmer:2015bka:
+    inspire: 1377273
+    category: method
+    tags: [inference]
+    short: CARL, likelihood ratios approximated by calibrated discriminative classifiers.
+    long: >-
+      Classifiers trained on simulated samples approximate the likelihood ratio
+      when the simulator cannot evaluate the likelihood.
+  Brehmer:2018kdj:
+    inspire: 1670936
+    category: method
+    tags: [inference]
+    short: Likelihood-ratio estimators trained with extra information from the simulator, for effective field theories.
+    long: >-
+      They scale to many observables and parameters without approximating the
+      shower or detector, and give stronger bounds on dimension-six operators.
+  Brehmer:2018eca:
+    inspire: 1670939
+    category: method
+    tags: [inference]
+    short: A guide to, and comparison of, machine-learning inference techniques for collider parameters.
+    long: >-
+      Compares estimators on weak-boson-fusion Higgs production; the best are
+      trained with extra information about the score from the simulator.
+  Brehmer:2018hga:
+    inspire: 1675782
+    category: method
+    tags: [inference]
+    short: Mining gold, latent information from simulators as extra training targets for neural surrogates.
+    long: >-
+      New loss functions use this augmented data to improve the sample
+      efficiency of density and ratio estimators.
+  Brehmer:2019xox:
+    inspire: 1746275
+    category: software
+    tags: [inference]
+    short: MadMiner, a Python package for machine-learning-based inference with MadGraph, Pythia and Delphes.
+    long: >-
+      Streamlines matrix-element-augmented inference on high-dimensional event
+      data, from generation to trained estimators.
+  DeCastro:2018psv:
+    inspire: 1677673
+    category: method
+    tags: [inference]
+    short: INFERNO, summary statistics trained to minimise the uncertainty on the parameters of interest.
+    long: >-
+      Optimises non-linear summaries with an inference-aware loss that accounts
+      for nuisance parameters.
+  Ghosh:2021roe:
+    inspire: 1864133
+    category: method
+    tags: [inference]
+    short: Classifiers aware of systematic uncertainties and their nuisance parameters.
+    long: >-
+      Contrary to building analyses insensitive to uncertainties, this
+      dependence can enhance the sensitivity to the parameters of interest.
+  Hermans:2019ioj:
+    inspire: 1725106
+    category: method
+    tags: [inference]
+    venue: Proc. 37th International Conference on Machine Learning (2020)
+    short: Amortised estimators of the likelihood-to-evidence ratio, used inside MCMC.
+    long: >-
+      One trained ratio estimator gives the likelihood ratios between states of
+      a Markov chain, so the posterior can be sampled without the likelihood.
+  Papamakarios:2016ctj:
+    inspire: 2778549
+    category: method
+    tags: [inference]
+    venue: Advances in Neural Information Processing Systems 29 (2016)
+    short: Posterior estimation by Bayesian conditional density estimation, without an ε tolerance.
+    long: >-
+      Replaces the ε-ball of approximate Bayesian computation by a neural
+      conditional density estimate of the posterior.
+  Papamakarios:2018zoy:
+    inspire: 2821953
+    category: method
+    tags: [inference]
+    venue: Proc. 22nd International Conference on Artificial Intelligence and Statistics (2019)
+    short: Sequential neural likelihood, an autoregressive flow trained to model the likelihood.
+    long: >-
+      Sequential rounds of simulation focus on the region of high posterior
+      density and cut the simulation cost by orders of magnitude.
+  ATLAS:2025clx:
+    inspire: 2854620
+    category: method
+    tags: [inference]
+    short: A neural simulation-based inference framework for full-scale ATLAS analyses.
+    long: >-
+      Neural networks estimate per-event density ratios, and the framework
+      incorporates many systematic uncertainties without binning the data.
+  ATLAS:2024jry:
+    inspire: 2854934
+    category: application
+    tags: [inference]
+    short: Off-shell Higgs production in H* → ZZ → 4ℓ measured with neural simulation-based inference.
+    long: >-
+      Builds per-event likelihood ratios with neural networks on 140 fb⁻¹ of
+      13 TeV data, superseding the earlier result in this channel.
+  Cranmer:2019eaq:
+    inspire: 1763198
+    category: review
+    tags: [inference]
+    short: A review of simulation-based inference across the sciences.
+    long: >-
+      Reviews the field and the developments that give it momentum.
+  Brehmer:2020cvb:
+    inspire: 1822448
+    category: review
+    tags: [inference]
+    venue: Artificial Intelligence for Particle Physics, World Scientific (to appear)
+    short: A review of simulation-based inference methods for particle physics.
+    long: >-
+      Explains why the likelihood of high-dimensional LHC data is intractable
+      and reviews methods that combine machine learning with information from
+      the simulator.
+  Papamakarios:2019fms:
+    inspire: 2727228
+    category: review
+    tags: [inference, generative models]
+    short: A review of normalizing flows for probabilistic modelling and inference.
+    long: >-
+      Treats the principles of flow design, expressive power and computational
+      trade-offs.
+
+  # ---- Foundation models --------------------------------------------------------
+  Dillon:2021gag:
+    inspire: 1903053
+    category: method
+    tags: [foundation models, jet tagging]
+    short: JetCLR, self-supervised contrastive learning of jet representations.
+    long: >-
+      A permutation-invariant transformer encoder learns representations of top
+      and QCD jets, compared with other representations by linear classifier
+      tests.
+  Harris:2024sra:
+    inspire: 2767709
+    category: method
+    tags: [foundation models]
+    short: RS3L, contrastive pre-training with augmentations made by resimulating parts of an event.
+    long: >-
+      Rerunning the simulation downstream of an intervention gives several
+      realisations of one event as positive pairs.
+  Zhao:2024kry:
+    inspire: 2819136
+    category: method
+    tags: [foundation models, jet tagging]
+    venue: ACAT 2024 proceedings
+    short: Contrastive pre-training on large unlabelled jet samples, then fine-tuning for classification.
+    long: >-
+      Learns representations with augmentations on jets and fine-tunes them with
+      small labelled samples.
+  Golling:2024abg:
+    inspire: 2750977
+    category: method
+    tags: [foundation models]
+    short: Masked particle modelling, self-supervised pre-training on sets by predicting masked particles.
+    long: >-
+      Masked particles are predicted as tokens of a pre-trained vector-quantised
+      autoencoder, and the representations transfer to downstream tasks.
+  Leigh:2024ked:
+    inspire: 2830443
+    category: method
+    tags: [foundation models]
+    short: Masked particle modelling without tokenisation, with conditional generative decoders.
+    long: >-
+      Improves the implementation and the decoder, and reconstructs the masked
+      particles with conditional generative models instead of discrete tokens.
+  Birk:2024knn:
+    inspire: 2767165
+    category: method
+    tags: [foundation models, generative models, jet tagging]
+    short: OmniJet-α, a transformer pre-trained to generate tokenised jets and fine-tuned for tagging.
+    long: >-
+      Introduces evaluation methods for tokenising physics data and shows
+      transfer from unsupervised jet generation to jet tagging; described by its
+      authors as the first cross-task foundation model for particle physics.
+  Mikuni:2024qsr:
+    inspire: 2780716
+    category: method
+    tags: [foundation models, jet tagging]
+    short: OmniLearn, a jet foundation model applied to reconstruction, unfolding and anomaly detection.
+    long: >-
+      A Point-Edge Transformer with classification and generation heads,
+      pre-trained on JetClass, saves computing in reconstruction, enables
+      uncertainty quantification for high-dimensional measurements and searches
+      with low-level inputs.
+  Vigl:2024lat:
+    inspire: 2751010
+    category: method
+    tags: [foundation models, jet tagging]
+    short: A pre-trained jet network fine-tuned within a downstream analysis.
+    long: >-
+      Shows gains in performance and data efficiency in a search for heavy
+      resonances decaying via di-Higgs to four b-jets.
+  Park:2025ebs:
+    inspire: 2962442
+    category: method
+    tags: [foundation models, reconstruction]
+    short: FM4NPP, a scaling foundation model for detector data in nuclear and particle physics.
+    long: >-
+      Introduces a dataset of over 11 million collision events with downstream
+      tasks, and a self-supervised method for sparse detector data with neural
+      scaling behaviour.
+  Hallin:2025ywf:
+    inspire: 2973870
+    category: review
+    tags: [foundation models]
+    short: A review of foundation models in high-energy physics.
+    long: >-
+      Summarises and discusses the published work on pre-trained models for
+      particle physics.
 
   # ---- Software -----------------------------------------------------------------
   Kansal:2023iqy:

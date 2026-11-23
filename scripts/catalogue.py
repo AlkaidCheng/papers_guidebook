@@ -1,12 +1,13 @@
-"""Build the catalogue pages of the book: papers, datasets and their BibTeX.
+"""Build the catalogue pages of the book from paper records and entry pages.
 
-``catalogue/papers.yaml`` holds one record per paper and ``catalogue/datasets.yaml``
-one entry per dataset together with the data records that hold its files. These files
-carry only what a person has to write: descriptions, categories, tags and the facts of
-each dataset. The bibliographic metadata (titles, authors, journals, identifiers,
-BibTeX and reference lists) comes from INSPIRE-HEP for papers and from DataCite for data
-records. ``fetch`` stores it in ``catalogue/cache.json``, and ``build`` reads that cache,
-so a build never needs the network.
+``catalogue/papers.yaml`` holds one record per paper. Every other YAML file in
+``catalogue/`` is one page of entries, such as datasets or methods: it declares the
+columns of its tables and holds the entries, each citing papers of ``papers.yaml`` and,
+for datasets, the data records that hold the files. These files carry only what a person
+writes. The bibliographic metadata (titles, authors, journals, identifiers, BibTeX and
+reference lists) comes from INSPIRE-HEP for papers and from DataCite for data records.
+``fetch`` stores it in ``catalogue/cache.json``, and ``build`` reads that cache, so a
+build never needs the network.
 
 Usage::
 
@@ -40,12 +41,12 @@ import yaml
 REPO_DIR = Path(__file__).resolve().parent.parent
 #: The catalogue sources.
 CATALOGUE_DIR = REPO_DIR / "catalogue"
-PAPERS_PATH = CATALOGUE_DIR / "papers.yaml"
-DATASETS_PATH = CATALOGUE_DIR / "datasets.yaml"
 #: Metadata fetched from INSPIRE-HEP and DataCite.
 CACHE_PATH = CATALOGUE_DIR / "cache.json"
 #: The book's sources, which ``bookspine build`` reads.
 BOOK_DIR = REPO_DIR / "book"
+#: The book's configuration, whose parts list the pages in reading order.
+BOOK_CONFIG_PATH = REPO_DIR / "book.yaml"
 
 # ---- Remote services ---------------------------------------------------------
 
@@ -87,13 +88,18 @@ CITATION_AUTHOR_LIMIT = 3
 PAPER_LABEL = "Paper"
 DATA_LABEL = "Data"
 CITED_BY_LABEL = "Cited by"
-#: The columns of each table; every other fact appears when a row is opened.
-DATASET_COLUMNS = ("Dataset", "Content", "Simulation", "Size", "Year")
+#: The last column of every entries table.
+YEAR_COLUMN = "Year"
+#: The columns of the papers tables; every other fact appears when a row is opened.
 PAPER_COLUMNS = ("Paper", "Authors", "Year")
+#: The file of paper records; every other YAML file in the catalogue is a page.
+PAPERS_FILE_NAME = "papers.yaml"
 #: The keys each kind of mapping in the catalogue files may hold.
 PAPERS_FILE_KEYS = {"page", "intro", "categories", "tags", "papers"}
-DATASETS_FILE_KEYS = {"page", "intro", "sections", "see_also", "records"}
-PAGE_KEYS = {"path", "title", "summary"}
+ENTRIES_FILE_KEYS = {"page", "intro", "table", "sections", "see_also", "records"}
+PAGE_KEYS = {"path", "title", "label", "summary"}
+TABLE_KEYS = {"name", "columns", "facts"}
+COLUMN_KEYS = {"key", "title"}
 PAPER_KEYS = {
     "inspire",
     "category",
@@ -118,19 +124,17 @@ RECORD_KEYS = {
     "bibtex",
 }
 SECTION_KEYS = {"title", "id", "entries"}
+#: The keys every entry may hold; the page's own columns and facts add theirs.
 ENTRY_KEYS = {
     "id",
     "name",
     "year",
-    "content",
-    "level",
     "summary",
-    "simulation",
-    "size",
     "papers",
     "data",
     "related",
     "details",
+    "links",
 }
 
 
@@ -370,24 +374,23 @@ class Record:
 
 @dataclass(frozen=True)
 class Entry:
-    """One dataset on the datasets page."""
+    """One row of an entries page: a dataset, a method or a model."""
 
     id: str
     name: str
-    year: int
-    content: str
-    level: str
     summary: str
     papers: tuple[str, ...]
+    year: int | None = None
     data: tuple[str, ...] = ()
-    simulation: str = ""
-    size: str = ""
     related: tuple[str, ...] = ()
     details: str = ""
+    cells: dict[str, str] = field(default_factory=dict)
+    facts: dict[str, str] = field(default_factory=dict)
+    links: dict[str, str] = field(default_factory=dict)
 
     @property
     def cited(self) -> tuple[str, ...]:
-        """What a result obtained with this dataset cites: its papers and records."""
+        """What a result obtained with this entry cites: its papers and records."""
         return self.papers + self.data
 
 
@@ -401,11 +404,36 @@ class Section:
 
 
 @dataclass(frozen=True)
+class Column:
+    """A value every entry of a page gives, under a title."""
+
+    key: str
+    title: str
+
+
+@dataclass(frozen=True)
+class Table:
+    """The shape of a page's tables.
+
+    The first column holds the entry's name under the title `name`, the last its year;
+    `columns` lie between. `facts` are shown, with their titles, when a row is opened.
+    """
+
+    name: str
+    columns: tuple[Column, ...] = ()
+    facts: tuple[Column, ...] = ()
+
+
+@dataclass(frozen=True)
 class Page:
-    """Where a catalogue page goes and what it says at its head."""
+    """Where a catalogue page goes and what it says at its head.
+
+    `label` names the page in the rows of the papers it cites, as in "Datasets".
+    """
 
     path: Path
     title: str
+    label: str
     summary: str
     intro: str
 
@@ -422,11 +450,12 @@ class PapersFile:
 
 
 @dataclass(frozen=True)
-class DatasetsFile:
-    """The contents of ``datasets.yaml``."""
+class EntriesFile:
+    """The contents of one entries page's YAML file."""
 
     source_path: Path
     page: Page
+    table: Table
     sections: tuple[Section, ...]
     records: dict[str, Record]
     see_also: str = ""
@@ -465,6 +494,7 @@ def _page(raw: dict, where: str) -> Page:
     return Page(
         path=Path(str(_required(page, "path", f"{where}: page"))),
         title=str(_required(page, "title", f"{where}: page")),
+        label=str(page.get("label") or page["title"]),
         summary=str(_required(page, "summary", f"{where}: page")),
         intro=str(_required(raw, "intro", where)).strip(),
     )
@@ -520,20 +550,18 @@ def load_papers(path: Path) -> PapersFile:
     return PapersFile(path, _page(raw, where), categories, tags, papers)
 
 
-def load_datasets(path: Path, papers: dict[str, Paper]) -> DatasetsFile:
-    """Read and check ``datasets.yaml`` against the papers it cites.
+def _columns(items: Any, where: str) -> tuple[Column, ...]:
+    columns = []
+    for item in items or ():
+        item = _mapping(item, COLUMN_KEYS, where)
+        key = str(_required(item, "key", where))
+        columns.append(Column(key, str(_required(item, "title", where))))
+    return tuple(columns)
 
-    Raises
-    ------
-    CatalogueError
-        On an unknown or missing key, a repeated entry id, a citation of an unknown
-        paper or record, a record no entry cites, or an entry with several records of
-        which one has no label.
-    """
-    where = str(path)
-    raw = _mapping(_read_yaml(path), DATASETS_FILE_KEYS, where)
+
+def _records(raw: Any, where: str) -> dict[str, Record]:
     records = {}
-    for key, spec in _required(raw, "records", where).items():
+    for key, spec in (raw or {}).items():
         record_where = f"{where}: record {key}"
         spec = _mapping(spec, RECORD_KEYS, record_where)
         record = Record(
@@ -555,6 +583,60 @@ def load_datasets(path: Path, papers: dict[str, Paper]) -> DatasetsFile:
                     f"{record_where}: its bibtex must use the key {key!r}"
                 )
         records[key] = record
+    return records
+
+
+def _entry(raw: Any, table: Table, where: str) -> Entry:
+    own = {column.key for column in table.columns + table.facts}
+    raw = _mapping(raw, ENTRY_KEYS | own, where)
+    entry_id = str(_required(raw, "id", where))
+    where = f"{where}: entry {entry_id}"
+    links = _mapping(raw.get("links") or {}, set(raw.get("links") or {}), where)
+    for label, url in links.items():
+        if not str(url).startswith("https://"):
+            raise CatalogueError(f"{where}: link {label!r} is not an https address")
+    return Entry(
+        id=entry_id,
+        name=str(_required(raw, "name", where)),
+        summary=str(_required(raw, "summary", where)).strip(),
+        papers=tuple(_required(raw, "papers", where)),
+        year=int(raw["year"]) if raw.get("year") else None,
+        data=tuple(raw.get("data") or ()),
+        related=tuple(raw.get("related") or ()),
+        details=str(raw.get("details") or "").strip(),
+        cells={column.key: str(raw.get(column.key) or "") for column in table.columns},
+        facts={
+            column.key: str(raw[column.key])
+            for column in table.facts
+            if raw.get(column.key)
+        },
+        links={str(label): str(url) for label, url in links.items()},
+    )
+
+
+def load_entries(path: Path, papers: dict[str, Paper]) -> EntriesFile:
+    """Read and check one entries page against the papers it cites.
+
+    Raises
+    ------
+    CatalogueError
+        On an unknown or missing key, a column whose key an entry already uses, a
+        repeated entry id, a citation of an unknown paper or record, a record no entry
+        cites, an entry with several records of which one has no label, or a link that
+        is not an https address.
+    """
+    where = str(path)
+    raw = _mapping(_read_yaml(path), ENTRIES_FILE_KEYS, where)
+    spec = _mapping(_required(raw, "table", where), TABLE_KEYS, f"{where}: table")
+    table = Table(
+        name=str(_required(spec, "name", f"{where}: table")),
+        columns=_columns(spec.get("columns"), f"{where}: table columns"),
+        facts=_columns(spec.get("facts"), f"{where}: table facts"),
+    )
+    clash = {column.key for column in table.columns + table.facts} & ENTRY_KEYS
+    if clash:
+        raise CatalogueError(f"{where}: table keys {sorted(clash)} are entry keys")
+    records = _records(raw.get("records"), where)
 
     sections: list[Section] = []
     seen: set[str] = set()
@@ -564,26 +646,11 @@ def load_datasets(path: Path, papers: dict[str, Paper]) -> DatasetsFile:
         raw_section = _mapping(raw_section, SECTION_KEYS, section_where)
         entries = []
         for raw_entry in _required(raw_section, "entries", section_where):
-            raw_entry = _mapping(raw_entry, ENTRY_KEYS, section_where)
-            entry_id = str(_required(raw_entry, "id", section_where))
-            entry_where = f"{where}: entry {entry_id}"
-            if entry_id in seen:
+            entry = _entry(raw_entry, table, section_where)
+            entry_where = f"{where}: entry {entry.id}"
+            if entry.id in seen:
                 raise CatalogueError(f"{entry_where}: id used twice")
-            seen.add(entry_id)
-            entry = Entry(
-                id=entry_id,
-                name=str(_required(raw_entry, "name", entry_where)),
-                year=int(_required(raw_entry, "year", entry_where)),
-                content=str(_required(raw_entry, "content", entry_where)),
-                level=str(_required(raw_entry, "level", entry_where)),
-                summary=str(_required(raw_entry, "summary", entry_where)).strip(),
-                papers=tuple(_required(raw_entry, "papers", entry_where)),
-                data=tuple(raw_entry.get("data") or ()),
-                simulation=str(raw_entry.get("simulation") or ""),
-                size=str(raw_entry.get("size") or ""),
-                related=tuple(raw_entry.get("related") or ()),
-                details=str(raw_entry.get("details") or "").strip(),
-            )
+            seen.add(entry.id)
             for key in entry.papers:
                 if key not in papers:
                     raise CatalogueError(f"{entry_where}: unknown paper {key!r}")
@@ -602,20 +669,33 @@ def load_datasets(path: Path, papers: dict[str, Paper]) -> DatasetsFile:
             cited.update(entry.data, entry.related)
             entries.append(entry)
         title = str(_required(raw_section, "title", section_where))
-        sections.append(
-            Section(title, str(raw_section.get("id") or slug(title)), tuple(entries))
-        )
+        section_id = str(raw_section.get("id") or slug(title))
+        sections.append(Section(title, section_id, tuple(entries)))
 
     unused = set(records) - cited
     if unused:
         raise CatalogueError(f"{where}: records no entry cites: {sorted(unused)}")
-    return DatasetsFile(
+    return EntriesFile(
         source_path=path,
         page=_page(raw, where),
+        table=table,
         sections=tuple(sections),
         records=records,
         see_also=str(raw.get("see_also") or "").strip(),
     )
+
+
+def book_page_order(book_config_path: Path) -> list[Path]:
+    """Return the pages of ``book.yaml`` in reading order, as paths under ``book/``."""
+    config = _read_yaml(book_config_path) or {}
+    order = []
+    for part in config.get("parts") or ():
+        for chapter in part.get("chapters") or ():
+            if isinstance(chapter, str):
+                order.append(Path(part["dir"]) / chapter)
+            elif isinstance(chapter, dict) and chapter.get("dir"):
+                order.append(Path(part["dir"]) / chapter["dir"] / "index.md")
+    return order
 
 
 def slug(text: str) -> str:
@@ -726,14 +806,18 @@ def fetch_record(record: Record, interval_s: float) -> Metadata:
 
 @dataclass
 class Catalogue:
-    """The papers and datasets with their metadata and cross-references resolved."""
+    """The papers and entry pages with their metadata and cross-references resolved.
+
+    `introduces` holds, for each paper, the entries citing it as their paper, with the
+    page each is on.
+    """
 
     papers_file: PapersFile
-    datasets_file: DatasetsFile
+    pages: list[EntriesFile]
     metadata: dict[str, Metadata]
     cites: dict[str, list[str]] = field(default_factory=dict)
     cited_by: dict[str, list[str]] = field(default_factory=dict)
-    introduces: dict[str, list[Entry]] = field(default_factory=dict)
+    introduces: dict[str, list[tuple[EntriesFile, Entry]]] = field(default_factory=dict)
 
     @property
     def papers(self) -> dict[str, Paper]:
@@ -742,8 +826,10 @@ class Catalogue:
 
     @property
     def records(self) -> dict[str, Record]:
-        """Every data record, by key."""
-        return self.datasets_file.records
+        """Every data record of every page, by key."""
+        return {
+            key: record for page in self.pages for key, record in page.records.items()
+        }
 
 
 def paper_metadata(paper: Paper, cache: dict) -> Metadata:
@@ -807,16 +893,17 @@ def record_metadata(record: Record, cache: dict) -> Metadata:
 
 
 def resolve(
-    papers_file: PapersFile, datasets_file: DatasetsFile, cache: dict
+    papers_file: PapersFile, pages: list[EntriesFile], cache: dict
 ) -> Catalogue:
     """Combine the catalogue files with the cache and work out the cross-references."""
     metadata = {
         key: paper_metadata(paper, cache.get("papers", {}))
         for key, paper in papers_file.papers.items()
     }
-    for key, record in datasets_file.records.items():
-        metadata[key] = record_metadata(record, cache.get("records", {}))
-    catalogue = Catalogue(papers_file, datasets_file, metadata)
+    for page in pages:
+        for key, record in page.records.items():
+            metadata[key] = record_metadata(record, cache.get("records", {}))
+    catalogue = Catalogue(papers_file, pages, metadata)
     by_recid = {
         paper.inspire: key for key, paper in papers_file.papers.items() if paper.inspire
     }
@@ -831,9 +918,10 @@ def resolve(
             catalogue.cited_by.setdefault(other, []).append(key)
     for key in catalogue.cited_by:
         catalogue.cited_by[key].sort(key=lambda other: _paper_order(catalogue, other))
-    for entry in datasets_file.entries:
-        for key in entry.papers:
-            catalogue.introduces.setdefault(key, []).append(entry)
+    for page in pages:
+        for entry in page.entries:
+            for key in entry.papers:
+                catalogue.introduces.setdefault(key, []).append((page, entry))
     return catalogue
 
 
@@ -1007,9 +1095,11 @@ def _detail_row(row_id: str, span: int, body: list[str], tags: str = "") -> str:
     )
 
 
-def dataset_rows_markdown(catalogue: Catalogue, entry: Entry) -> str:
-    """Return a dataset's table row and the detail row it opens."""
-    page = catalogue.datasets_file.page
+def entry_rows_markdown(
+    catalogue: Catalogue, page_file: EntriesFile, entry: Entry
+) -> str:
+    """Return an entry's table row and the detail row it opens."""
+    page = page_file.page
     first = entry.papers[0]
     first_meta = catalogue.metadata[first]
     papers_href = _relative(page, catalogue.papers_file.page)
@@ -1019,6 +1109,8 @@ def dataset_rows_markdown(catalogue: Catalogue, entry: Entry) -> str:
     for key in entry.data:
         label = catalogue.records[key].label or DATA_LABEL
         links.append(_a(primary_url(catalogue.metadata[key]), label))
+    for label, url in entry.links.items():
+        links.append(_a(url, label))
     links.append(_cite_button(entry.cited, entry.id))
     if url := cited_by_url(catalogue.papers[first]):
         links.append(_a(url, CITED_BY_LABEL, "cited-by"))
@@ -1030,34 +1122,41 @@ def dataset_rows_markdown(catalogue: Catalogue, entry: Entry) -> str:
             f'<li class="ref-{role}">{_citation_html(key, catalogue.metadata[key])} '
             f"{_bibtex_button(key)}</li>"
         )
-    simulation = (
-        f'<p class="row-facts">Simulation: {html_text(entry.simulation)}</p>'
-        if entry.simulation
-        else ""
+    facts = "".join(
+        f'<p class="row-facts">{html.escape(column.title)}: '
+        f"{html_text(entry.facts[column.key])}</p>"
+        for column in page_file.table.facts
+        if column.key in entry.facts
     )
     body = [
         entry.summary,
-        simulation,
+        facts,
         entry.details,
         f'<p class="row-links">{"".join(links)}</p>',
         f'<p class="row-label">References</p><ul class="row-refs">{"".join(items)}</ul>',
     ]
-    cells = [entry.name, entry.content, entry.level, entry.size, str(entry.year)]
+    year = entry.year or first_meta.year
+    cells = [
+        entry.name,
+        *(entry.cells[column.key] for column in page_file.table.columns),
+        str(year or ""),
+    ]
     main = _main_row(entry.id, [html_text(cell) for cell in cells])
     return main + "\n" + _detail_row(entry.id, len(cells), body)
 
 
-def datasets_page_markdown(catalogue: Catalogue) -> str:
-    """Return the Markdown of the datasets page: one table per section."""
-    datasets_file = catalogue.datasets_file
-    lines = _front_matter(datasets_file.page, datasets_file.source_path)
-    lines += [_tools(datasets_file.page), ""]
-    for section in datasets_file.sections:
-        rows = [dataset_rows_markdown(catalogue, entry) for entry in section.entries]
+def entries_page_markdown(catalogue: Catalogue, page_file: EntriesFile) -> str:
+    """Return the Markdown of an entries page: one table per section."""
+    table = page_file.table
+    columns = [table.name, *(column.title for column in table.columns), YEAR_COLUMN]
+    lines = _front_matter(page_file.page, page_file.source_path)
+    lines += [_tools(page_file.page), ""]
+    for section in page_file.sections:
+        rows = [entry_rows_markdown(catalogue, page_file, e) for e in section.entries]
         lines += [f"## {section.title} {{: #{section.id} }}", ""]
-        lines += [_table("datasets", list(DATASET_COLUMNS), rows)]
-    if datasets_file.see_also:
-        lines += ["## See also {: #see-also }", "", datasets_file.see_also, ""]
+        lines += [_table("entries", columns, rows)]
+    if page_file.see_also:
+        lines += ["## See also {: #see-also }", "", page_file.see_also, ""]
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -1089,10 +1188,13 @@ def paper_rows_markdown(catalogue: Catalogue, paper: Paper) -> str:
     if url := cited_by_url(paper):
         links.append(_a(url, CITED_BY_LABEL, "cited-by"))
 
-    venue = meta.venue or "Preprint"
-    if meta.year and str(meta.year) not in venue:
-        venue = f"{venue} ({meta.year})"
-    facts: list[tuple[str, str]] = [("Venue", html_text(venue))]
+    facts: list[tuple[str, str]] = []
+    # A paper INSPIRE knows no journal for gets no venue line rather than a guess.
+    if meta.venue:
+        venue = meta.venue
+        if meta.year and str(meta.year) not in venue:
+            venue = f"{venue} ({meta.year})"
+        facts.append(("Venue", html_text(venue)))
     if meta.collaboration:
         authors = f"{meta.collaboration} Collaboration ({meta.author_count} authors)"
         facts.append(("Authors", html.escape(authors)))
@@ -1102,14 +1204,16 @@ def paper_rows_markdown(catalogue: Catalogue, paper: Paper) -> str:
         facts.append(
             ("Authors", html.escape(names + (f" and {more} more" if more > 0 else "")))
         )
-    if entries := catalogue.introduces.get(paper.key):
-        datasets_href = _relative(page, catalogue.datasets_file.page)
-        facts.append(
-            (
-                "Datasets",
-                ", ".join(_a(datasets_href + "#" + e.id, e.name) for e in entries),
-            )
-        )
+    for entries_file in catalogue.pages:
+        introduced = [
+            entry
+            for page_file, entry in catalogue.introduces.get(paper.key, ())
+            if page_file is entries_file
+        ]
+        if introduced:
+            href = _relative(page, entries_file.page)
+            names = ", ".join(_a(href + "#" + e.id, e.name) for e in introduced)
+            facts.append((entries_file.page.label, names))
     if cites := catalogue.cites.get(paper.key):
         facts.append(("Cites in this guide", _paper_list(catalogue, cites, page)))
     if cited := catalogue.cited_by.get(paper.key):
@@ -1182,16 +1286,50 @@ def bibtex_file(entries: Iterable[str]) -> str:
 class Settings:
     """Where the catalogue is read from and the pages written to."""
 
-    papers_path: Path = PAPERS_PATH
-    datasets_path: Path = DATASETS_PATH
+    catalogue_dir: Path = CATALOGUE_DIR
+    book_config_path: Path = BOOK_CONFIG_PATH
     cache_path: Path = CACHE_PATH
     book_dir: Path = BOOK_DIR
     request_interval_s: float = REQUEST_INTERVAL_S
 
-    def load(self) -> tuple[PapersFile, DatasetsFile]:
-        """Read and check both catalogue files."""
+    @property
+    def papers_path(self) -> Path:
+        """The file of paper records."""
+        return self.catalogue_dir / PAPERS_FILE_NAME
+
+    def load(self) -> tuple[PapersFile, list[EntriesFile]]:
+        """Read and check the paper records and every entries page.
+
+        The pages come in the reading order of ``book.yaml``.
+
+        Raises
+        ------
+        CatalogueError
+            If a page is not in ``book.yaml``, or two pages define the same record.
+        """
         papers_file = load_papers(self.papers_path)
-        return papers_file, load_datasets(self.datasets_path, papers_file.papers)
+        pages = [
+            load_entries(path, papers_file.papers)
+            for path in sorted(self.catalogue_dir.glob("*.yaml"))
+            if path.name != PAPERS_FILE_NAME
+        ]
+        order = book_page_order(self.book_config_path)
+        for page in pages:
+            if page.page.path not in order:
+                raise CatalogueError(
+                    f"{page.source_path}: page {page.page.path} is not in "
+                    f"{display_path(self.book_config_path)}"
+                )
+        pages.sort(key=lambda page: order.index(page.page.path))
+        seen: dict[str, Path] = {}
+        for page in pages:
+            for key in page.records:
+                if key in seen:
+                    raise CatalogueError(
+                        f"{page.source_path}: record {key!r} is also in {seen[key]}"
+                    )
+                seen[key] = page.source_path
+        return papers_file, pages
 
     def read_cache(self) -> dict:
         """Return the fetched metadata, or an empty cache if none exists yet."""
@@ -1202,25 +1340,24 @@ class Settings:
 
 def outputs(catalogue: Catalogue, book_dir: Path) -> dict[Path, str]:
     """Return every file the build writes, with its content."""
-    datasets_page = catalogue.datasets_file.page
+    files = {}
+    for page_file in catalogue.pages:
+        keys: dict[str, None] = {}
+        for entry in page_file.entries:
+            for key in entry.cited + entry.related:
+                keys.setdefault(key)
+        page_path = book_dir / page_file.page.path
+        files[page_path] = entries_page_markdown(catalogue, page_file)
+        files[page_path.with_suffix(".bib")] = bibtex_file(
+            catalogue.metadata[key].bibtex for key in keys
+        )
     papers_page = catalogue.papers_file.page
-    dataset_keys: dict[str, None] = {}
-    for entry in catalogue.datasets_file.entries:
-        for key in entry.cited + entry.related:
-            dataset_keys.setdefault(key)
     paper_keys = sorted(catalogue.papers, key=lambda key: _paper_order(catalogue, key))
-    return {
-        book_dir / datasets_page.path: datasets_page_markdown(catalogue),
-        book_dir
-        / datasets_page.path.with_suffix(".bib"): bibtex_file(
-            catalogue.metadata[key].bibtex for key in dataset_keys
-        ),
-        book_dir / papers_page.path: papers_page_markdown(catalogue),
-        book_dir
-        / papers_page.path.with_suffix(".bib"): bibtex_file(
-            catalogue.metadata[key].bibtex for key in paper_keys
-        ),
-    }
+    files[book_dir / papers_page.path] = papers_page_markdown(catalogue)
+    files[book_dir / papers_page.path.with_suffix(".bib")] = bibtex_file(
+        catalogue.metadata[key].bibtex for key in paper_keys
+    )
+    return files
 
 
 def build(settings: Settings, check: bool = False) -> list[Path]:
@@ -1238,8 +1375,8 @@ def build(settings: Settings, check: bool = False) -> list[Path]:
     list of Path
         The files written, or with `check`, the files that are out of date.
     """
-    papers_file, datasets_file = settings.load()
-    catalogue = resolve(papers_file, datasets_file, settings.read_cache())
+    papers_file, pages = settings.load()
+    catalogue = resolve(papers_file, pages, settings.read_cache())
     changed = []
     for path, content in outputs(catalogue, settings.book_dir).items():
         current = path.read_text(encoding="utf-8") if path.is_file() else None
@@ -1267,7 +1404,8 @@ def fetch(settings: Settings, refresh: bool = False) -> list[str]:
     list of str
         The keys fetched.
     """
-    papers_file, datasets_file = settings.load()
+    papers_file, pages = settings.load()
+    records = {key: record for page in pages for key, record in page.records.items()}
     cache = settings.read_cache()
     fetched = []
     for key, paper in papers_file.papers.items():
@@ -1276,7 +1414,7 @@ def fetch(settings: Settings, refresh: bool = False) -> list[str]:
                 fetch_paper(paper, settings.request_interval_s)
             )
             fetched.append(key)
-    for key, record in datasets_file.records.items():
+    for key, record in records.items():
         if record.doi and (refresh or key not in cache["records"]):
             cache["records"][key] = asdict(
                 fetch_record(record, settings.request_interval_s)
@@ -1291,7 +1429,7 @@ def fetch(settings: Settings, refresh: bool = False) -> list[str]:
         "records": {
             key: cache["records"][key]
             for key in sorted(cache["records"])
-            if key in datasets_file.records
+            if key in records
         },
     }
     settings.cache_path.write_text(

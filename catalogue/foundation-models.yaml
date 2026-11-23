@@ -1,0 +1,125 @@
+# The foundation models page, book/ml-hep/foundation-models.md, and its BibTeX
+# file. `python scripts/catalogue.py build` writes both from this file and
+# papers.yaml. An entry's year defaults to that of its first paper; code links
+# are those the papers themselves give. Pre-training data is as each paper's
+# text names it.
+
+page:
+  path: ml-hep/foundation-models.md
+  title: Foundation Models
+  label: Foundation models
+  summary: Pre-trained models and self-supervised methods for particle physics data, with their pre-training data, papers and code.
+
+intro: >-
+  Models pre-trained on large samples of particle physics data, and the
+  self-supervised methods behind them. Entries were last checked against their
+  papers in November 2026.
+
+table:
+  name: Model
+  columns:
+    - {key: objective, title: Pre-training}
+    - {key: dataset, title: Data}
+
+sections:
+  - title: Self-supervised representations
+    entries:
+      - id: jetclr
+        name: JetCLR
+        objective: Contrastive
+        dataset: Top and QCD jets
+        papers: [Dillon:2021gag]
+        links: {Code: "https://github.com/bmdillon/JetCLR"}
+        summary: A permutation-invariant transformer encoder trained by contrastive learning to give jet representations with chosen symmetries.
+
+      - id: rs3l
+        name: RS3L
+        objective: Contrastive, with resimulation
+        dataset: Resimulated jets
+        papers: [Harris:2024sra]
+        summary: Contrastive pre-training whose positive pairs are realisations of one event made by rerunning the simulation after an intervention.
+
+      - id: contrastive-at-scale
+        name: Contrastive pre-training at scale
+        objective: Contrastive
+        dataset: JetClass
+        papers: [Zhao:2024kry]
+        summary: Contrastive pre-training on large unlabelled jet samples, fine-tuned for classification with small labelled samples.
+
+      - id: masked-particle-modelling
+        name: Masked particle modelling
+        objective: Predict masked particles (tokens)
+        dataset: JetClass
+        papers: [Golling:2024abg]
+        links: {Code: "https://github.com/rodem-hep/mpm"}
+        summary: Masks particles of a set and predicts them as tokens of a pre-trained vector-quantised autoencoder.
+
+      - id: masked-particle-modelling-without-tokens
+        name: Masked particle modelling without tokens
+        objective: Reconstruct masked particles
+        dataset: JetClass
+        papers: [Leigh:2024ked]
+        summary: Reconstructs masked particles with conditional generative decoders instead of discrete tokens.
+
+  - title: Multi-task models
+    entries:
+      - id: omnijet-alpha
+        name: OmniJet-α
+        objective: Next-token generation
+        dataset: JetClass
+        papers: [Birk:2024knn]
+        links: {Code: "https://github.com/uhh-pd-ml/omnijet_alpha"}
+        summary: A transformer pre-trained to generate tokenised jets and fine-tuned for jet tagging.
+        details: |
+          - **Collision data:** pre-training on [Aspen Open Jets](datasets.md#aspen-open-jets) improves the generation of JetClass jets.
+
+      - id: omnilearn
+        name: OmniLearn
+        objective: Classification and generation
+        dataset: JetClass
+        papers: [Mikuni:2024qsr]
+        links: {Code: "https://github.com/ViniciusMikuni/OmniLearn"}
+        summary: A Point-Edge Transformer with classification and generation heads, applied to reconstruction, unfolding and anomaly detection.
+
+      - id: omnilearned
+        name: OmniLearned
+        objective: Classification and generation
+        dataset: About 10⁹ pooled public jets
+        papers: [Bhimji:2025isp]
+        links: {Code: "https://github.com/ViniciusMikuni/OmniLearned"}
+        summary: The successor of OmniLearn, with an updated architecture and training on over a billion jets pooled from public datasets.
+        details: |
+          - **Data:** 1.06 × 10⁹ training jets from [JetClass](datasets.md#jetclass),
+            [JetClass-II](datasets.md#jetclass-ii), [Aspen Open Jets](datasets.md#aspen-open-jets),
+            the [ATLAS top-tagging data](datasets.md#atlas-top-tagging), H1 deep-inelastic
+            scattering events and CMS simulation of QCD and new-physics processes.
+
+      - id: sophon
+        name: Sophon
+        objective: Classification into 188 classes
+        dataset: JetClass-II
+        papers: [Li:2024htp]
+        summary: A Particle Transformer pre-trained on the finely divided jet classes of JetClass-II, for resonance searches through transfer learning.
+        details: |
+          - **Data:** [JetClass-II](datasets.md#jetclass-ii).
+
+      - id: fm4npp
+        name: FM4NPP
+        objective: Self-supervised on detector hits
+        dataset: 11 M sPHENIX events
+        papers: [Park:2025ebs]
+        summary: A foundation model for sparse detector data, with a new dataset of over 11 million events and evidence of neural scaling.
+
+  - title: Fine-tuning in analyses
+    entries:
+      - id: analysis-fine-tuning
+        name: Fine-tuning for analysis
+        objective: JetClass classification
+        dataset: JetClass
+        papers: [Vigl:2024lat]
+        summary: Fine-tunes a network trained on JetClass within a search for heavy resonances decaying via di-Higgs to four b-jets.
+
+see_also: |
+  - A review of the field: [Hallin](papers.md#hallin-2025ywf).
+  - Pre-training data: [JetClass](datasets.md#jetclass), [JetClass-II](datasets.md#jetclass-ii)
+    and [Aspen Open Jets](datasets.md#aspen-open-jets).

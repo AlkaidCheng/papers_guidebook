@@ -1,0 +1,126 @@
+# The anomaly-detection methods page, book/ml-hep/anomaly-detection.md, and its
+# BibTeX file. `python scripts/catalogue.py build` writes both from this file and
+# papers.yaml. An entry's year defaults to that of its first paper; code links
+# are those the papers themselves give.
+
+page:
+  path: ml-hep/anomaly-detection.md
+  title: Anomaly Detection
+  label: Anomaly detection
+  summary: Machine-learning methods for model-agnostic searches, from classification without labels to background templates and autoencoders.
+
+intro: >-
+  Machine-learning methods for searches that do not assume a signal model,
+  grouped by how they model the background. Entries were last checked against
+  their papers in November 2026.
+
+table:
+  name: Method
+  columns:
+    - {key: idea, title: Idea}
+    - {key: supervision, title: Supervision}
+
+sections:
+  - title: Weak supervision
+    entries:
+      - id: cwola
+        name: Classification without labels (CWoLa)
+        idea: Classifier between two mixed samples
+        supervision: Weak
+        papers: [Metodiev:2017vrx]
+        summary: Trains a classifier between two mixtures with different signal fractions; the optimal classifier between them is the optimal fully supervised one.
+
+      - id: cwola-hunting
+        name: CWoLa hunting
+        idea: Signal region against its sidebands
+        supervision: Weak
+        papers: [Collins:2018epr]
+        related: [Collins:2019jip]
+        links: {Code: "https://github.com/jackhcollins/CWoLa-Hunting"}
+        summary: A bump hunt in which classifiers trained between a signal region and its sidebands enhance an unknown resonance with features uncorrelated with the resonant one.
+
+      - id: tag-n-train
+        name: Tag N' Train
+        idea: Weak tagger on one object trains another
+        supervision: Weak
+        papers: [Amram:2020ykb]
+        links: {Code: "https://github.com/OzAmram/TagNTrain"}
+        summary: Uses a weak classifier on one of two sub-objects to build signal-rich and background-rich samples for a stronger classifier on the other.
+
+      - id: boosted-decision-trees
+        name: Boosted decision trees
+        idea: Tree ensembles as the weakly supervised classifier
+        supervision: Weak
+        papers: [Finke:2023ltw]
+        links: {Code: "https://github.com/uhh-pd-ml/treebased_anomaly_detection"}
+        summary: Replaces neural networks by boosted decision trees in weakly supervised anomaly detection, which train faster and keep their performance with many noisy features.
+
+  - title: Background templates
+    entries:
+      - id: anode
+        name: ANODE
+        idea: Density ratio of data to interpolated sidebands
+        supervision: Unsupervised
+        papers: [Nachman:2020lpy]
+        summary: Estimates the density of the data in the signal region and in the sidebands, interpolates the latter, and forms a likelihood ratio of data to background.
+
+      - id: salad
+        name: SALAD
+        idea: Simulation reweighted to sideband data
+        supervision: Weak, with simulation
+        papers: [Andreassen:2020nkr]
+        links: {Code: "https://github.com/bnachman/DCTRHunting"}
+        summary: Reweights background simulation to the data in the sidebands, interpolates the reweighting into the signal region, and uses the reweighted simulation as background.
+
+      - id: cathode
+        name: CATHODE
+        idea: Classifier against sampled background
+        supervision: Weak
+        papers: [Hallin:2021wme]
+        links: {Code: "https://github.com/HEPML-AnomalyDetection/CATHODE"}
+        summary: Samples background events from a sideband density estimator interpolated into the signal region and trains a classifier between them and the data.
+
+      - id: curtains
+        name: CURTAINs
+        idea: Sideband data mapped into the signal region
+        supervision: Weak
+        papers: [Raine:2022hht]
+        summary: Invertible networks conditioned on the resonant observable map sideband data into the signal region as the background template.
+
+      - id: feta
+        name: FETA
+        idea: Flow maps simulation to sideband data
+        supervision: Weak, with simulation
+        papers: [Golling:2022nkl]
+        links: {Code: "https://github.com/rmastand/FETA"}
+        summary: A flow conditioned on the resonant mass maps background simulation to sideband data and is interpolated into the signal region to give the template.
+
+  - title: Autoencoders
+    entries:
+      - id: adversarial-autoencoder
+        name: Adversarial autoencoder
+        idea: Reconstruction error, de-correlated from mass
+        supervision: Unsupervised
+        papers: [Heimel:2018mkt]
+        summary: An autoencoder trained on QCD jets flags anomalous substructure, with an adversary that de-correlates the jet mass.
+
+      - id: deep-autoencoder
+        name: Deep autoencoder
+        idea: Reconstruction error as anomaly score
+        supervision: Unsupervised
+        papers: [Farina:2018fyg]
+        summary: An autoencoder trained on background, or on data with little signal, fails to reconstruct anomalous jets; the error is the anomaly score.
+
+  - title: In LHC searches
+    entries:
+      - id: atlas-weak-supervision
+        name: ATLAS dijet search
+        idea: Weakly supervised classifiers on jet masses
+        supervision: Weak
+        papers: [ATLAS:2020iwa]
+        summary: A search for A → BC with large-radius jets on the full Run 2 dataset of 139 fb⁻¹, with classifiers trained directly on data.
+
+see_also: |
+  - Benchmarks: the [LHC Olympics](datasets.md#lhc-olympics), [Dark Machines](datasets.md#dark-machines)
+    and [ADC2021](datasets.md#adc2021) datasets.
+  - A review of the field: [Belis et al.](papers.md#belis-2023mqs).

@@ -2,8 +2,9 @@
 # `python scripts/catalogue.py build` writes both from this file, papers.yaml
 # and the cache.
 #
-# Entries: `content`, `level`, `size` and `year` fill the table row; `summary`,
-# `simulation` and `details` appear when the row is opened. `papers` (keys of
+# Entries: the `table` columns (`content`, `level`, `size`) and `year` fill the
+# table row; `summary`, the `simulation` fact and `details` appear when the row is
+# opened. `papers` (keys of
 # papers.yaml) and `data` (keys of `records` below) are what a result obtained
 # with the dataset cites; `related` papers or records appear only in the
 # opened row.
@@ -20,12 +21,22 @@
 page:
   path: ml-hep/datasets.md
   title: Public Datasets
+  label: Datasets
   summary: Public datasets for training and benchmarking machine-learning models in particle physics, with their papers, data records and BibTeX.
 
 intro: >-
   Public datasets for training and benchmarking machine-learning models in
   particle physics, grouped by task. Entries were last checked against their
   records in November 2026.
+
+table:
+  name: Dataset
+  columns:
+    - {key: content, title: Content}
+    - {key: level, title: Simulation}
+    - {key: size, title: Size}
+  facts:
+    - {key: simulation, title: Simulation}
 
 sections:
   - title: Jet tagging

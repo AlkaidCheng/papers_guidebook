@@ -1,0 +1,124 @@
+# The simulation-based inference page, book/ml-hep/simulation-based-inference.md,
+# and its BibTeX file. `python scripts/catalogue.py build` writes both from this
+# file and papers.yaml. An entry's year defaults to that of its first paper;
+# code links are those the papers themselves give.
+
+page:
+  path: ml-hep/simulation-based-inference.md
+  title: Simulation-Based Inference
+  label: Inference methods
+  summary: Methods that infer physics parameters from simulators whose likelihood cannot be evaluated, with their papers and code.
+
+intro: >-
+  Methods that infer parameters from simulators whose likelihood cannot be
+  evaluated, grouped by what they estimate. Entries were last checked against
+  their papers in November 2026.
+
+table:
+  name: Method
+  columns:
+    - {key: idea, title: Idea}
+    - {key: estimates, title: Estimates}
+
+sections:
+  - title: Likelihood ratios
+    entries:
+      - id: carl
+        name: CARL
+        idea: Calibrated classifier between parameter points
+        estimates: Likelihood ratio
+        papers: [Cranmer:2015bka]
+        links: {Code: "https://github.com/diana-hep/carl"}
+        summary: A classifier trained between simulated samples at two parameter points, once calibrated, approximates their likelihood ratio.
+
+      - id: parameterized-networks
+        name: Parameterized networks
+        idea: Physics parameters as network inputs
+        estimates: Classifier over parameters
+        papers: [Baldi:2016fzo]
+        summary: One classifier takes the physics parameters, such as a particle's mass, as inputs and interpolates between the values it was trained at.
+
+      - id: augmented-data
+        name: Estimators with augmented data
+        idea: Joint likelihood ratio and score from the simulator
+        estimates: Likelihood ratio, score
+        papers: [Brehmer:2018kdj, Brehmer:2018eca]
+        links: {Code: "https://github.com/johannbrehmer/higgs_inference"}
+        summary: Neural estimators trained with the joint likelihood ratio and score that the simulator provides for each event, applied to effective field theories.
+
+      - id: mining-gold
+        name: Mining gold
+        idea: Latent information as extra training targets
+        estimates: Likelihood, ratio, score
+        papers: [Brehmer:2018hga]
+        links: {Code: "https://github.com/johannbrehmer/goldmine"}
+        summary: Loss functions that use the latent information of a simulator to train density and ratio estimators with fewer simulations.
+
+      - id: amortised-ratio-estimators
+        name: Amortised ratio estimators
+        idea: Likelihood-to-evidence ratio inside MCMC
+        estimates: Likelihood-to-evidence ratio
+        papers: [Hermans:2019ioj]
+        links: {Code: "https://github.com/montefiore-institute/hypothesis"}
+        summary: One trained estimator of the likelihood-to-evidence ratio gives the likelihood ratios a Markov chain needs to sample the posterior.
+
+      - id: atlas-nsbi
+        name: Neural SBI in ATLAS
+        idea: Per-event density ratios with systematics
+        estimates: Density ratios
+        papers: [ATLAS:2025clx]
+        related: [ATLAS:2024jry]
+        summary: A framework for full-scale analyses that estimates per-event density ratios with neural networks and carries many systematic uncertainties, used to measure off-shell Higgs production.
+
+  - title: Densities and posteriors
+    entries:
+      - id: neural-posterior-estimation
+        name: Neural posterior estimation
+        idea: Conditional density estimate of the posterior
+        estimates: Posterior
+        papers: [Papamakarios:2016ctj]
+        links: {Code: "https://github.com/gpapamak/epsilon_free_inference"}
+        summary: Estimates the posterior directly with a neural conditional density estimator instead of the ε-ball of approximate Bayesian computation.
+
+      - id: sequential-neural-likelihood
+        name: Sequential neural likelihood
+        idea: Autoregressive flow with sequential simulation
+        estimates: Likelihood
+        papers: [Papamakarios:2018zoy]
+        links: {Code: "https://github.com/gpapamak/snl"}
+        summary: Trains an autoregressive flow as a model of the likelihood, with rounds of simulation focused where the posterior is high.
+
+  - title: Summaries and nuisance parameters
+    entries:
+      - id: inferno
+        name: INFERNO
+        idea: Summaries trained to minimise parameter uncertainty
+        estimates: Summary statistic
+        papers: [DeCastro:2018psv]
+        links: {Code: "https://github.com/pablodecm/paper-inferno"}
+        summary: Trains non-linear summary statistics with an inference-aware loss that includes the nuisance parameters.
+
+      - id: uncertainty-aware
+        name: Uncertainty-aware classifiers
+        idea: Classifier parameterised by nuisance parameters
+        estimates: Classifier over nuisances
+        papers: [Ghosh:2021roe]
+        links: {Code: "https://github.com/hep-lbdl/systaware"}
+        summary: A classifier that depends on the nuisance parameters, which can increase the sensitivity to the parameters of interest.
+
+  - title: Software
+    entries:
+      - id: madminer
+        name: MadMiner
+        idea: Workflow from MadGraph, Pythia and Delphes to estimators
+        estimates: Likelihood ratio, score
+        papers: [Brehmer:2019xox]
+        links: {Code: "https://github.com/madminer-tool/madminer"}
+        summary: A Python package that runs the steps of matrix-element-augmented inference, from event generation to trained estimators.
+
+see_also: |
+  - Reviews: [the frontier of simulation-based inference](papers.md#cranmer-2019eaq),
+    [simulation-based inference for particle physics](papers.md#brehmer-2020cvb)
+    and [normalizing flows](papers.md#papamakarios-2019fms).
+  - A benchmark with systematic uncertainties: the
+    [FAIR Universe HiggsML Uncertainty](datasets.md#fair-universe) dataset.

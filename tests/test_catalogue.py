@@ -76,6 +76,14 @@ papers:
 DATASETS_YAML = """
 page: {path: part/datasets.md, title: Datasets, summary: All datasets.}
 intro: The datasets.
+table:
+  name: Dataset
+  columns:
+    - {key: content, title: Content}
+    - {key: level, title: Simulation}
+    - {key: size, title: Size}
+  facts:
+    - {key: simulation, title: Simulation}
 sections:
   - title: Jet tagging
     entries:
@@ -94,6 +102,36 @@ sections:
           - **Note:** details.
 records:
   data:jets: {doi: 10.5281/zenodo.1}
+"""
+
+METHODS_YAML = """
+page: {path: part/methods.md, title: Method Catalogue, label: Methods, summary: All methods.}
+intro: The methods.
+table:
+  name: Method
+  columns:
+    - {key: idea, title: Idea}
+sections:
+  - title: Networks
+    entries:
+      - id: a-method
+        name: A method
+        idea: An idea
+        papers: [Doe:2020abc]
+        links: {Code: "https://example.org/code"}
+        summary: A method for tagging.
+"""
+
+BOOK_YAML = """
+title: Book
+author: Author
+parts:
+  - dir: part
+    title: Part
+    chapters:
+      - datasets.md
+      - methods.md
+      - papers.md
 """
 
 
@@ -234,20 +272,22 @@ class TestNames(unittest.TestCase):
 
 
 class CatalogueDir(unittest.TestCase):
-    """A temporary catalogue: two YAML files, a cache and an empty book."""
+    """A temporary catalogue: papers, two entry pages, a cache, book.yaml, a book."""
 
     def setUp(self) -> None:
         self.tmp = tempfile.TemporaryDirectory()
         root = Path(self.tmp.name)
-        self.papers_path = root / "papers.yaml"
-        self.datasets_path = root / "datasets.yaml"
+        self.catalogue_dir = root / "catalogue"
+        self.catalogue_dir.mkdir()
         self.cache_path = root / "cache.json"
+        self.book_config_path = root / "book.yaml"
         self.book_dir = root / "book"
         self.write(PAPERS_YAML, DATASETS_YAML)
+        self.book_config_path.write_text(BOOK_YAML, encoding="utf-8")
         self.cache_path.write_text(json.dumps(CACHE), encoding="utf-8")
         self.settings = catalogue.Settings(
-            papers_path=self.papers_path,
-            datasets_path=self.datasets_path,
+            catalogue_dir=self.catalogue_dir,
+            book_config_path=self.book_config_path,
             cache_path=self.cache_path,
             book_dir=self.book_dir,
             request_interval_s=0,
@@ -256,23 +296,86 @@ class CatalogueDir(unittest.TestCase):
     def tearDown(self) -> None:
         self.tmp.cleanup()
 
-    def write(self, papers: str, datasets: str) -> None:
-        self.papers_path.write_text(textwrap.dedent(papers), encoding="utf-8")
-        self.datasets_path.write_text(textwrap.dedent(datasets), encoding="utf-8")
+    def write(self, papers: str, datasets: str, methods: str = METHODS_YAML) -> None:
+        for name, text in (
+            ("papers.yaml", papers),
+            ("datasets.yaml", datasets),
+            ("methods.yaml", methods),
+        ):
+            (self.catalogue_dir / name).write_text(
+                textwrap.dedent(text), encoding="utf-8"
+            )
 
-    def assert_load_error(self, papers: str, datasets: str, message: str) -> None:
-        self.write(papers, datasets)
+    def assert_load_error(
+        self, papers: str, datasets: str, message: str, methods: str = METHODS_YAML
+    ) -> None:
+        self.write(papers, datasets, methods)
         with self.assertRaisesRegex(catalogue.CatalogueError, message):
             self.settings.load()
 
 
 class TestLoading(CatalogueDir):
-    def test_loads_both_files(self) -> None:
-        papers_file, datasets_file = self.settings.load()
+    def test_loads_papers_and_pages_in_book_order(self) -> None:
+        papers_file, pages = self.settings.load()
         self.assertEqual(
             list(papers_file.papers), ["Doe:2020abc", "Roe:2021xyz", "Manual:2015"]
         )
-        self.assertEqual([entry.id for entry in datasets_file.entries], ["jets"])
+        self.assertEqual(
+            [page.page.path.as_posix() for page in pages],
+            ["part/datasets.md", "part/methods.md"],
+        )
+        datasets, methods = pages
+        self.assertEqual([entry.id for entry in datasets.entries], ["jets"])
+        (jets,) = datasets.entries
+        self.assertEqual(
+            jets.cells,
+            {
+                "content": "Tagged jets",
+                "level": "Delphes",
+                "size": "50,000 $t\\bar t$ events",
+            },
+        )
+        self.assertEqual(jets.facts, {"simulation": "Pythia 8"})
+        self.assertEqual(datasets.page.label, "Datasets")  # defaults to the title
+        self.assertEqual(methods.page.label, "Methods")
+
+    def test_book_page_order_reads_files_and_directories(self) -> None:
+        self.book_config_path.write_text(
+            BOOK_YAML + "      - {dir: deep, sections: [a.md]}\n", encoding="utf-8"
+        )
+        order = catalogue.book_page_order(self.book_config_path)
+        self.assertEqual(order[-1], Path("part/deep/index.md"))
+
+    def test_rejects_a_page_missing_from_the_book(self) -> None:
+        self.book_config_path.write_text(
+            BOOK_YAML.replace("      - methods.md\n", ""), encoding="utf-8"
+        )
+        with self.assertRaisesRegex(catalogue.CatalogueError, "not in"):
+            self.settings.load()
+
+    def test_rejects_bad_links_and_column_keys(self) -> None:
+        self.assert_load_error(
+            PAPERS_YAML,
+            DATASETS_YAML,
+            "not an https address",
+            METHODS_YAML.replace("https://example.org/code", "ftp://example.org"),
+        )
+        self.assert_load_error(
+            PAPERS_YAML,
+            DATASETS_YAML,
+            "are entry keys",
+            METHODS_YAML.replace("{key: idea, title: Idea}", "{key: papers, title: P}"),
+        )
+
+    def test_rejects_a_record_defined_twice(self) -> None:
+        methods = (
+            METHODS_YAML.replace(
+                "        papers: [Doe:2020abc]",
+                "        papers: [Doe:2020abc]\n        data: [data:jets]",
+            )
+            + "records:\n  data:jets: {doi: 10.5281/zenodo.1}\n"
+        )
+        self.assert_load_error(PAPERS_YAML, DATASETS_YAML, "also in", methods)
 
     def test_rejects_an_unknown_category_tag_or_key(self) -> None:
         self.assert_load_error(
@@ -314,13 +417,21 @@ class TestLoading(CatalogueDir):
 
 class TestBuild(CatalogueDir):
     def test_cross_references(self) -> None:
-        papers_file, datasets_file = self.settings.load()
-        resolved = catalogue.resolve(papers_file, datasets_file, CACHE)
+        papers_file, pages = self.settings.load()
+        resolved = catalogue.resolve(papers_file, pages, CACHE)
         self.assertEqual(resolved.cites["Doe:2020abc"], ["Roe:2021xyz"])
         self.assertEqual(resolved.cited_by["Roe:2021xyz"], ["Doe:2020abc"])
         self.assertEqual(resolved.cites["Roe:2021xyz"], [])
+        introduced = {
+            key: [(page.page.label, entry.id) for page, entry in pairs]
+            for key, pairs in resolved.introduces.items()
+        }
         self.assertEqual(
-            [entry.id for entry in resolved.introduces["Roe:2021xyz"]], ["jets"]
+            introduced,
+            {
+                "Roe:2021xyz": [("Datasets", "jets")],
+                "Doe:2020abc": [("Methods", "a-method")],
+            },
         )
 
     def test_build_writes_pages_and_bibtex_then_is_up_to_date(self) -> None:
@@ -331,6 +442,8 @@ class TestBuild(CatalogueDir):
             [
                 "part/datasets.bib",
                 "part/datasets.md",
+                "part/methods.bib",
+                "part/methods.md",
                 "part/papers.bib",
                 "part/papers.md",
             ],
@@ -344,7 +457,7 @@ class TestBuild(CatalogueDir):
             '<tr class="row-detail" id="jets-detail"><td colspan="5">', datasets_page
         )
         self.assertIn(
-            '<table class="catalogue-table catalogue-datasets">', datasets_page
+            '<table class="catalogue-table catalogue-entries">', datasets_page
         )
         self.assertIn('href="papers.md#roe-2021xyz"', datasets_page)
         self.assertIn('data-cite="Roe:2021xyz data:jets"', datasets_page)
@@ -359,8 +472,17 @@ class TestBuild(CatalogueDir):
         self.assertNotIn("<table>", papers_page)  # bookspine would wrap a bare table
         self.assertIn("ATLAS Collaboration (2900 authors)", papers_page)
         self.assertIn('href="datasets.md#jets"', papers_page)
+        self.assertIn('<th>Methods</th><td><a href="methods.md#a-method">', papers_page)
+        # Doe and the manual paper have venues; Roe has none and gets no line.
+        self.assertEqual(papers_page.count("<th>Venue</th>"), 2)
         self.assertIn("refersto%3Arecid%3A101", papers_page)
         self.assertNotIn("refersto%3Arecid%3ANone", papers_page)
+
+        methods_page = (self.book_dir / "part/methods.md").read_text(encoding="utf-8")
+        # The entry gives no year, so the row takes its paper's.
+        self.assertIn("<td>An idea</td><td>2020</td></tr>", methods_page)
+        self.assertIn('<a href="https://example.org/code">Code</a>', methods_page)
+        self.assertIn("<th>Method</th><th>Idea</th><th>Year</th>", methods_page)
 
         bib = (self.book_dir / "part/datasets.bib").read_text(encoding="utf-8")
         self.assertEqual(
@@ -446,9 +568,9 @@ class TestFetch(CatalogueDir):
             "URL": "http://opendata.cern.ch/record/1",
         }
         responses = iter([json.dumps(csl), DATACITE_ENTRY])
-        _, datasets_file = self.settings.load()
+        _, pages = self.settings.load()
         with mock.patch.object(catalogue, "_get", lambda url, accept: next(responses)):
-            meta = catalogue.fetch_record(datasets_file.records["data:jets"], 0)
+            meta = catalogue.fetch_record(pages[0].records["data:jets"], 0)
         self.assertEqual(meta.collaboration, "ATLAS")
         self.assertEqual(meta.authors, ())
         self.assertEqual(meta.year, 2024)

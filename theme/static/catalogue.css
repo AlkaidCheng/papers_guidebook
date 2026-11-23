@@ -56,7 +56,12 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
+  /* Fixed widths keep the columns of a page's tables aligned from section to section. */
+  table-layout: fixed;
 }
+.catalogue-entries th:first-child { width: 28%; }
+.catalogue-papers th:nth-child(2) { width: 9.5rem; }
+.catalogue-table th:last-child { width: 3.5rem; }
 .catalogue-table th {
   text-align: left;
   font-family: var(--sans);
@@ -189,11 +194,11 @@ html:not(.catalogue-js) .bib-copy { display: none; }
 }
 .row-info td { padding: 0.2rem 0; vertical-align: top; border: 0; background: none; }
 
-/* On a phone a dataset row keeps its name, content and year, and a paper row its
-   title and year; the rest appears when the row is opened. */
+/* On a phone an entry row keeps its name, first column and year, and a paper row
+   its title and year; the rest appears when the row is opened. */
 @media (max-width: 40rem) {
-  .catalogue-datasets th:nth-child(3), .catalogue-datasets tr.row td:nth-child(3),
-  .catalogue-datasets th:nth-child(4), .catalogue-datasets tr.row td:nth-child(4),
+  .catalogue-entries th:nth-child(n+3):not(:last-child),
+  .catalogue-entries tr.row td:nth-child(n+3):not(:last-child),
   .catalogue-papers th:nth-child(2), .catalogue-papers tr.row td:nth-child(2) { display: none; }
   .row-info th { width: auto; display: block; padding-bottom: 0; }
   .row-info td { display: block; }
