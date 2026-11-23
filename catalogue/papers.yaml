@@ -1,0 +1,410 @@
+# The papers page, book/ml-hep/papers.md, and its BibTeX file.
+# `python scripts/catalogue.py build` writes both from this file and the cache.
+#
+# A paper is keyed by its INSPIRE texkey and names its INSPIRE record
+# (`inspire`); `python scripts/catalogue.py fetch` then stores its title, authors,
+# journal, identifiers, BibTeX and reference list in catalogue/cache.json. This
+# file holds only what a person writes: `category`, `tags`, a one-line `short`
+# description and an optional `long` one. `venue` replaces the journal reference
+# where INSPIRE has none, as for conference proceedings. A paper without an
+# INSPIRE record gives `title`, `authors`, `year`, `url` and `bibtex` itself.
+#
+# Descriptions follow the papers' abstracts, checked in November 2026.
+
+page:
+  path: ml-hep/papers.md
+  title: Papers
+  summary: The papers behind the datasets, methods and tools of machine learning in particle physics, with their metadata, BibTeX and citations within this guide.
+
+intro: >-
+  Papers on machine learning in particle physics, by kind of contribution.
+  Citations between papers of this guide come from INSPIRE-HEP reference lists.
+
+categories:
+  - id: dataset
+    title: Datasets
+  - id: challenge
+    title: Challenges and comparisons
+  - id: method
+    title: Methods
+  - id: software
+    title: Software
+  - id: review
+    title: Reviews
+
+tags:
+  - anomaly detection
+  - event classification
+  - fast simulation
+  - foundation models
+  - generative models
+  - inference
+  - jet tagging
+  - neutrino physics
+  - open data
+  - real-time inference
+  - reconstruction
+  - unfolding
+
+papers:
+  # ---- Datasets ---------------------------------------------------------------
+  Komiske:2019jim:
+    inspire: 1750786
+    category: dataset
+    tags: [open data, jet tagging]
+    short: Jets from CMS 2011 open data, and the metric space of jets measured with the energy mover's distance.
+    long: >-
+      Isolates 1,690,984 central jets with transverse momentum above 375 GeV
+      from 2.3 fb⁻¹ of 7 TeV CMS open data and compares them with simulation.
+      The energy mover's distance between jets is used to study the space of
+      jets and the effect of the detector.
+  Amram:2024fjg:
+    inspire: 2859866
+    category: dataset
+    tags: [open data, foundation models]
+    short: Aspen Open Jets, about 178 M jets from CMS 2016 open data, for pre-training foundation models.
+    long: >-
+      Derives about 178 M high-$p_T$ jets from CMS 2016 open data and
+      pre-trains the OmniJet-α foundation model on them. Pre-training on
+      collision data improves the generation of the simulated top and QCD jets
+      of JetClass despite the domain shift.
+  Govorkova:2021hqu:
+    inspire: 1876598
+    category: dataset
+    tags: [anomaly detection, real-time inference]
+    short: A simulated trigger-level event stream for unsupervised new-physics detection at 40 MHz.
+    long: >-
+      Emulates the data stream of a real-time event-selection system,
+      pre-filtered by requiring an electron or muon, so that new selection
+      strategies and their sensitivity to new phenomena can be developed under
+      trigger constraints.
+  Elitez:2025aqs:
+    inspire: 3093591
+    category: dataset
+    tags: [reconstruction]
+    short: ColliderML, one million fully simulated HL-LHC events in the OpenDataDetector, for detector-level machine learning.
+    long: >-
+      Experiment-agnostic collisions at 14 TeV with a mean pile-up of 200,
+      across ten Standard Model and beyond-Standard-Model processes plus
+      single-particle samples, fully simulated, digitised and reconstructed,
+      and published on Hugging Face.
+  Adams:2020vlj:
+    inspire: 1799200
+    category: dataset
+    tags: [reconstruction, neutrino physics]
+    short: PILArNet, open 2D and 3D simulated data for liquid-argon time projection chambers.
+    long: >-
+      Described by its authors as the first open 2D and 3D dataset for
+      liquid-argon time projection chambers, with 300,000 samples in three
+      volume sizes for key reconstruction tasks.
+
+  # ---- Challenges and comparisons ---------------------------------------------
+  Kasieczka:2019dbj:
+    inspire: 1722059
+    category: challenge
+    tags: [jet tagging]
+    short: Machine-learning top taggers compared on a common Delphes dataset.
+    long: >-
+      Compares a wide range of top taggers that use low-level inputs, from
+      calorimeter images to lists of particles, on the Top Tagging Reference
+      Dataset. The architectures differ widely, their performance much less.
+  ATLAS:2024rua:
+    inspire: 2811690
+    category: challenge
+    tags: [jet tagging]
+    short: Performance and systematic uncertainties of machine-learning top taggers in full ATLAS simulation.
+    long: >-
+      Evaluates several machine-learning top taggers on simulated 13 TeV ATLAS
+      events and estimates their systematic uncertainties with an approximate
+      procedure. The dataset, with its systematic variations, is public.
+  Kasieczka:2021xcg:
+    inspire: 1842125
+    category: challenge
+    tags: [anomaly detection]
+    short: The LHC Olympics 2020, a community challenge for anomaly detection, with its datasets and results.
+    long: >-
+      Participants developed methods on an R&D dataset and applied them to
+      black boxes holding an unknown anomaly, or none. The paper reviews the
+      unsupervised, weakly supervised and semi-supervised methods submitted and
+      their results.
+  Aarrestad:2021oeb:
+    inspire: 1866115
+    category: challenge
+    tags: [anomaly detection]
+    short: The Dark Machines challenge, a billion-event benchmark for unsupervised new-physics searches.
+    long: >-
+      Proposes anomaly scores to define model-independent signal regions,
+      releases more than a billion simulated 13 TeV events equivalent to
+      10 fb⁻¹, and compares anomaly-detection and density-estimation algorithms
+      in realistic analysis settings.
+  Krause:2024avx:
+    inspire: 2843542
+    category: challenge
+    tags: [fast simulation, generative models]
+    short: The Fast Calorimeter Simulation Challenge 2022, 31 generative models compared on four shower datasets.
+    long: >-
+      Compares variational autoencoders, GANs, normalizing flows, diffusion and
+      flow-matching models on showers from a few hundred to tens of thousands
+      of voxels, by shower quality, generation time and model size. Quality is
+      measured with histograms, KPD and FPD scores, classifier AUCs and a
+      multiclass classifier.
+  Benato:2024lnj:
+    inspire: 2837322
+    category: challenge
+    tags: [inference]
+    venue: Advances in Neural Information Processing Systems 38 (2025)
+    short: The FAIR Universe HiggsML Uncertainty challenge, confidence intervals from imperfect simulators.
+    long: >-
+      Participants reported confidence intervals for a parameter of interest of
+      the Higgs boson while accounting for systematic uncertainties, on a
+      tabular dataset of 280 million simulated collisions with 28 features.
+  AdamBourdarios:2015hml:
+    category: challenge
+    tags: [event classification]
+    title: The Higgs boson machine learning challenge
+    authors:
+      - Adam-Bourdarios, Claire
+      - Cowan, Glen
+      - Germain, Cécile
+      - Guyon, Isabelle
+      - Kégl, Balázs
+      - Rousseau, David
+    year: 2015
+    venue: Proc. NIPS 2014 Workshop on High-energy Physics and Machine Learning, PMLR 42 (2015) 19
+    url: https://proceedings.mlr.press/v42/cowa14.html
+    short: The 2014 HiggsML Kaggle challenge on selecting H → ττ events in ATLAS simulation.
+    bibtex: |
+      @inproceedings{AdamBourdarios:2015hml,
+          author = "Adam-Bourdarios, Claire and Cowan, Glen and Germain, C{\'e}cile and Guyon, Isabelle and K{\'e}gl, Bal{\'a}zs and Rousseau, David",
+          title = "{The Higgs boson machine learning challenge}",
+          booktitle = "{Proceedings of the NIPS 2014 Workshop on High-energy Physics and Machine Learning}",
+          series = "Proceedings of Machine Learning Research",
+          volume = "42",
+          pages = "19--55",
+          year = "2015",
+          url = "https://proceedings.mlr.press/v42/cowa14.html"
+      }
+  Amrouche:2019wmx:
+    inspire: 1729722
+    category: challenge
+    tags: [reconstruction]
+    venue: The NeurIPS ’18 Competition, Springer (2020)
+    short: The TrackML accuracy phase on Kaggle in 2018, track finding at HL-LHC pile-up.
+    long: >-
+      Participants connected about 100,000 points per event into some 10,000
+      particle trajectories. The paper shows that the competition's single
+      score selects the best algorithms from the point of view of the domain.
+  Amrouche:2021nbs:
+    inspire: 2632195
+    category: challenge
+    tags: [reconstruction]
+    short: The TrackML throughput phase, which scored the speed of track finding together with its accuracy.
+    long: >-
+      Run on Codalab, where submitted software was executed in a controlled
+      environment. The best three solutions combined good accuracy with an
+      order of magnitude more speed than the state of the art when the
+      challenge was designed.
+  Eller:2023myr:
+    inspire: 2683158
+    category: challenge
+    tags: [neutrino physics, reconstruction]
+    venue: Proc. 38th International Cosmic Ray Conference (2023)
+    short: Organisation and findings of the IceCube Kaggle competition on neutrino direction reconstruction.
+    long: >-
+      Participants predicted the direction of incoming neutrinos from simulated
+      events; hundreds of teams competed from January to April 2023.
+  Bukhari:2023ezc:
+    inspire: 2713927
+    category: challenge
+    tags: [neutrino physics, reconstruction]
+    short: The three winning solutions of the IceCube Kaggle competition.
+    long: >-
+      Describes the data handling, architecture and training of each and
+      compares them on the Kaggle dataset. The best reaches an angular
+      resolution better than 5° for cascades above 10 TeV and better than 0.5°
+      for tracks, comparable to the state of the art.
+
+  # ---- Methods ------------------------------------------------------------------
+  Baldi:2014kfa:
+    inspire: 1281836
+    category: method
+    tags: [event classification]
+    short: Deep networks for signal–background classification, with the HIGGS and SUSY benchmarks.
+    long: >-
+      Shows on benchmark datasets that deep networks need no manually
+      constructed input features and improve the classification metric over
+      shallow methods.
+  Baldi:2016fzo:
+    inspire: 1418479
+    category: method
+    tags: [event classification]
+    short: Parameterized neural networks, which take physics parameters such as a particle's mass as input.
+    long: >-
+      One network interpolates smoothly between parameter values and replaces
+      a set of classifiers trained at individual values, with improved
+      performance at intermediate values.
+  deOliveira:2015xxd:
+    inspire: 1405106
+    category: method
+    tags: [jet tagging]
+    short: Deep networks on jet images to identify boosted W bosons.
+    long: >-
+      Treats the detector as a camera and jets as images, shows that deep
+      networks on jet images outperform physically motivated features, and
+      visualises what the networks learn.
+  deOliveira:2017pjk:
+    inspire: 1510258
+    category: method
+    tags: [generative models]
+    short: The Location-Aware GAN, which generates jet images.
+    long: >-
+      Generated images span many orders of magnitude in pixel intensity and
+      reproduce physical properties such as jet mass and n-subjettiness; the
+      paper also discusses the limitations of the approach.
+  Butter:2017cot:
+    inspire: 1613515
+    category: method
+    tags: [jet tagging]
+    short: A top tagger built on Lorentz vectors and the Minkowski metric.
+    long: >-
+      Uses calorimeter towers and tracking information, and outperforms
+      QCD-inspired and image-based taggers for strongly boosted top quarks.
+  Paganini:2017dwg:
+    inspire: 1645424
+    category: method
+    tags: [fast simulation, generative models]
+    short: CaloGAN, generative adversarial networks for showers in a multilayer electromagnetic calorimeter.
+    long: >-
+      Achieves speed-ups of 100 to 1000 over full simulation on CPU and up to
+      about 10⁵ on GPU, and reproduces geometric shower-shape properties of
+      photons, positrons and charged pions.
+  Duarte:2018ite:
+    inspire: 1668914
+    category: method
+    tags: [real-time inference, jet tagging]
+    short: Neural-network inference in FPGAs for the trigger, with hls4ml.
+    long: >-
+      A case study of a jet-substructure classifier on FPGAs, whose trigger and
+      data-acquisition applications need sub-microsecond latency, with a
+      companion compiler that translates trained networks into firmware.
+  Komiske:2018cqr:
+    inspire: 1698236
+    category: method
+    tags: [jet tagging]
+    short: Energy and Particle Flow Networks, permutation-invariant networks for jets built on Deep Sets.
+    long: >-
+      Energy Flow Networks are infrared and collinear safe by construction;
+      Particle Flow Networks admit general energy dependence and particle
+      information such as charge and flavour. The quark and gluon jets used in
+      the paper are public.
+  Moreno:2019bmu:
+    inspire: 1749751
+    category: method
+    tags: [jet tagging]
+    short: JEDI-net, jet identification with interaction networks over the jet's constituents.
+    long: >-
+      Needs no special handling of sparse inputs, no particle ordering and no
+      assumption about the detector geometry, and reaches better results with
+      fewer parameters.
+  Moreno:2019neq:
+    inspire: 1756269
+    category: method
+    tags: [jet tagging, open data]
+    short: Interaction networks over tracks and secondary vertices to identify boosted H → bb̄ jets.
+    long: >-
+      Describes the jet as particle-to-particle and particle-to-vertex
+      interactions. Trained on CMS simulation released on the CERN Open Data
+      Portal, it improves markedly on the algorithms of its time.
+  Andreassen:2019cjw:
+    inspire: 1766424
+    category: method
+    tags: [unfolding]
+    short: OmniFold, unbinned unfolding of all observables at once by iterative reweighting.
+    long: >-
+      Uses classifiers to reweight a simulated dataset iteratively, so that
+      every observable is unfolded without binning, including those not yet
+      defined at the time of the analysis. Illustrated on jet substructure.
+  Shlomi:2020ufi:
+    inspire: 1810547
+    category: method
+    tags: [reconstruction, jet tagging]
+    short: A set-to-graph network that finds secondary vertices inside jets.
+    long: >-
+      Decides for every pair of tracks in a jet whether they share a vertex,
+      using all the jet's tracks. It outperforms traditional vertex finding and
+      improves bottom-versus-charm flavour tagging.
+  Pata:2021oez:
+    inspire: 1842131
+    category: method
+    tags: [reconstruction]
+    short: MLPF, end-to-end particle-flow reconstruction with graph neural networks.
+    long: >-
+      A scalable graph-network algorithm that reconstructs particles from
+      tracks and calorimeter clusters, aimed at high pile-up and shown on a
+      Delphes simulation with an average pile-up of 200.
+  Kansal:2021cqp:
+    inspire: 1869687
+    category: method
+    tags: [generative models]
+    venue: Advances in Neural Information Processing Systems 34 (2021)
+    short: The message-passing GAN for jets as particle clouds, released with the JetNet dataset.
+    long: >-
+      Finds existing point-cloud GANs inadequate for jets and evaluates
+      generated jets with Wasserstein distances, a Fréchet ParticleNet
+      distance, coverage and minimum matching distance.
+  Qu:2022mxj:
+    inspire: 2029602
+    category: method
+    tags: [jet tagging]
+    venue: Proc. 39th International Conference on Machine Learning, PMLR 162 (2022) 18281
+    short: The Particle Transformer and the JetClass dataset of 100 M jets in ten classes.
+    long: >-
+      The Particle Transformer adds pairwise particle interactions to the
+      attention mechanism and surpasses a plain Transformer and ParticleNet;
+      pre-trained models improve other tagging tasks after fine-tuning.
+  Pata:2023rhh:
+    inspire: 2697182
+    category: method
+    tags: [reconstruction]
+    short: Scalable graph and transformer models for particle flow in full simulation of e⁺e⁻ collisions.
+    long: >-
+      Compares a graph neural network with a kernel-based transformer on tracks
+      and calorimeter clusters. The best model improves the jet transverse
+      momentum resolution by up to 50% over the rule-based algorithm.
+  Li:2024htp:
+    inspire: 2788738
+    category: method
+    tags: [jet tagging, foundation models]
+    short: Sophon, a jet model pre-trained on the 188 classes of JetClass-II for resonance searches.
+    long: >-
+      Its outputs and learned features serve model-specific and model-agnostic
+      searches for heavy resonances through transfer learning.
+  Bhimji:2025isp:
+    inspire: 3074318
+    category: method
+    tags: [foundation models, jet tagging]
+    short: OmniLearned, a foundation model for jet physics trained on over 10⁹ jets.
+    long: >-
+      Upgrades the OmniLearn model's architecture and training, pools over a
+      billion public jets for training, and provides documented software for
+      all datasets and models.
+
+  # ---- Software -----------------------------------------------------------------
+  Kansal:2023iqy:
+    inspire: 2719606
+    category: software
+    tags: [generative models]
+    short: The jetnet Python package, with loaders for jet datasets and evaluation metrics.
+    long: >-
+      Built on PyTorch, it provides standard interfaces to several
+      heterogeneous datasets, evaluation metrics, loss functions and
+      utilities.
+
+  # ---- Reviews ------------------------------------------------------------------
+  Feickert:2021ajf:
+    inspire: 1844751
+    category: review
+    short: A continuously updated list of machine-learning papers in particle physics, by topic.
+    long: >-
+      Groups the papers into a small set of topics, includes a list of
+      reviews, and accepts contributions.

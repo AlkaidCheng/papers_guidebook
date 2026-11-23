@@ -27,7 +27,15 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt ruff black
+      - name: Lint the catalogue scripts
+        run: ruff check scripts tests && black --check scripts tests
+      - name: Test the catalogue generator and the page script
+        run: python -m unittest discover -s tests && node --test tests/catalogue.test.js
+      # The pages are generated from catalogue/; a page edited by hand, or a
+      # catalogue change without a rebuild, fails here.
+      - name: Check that the catalogue pages are up to date
+        run: python scripts/catalogue.py build --check
       # The last commit's date, so that a scheduled build does not advance "revised".
       - run: SOURCE_DATE_EPOCH=$(git log -1 --format=%ct) bookspine build
       - if: github.event_name != 'pull_request'

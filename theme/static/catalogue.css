@@ -1,0 +1,200 @@
+/* Expandable tables, cite menus and the tag filter of the catalogue pages.
+   Colours come from the bookspine theme's tokens, so both colour schemes apply. */
+
+.catalogue-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.25rem;
+  margin: 0 0 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+.expand-all {
+  font: inherit;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent-ink);
+  cursor: pointer;
+}
+.expand-all:hover { text-decoration: underline; }
+
+/* ---- Tag filter ----------------------------------------------------------- */
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.4rem;
+  margin: 0 0 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+.tag-filter-label { color: var(--ink-3); margin-right: 0.2rem; }
+.tag-clear { display: none; }
+.tag-filter.filtering .tag-clear { display: inline-block; }
+.tag-count { color: var(--ink-3); margin-left: 0.3rem; }
+
+.tag,
+.tag-clear {
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  padding: 0 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper-2);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.tag:hover, .tag-clear:hover { border-color: var(--accent); color: var(--accent-ink); }
+.tag.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); }
+
+/* ---- Tables --------------------------------------------------------------- */
+
+.catalogue-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.catalogue-table th {
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  padding: 0.35rem 0.6rem 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.catalogue-table td {
+  padding: 0.35rem 0.6rem 0.35rem 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule-2);
+}
+.catalogue-table tr.row { cursor: pointer; }
+.catalogue-table tr.row:hover > td,
+.catalogue-table tr.row.open > td { background: var(--paper-2); }
+.catalogue-table tr.row.target > td { background: var(--accent-soft); }
+.catalogue-table tr.row td:last-child { white-space: nowrap; color: var(--ink-2); }
+.catalogue-table tr.row.open > td { border-bottom-color: transparent; }
+.catalogue-table tr[hidden], .table-wrap[hidden], h2[hidden] { display: none !important; }
+
+/* The row's name is the button that opens it; the hover shade and the pointer
+   show that, so the name carries no marker. */
+.row-toggle {
+  font: inherit;
+  text-align: left;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+.row-toggle:hover,
+tr.row.open .row-toggle { color: var(--accent-ink); }
+
+/* Without the script every detail row stays open, so nothing is out of reach. */
+.catalogue-js .catalogue-table tr.row-detail:not(.open) { display: none; }
+.catalogue-table tr.row-detail > td {
+  padding: 0.5rem 1rem 0.8rem 1rem;
+  background: var(--paper-2);
+  font-size: 0.92rem;
+}
+.catalogue-table tr.row-detail p,
+.catalogue-table tr.row-detail ul { margin: 0.35rem 0; }
+
+.row-facts { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-3); }
+.row-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+.row-links {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+.row-links a { text-decoration: none; }
+.row-links a:hover { text-decoration: underline; }
+
+.cite-button,
+.bib-copy {
+  font: inherit;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent-ink);
+  cursor: pointer;
+}
+.cite-button::after { content: " ▾"; font-size: 0.75em; }
+.cite-button:hover, .bib-copy:hover { text-decoration: underline; }
+html:not(.catalogue-js) .cite-button,
+html:not(.catalogue-js) .bib-copy { display: none; }
+.bib-copy { font-family: var(--sans); font-size: 0.75rem; margin-left: 0.3rem; }
+
+.cite-menu {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  min-width: 10rem;
+  padding: 0.25rem 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+}
+.cite-menu-item {
+  font: inherit;
+  text-align: left;
+  padding: 0.3rem 0.8rem;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+.cite-menu-item:hover, .cite-menu-item:focus-visible { background: var(--paper-3); color: var(--accent-ink); }
+
+.row-label {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.row-refs { padding-left: 1.1rem; font-size: 0.88rem; }
+.row-refs li { margin: 0.15rem 0; }
+.row-refs .ref-related { color: var(--ink-2); }
+
+.row-info {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0.3rem 0 0;
+  border: 0; /* the theme's rules frame a table of data; this one is a list of facts */
+}
+.row-info th {
+  width: 9rem;
+  padding: 0.2rem 0.75rem 0.2rem 0;
+  text-align: left;
+  vertical-align: top;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  border: 0;
+}
+.row-info td { padding: 0.2rem 0; vertical-align: top; border: 0; background: none; }
+
+/* On a phone a dataset row keeps its name, content and year, and a paper row its
+   title and year; the rest appears when the row is opened. */
+@media (max-width: 40rem) {
+  .catalogue-datasets th:nth-child(3), .catalogue-datasets tr.row td:nth-child(3),
+  .catalogue-datasets th:nth-child(4), .catalogue-datasets tr.row td:nth-child(4),
+  .catalogue-papers th:nth-child(2), .catalogue-papers tr.row td:nth-child(2) { display: none; }
+  .row-info th { width: auto; display: block; padding-bottom: 0; }
+  .row-info td { display: block; }
+}

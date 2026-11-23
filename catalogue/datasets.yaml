@@ -1,0 +1,641 @@
+# The datasets page, book/ml-hep/datasets.md, and its BibTeX file.
+# `python scripts/catalogue.py build` writes both from this file, papers.yaml
+# and the cache.
+#
+# Entries: `content`, `level`, `size` and `year` fill the table row; `summary`,
+# `simulation` and `details` appear when the row is opened. `papers` (keys of
+# papers.yaml) and `data` (keys of `records` below) are what a result obtained
+# with the dataset cites; `related` papers or records appear only in the
+# opened row.
+#
+# Records: a record with a DOI needs only the DOI, since
+# `python scripts/catalogue.py fetch` takes its creators, title, publisher, year
+# and BibTeX from DataCite; `title` and `creators` here replace poor DataCite
+# metadata. A record without a DOI gives `title`, `publisher`, `year`, `url` and
+# `bibtex` itself. `label` names the record's link when an entry has several.
+#
+# Every fact was checked against the paper, its INSPIRE record or the data
+# record in November 2026.
+
+page:
+  path: ml-hep/datasets.md
+  title: Public Datasets
+  summary: Public datasets for training and benchmarking machine-learning models in particle physics, with their papers, data records and BibTeX.
+
+intro: >-
+  Public datasets for training and benchmarking machine-learning models in
+  particle physics, grouped by task. Entries were last checked against their
+  records in November 2026.
+
+sections:
+  - title: Jet tagging
+    entries:
+      - id: top-tagging
+        name: Top Tagging Reference Dataset
+        year: 2019
+        summary: Hadronic top-quark jets against QCD jets at 14 TeV, the common benchmark of the top-tagger comparison.
+        content: Top vs QCD jets
+        level: Delphes (ATLAS)
+        size: 2 M jets
+        simulation: Pythia 8, Delphes (ATLAS card)
+        papers: [Kasieczka:2019dbj]
+        data: [data:top-tagging]
+        related: [Butter:2017cot]
+        details: |
+          - **Events:** Pythia 8 at $\sqrt{s} = 14$ TeV, without multiple parton
+            interactions or pile-up.
+          - **Jets:** anti-$k_T$, $R = 0.8$, from Delphes particle-flow objects;
+            $550 < p_T < 650$ GeV, $|\eta| < 2$. Top jets are matched to a top
+            quark and all its decay partons within $\Delta R = 0.8$.
+          - **Content:** four-momenta of the 200 leading constituents,
+            zero-padded, and the truth top four-momentum.
+          - **Splits:** 1.2 M training, 0.4 M validation and 0.4 M test jets.
+          - **Note:** the best taggers of the comparison reach an AUC of about
+            0.98, so newer architectures differ little on this dataset.
+
+      - id: quark-gluon
+        name: Quark and gluon jets
+        year: 2019
+        summary: Quark and gluon jets from $Z$+jet events at 14 TeV, at generator level, in Pythia 8 and Herwig 7 versions.
+        content: Quark vs gluon jets
+        level: Generator level
+        size: 2 M jets per version
+        simulation: Pythia 8 or Herwig 7.1.4, generator level
+        papers: [Komiske:2018cqr]
+        data: [data:quark-gluon-pythia, data:quark-gluon-herwig]
+        details: |
+          - **Events:** quarks from $qg \to Z(\to \nu\bar\nu)q$, gluons from
+            $q\bar q \to Z(\to \nu\bar\nu)g$; no detector simulation.
+          - **Jets:** anti-$k_T$, $R = 0.4$; $500 < p_T < 550$ GeV,
+            $|y| < 1.7$.
+          - **Content:** 20 files of 100,000 jets each, half quarks and half
+            gluons, as per-particle arrays; one version without charm and
+            bottom quarks in the hard process (the one used in the paper) and
+            one with them.
+
+      - id: jetclass
+        name: JetClass
+        year: 2022
+        summary: 125 M jets in ten classes of boosted-jet signatures, released with the Particle Transformer.
+        content: Boosted jets in 10 classes
+        level: Delphes (CMS)
+        size: 125 M jets
+        simulation: MadGraph5_aMC@NLO, Pythia, Delphes (CMS card)
+        papers: [Qu:2022mxj]
+        data: [data:jetclass]
+        details: |
+          - **Classes:** $q/g$ background; $H \to b\bar b$, $H \to c\bar c$,
+            $H \to gg$, $H \to 4q$, $H \to \ell\nu qq'$, $Z \to q\bar q$,
+            $W \to qq'$, $t \to bqq'$, $t \to b\ell\nu$.
+          - **Events:** multiple parton interactions included, no pile-up;
+            Delphes CMS card with track impact parameters smeared to the CMS
+            tracker resolution.
+          - **Jets:** anti-$k_T$, $R = 0.8$; $500 < p_T < 1000$ GeV,
+            $|\eta| < 2$; signal jets contain all decay products of the
+            initial particle.
+          - **Splits:** 100 M training, 5 M validation and 20 M test jets.
+          - **Tools:** loaders and the Particle Transformer at
+            <https://github.com/jet-universe/particle_transformer>.
+
+      - id: jetclass-ii
+        name: JetClass-II
+        year: 2024
+        summary: Jets in 188 finely divided classes, made to pre-train the Sophon model for resonance searches.
+        content: Boosted jets in 188 classes
+        level: Delphes (CMS), pile-up
+        simulation: JetClass workflow with pile-up
+        papers: [Li:2024htp]
+        data: [data:jetclass-ii]
+        details: |
+          - **Classes:** include resonant jets with two, three or four prongs
+            initiated by quarks, gluons or leptons, over a wider mass range
+            than JetClass.
+          - **Events:** the JetClass simulation with an average pile-up of 50,
+            removed by per-particle pile-up identification.
+          - **Format:** Parquet files on Hugging Face.
+
+      - id: hls4ml-jets
+        name: hls4ml LHC jets
+        year: 2020
+        summary: Light-quark, gluon, $W$, $Z$ and top jets near 1 TeV, prepared for studies of neural-network inference on FPGAs.
+        content: q, g, W, Z and top jets
+        level: Pythia 8
+        size: 5 classes
+        simulation: MadGraph5_aMC@NLO, Pythia 8, 13 TeV
+        papers: [Duarte:2018ite, Moreno:2019bmu]
+        data: [data:hls4ml-jets]
+        details: |
+          - **Content:** high-level jet features (Duarte et al.), jet images
+            and lists of up to 150 constituents (Moreno et al.).
+          - **Events:** partons generated in a narrow $p_T$ window centred at
+            1 TeV, showered with Pythia 8.212 (Monash 2013 tune).
+
+      - id: atlas-top-tagging
+        name: ATLAS top tagging
+        year: 2024
+        summary: Top-quark and QCD jets in full ATLAS simulation, with samples that vary one systematic effect at a time.
+        content: Top vs QCD jets, with systematics
+        level: Full sim (ATLAS)
+        size: 103 M jets
+        simulation: Full ATLAS simulation
+        papers: [ATLAS:2024rua]
+        data: [data:atlas-top-tagging]
+        related: [data:atlas-top-tagging-2022]
+        details: |
+          - **Nominal:** 92.8 M training and 10.3 M test jets, equal numbers of
+            top jets and light-quark or gluon jets.
+          - **Variations:** calorimeter-cluster energy scale, resolution and
+            position; track efficiency, fake rate and bias; top jets from
+            Pythia and from Herwig; background jets with cluster and with
+            string hadronisation. For evaluation, not training.
+          - **Rule:** each jet's contribution to the loss must be multiplied by
+            its training weight.
+          - **Superseded:** the 2022 record (42 M training, 2.5 M test jets).
+
+      - id: cms-hbb
+        name: CMS $H \to b\bar b$ jets
+        year: 2019
+        summary: Jets from $H \to b\bar b$ decays against QCD jets in full CMS simulation, with track and secondary-vertex features.
+        content: H → bb̄ vs QCD jets
+        level: Full sim (CMS)
+        size: 245 GB
+        simulation: Full CMS simulation, 13 TeV
+        papers: [Moreno:2019neq]
+        data: [data:cms-hbb]
+        details: |
+          - **Jets:** anti-$k_T$, $R = 0.8$, from particle-flow candidates,
+            with charged-hadron subtraction of pile-up.
+          - **Content:** jet features, charged-track features, and the
+            secondary vertices within $\Delta R < 0.8$ of the jet axis.
+
+      - id: jet-images
+        name: $W$ and QCD jet images
+        year: 2017
+        summary: 25 × 25 calorimeter-style images of $W$-boson and QCD jets, released with the LAGAN generative model.
+        content: W vs QCD jet images
+        level: Pythia 8, pixelated
+        size: 0.87 M images
+        simulation: Pythia 8.219, 14 TeV
+        papers: [deOliveira:2017pjk]
+        data: [data:jet-images]
+        related: [deOliveira:2015xxd]
+        details: |
+          - **Jets:** anti-$k_T$, $R = 1.0$; $250 < p_T < 300$ GeV,
+            $60 < m < 100$ GeV.
+          - **Images:** a $0.1 \times 0.1$ grid in $\eta$ and $\phi$ over
+            $[-1.25, 1.25]^2$, pixel intensity $p_T$, preprocessed as in the
+            jet-images paper.
+          - **Content:** images with jet mass, $p_T$ and $n$-subjettiness
+            ratios.
+
+      - id: secondary-vertices
+        name: Secondary vertices in jets
+        year: 2020
+        summary: Tracks of jets from $t\bar t$ events, labelled by their vertex of origin, for secondary-vertex finding.
+        content: Tracks labelled by vertex
+        level: Delphes (ATLAS-like)
+        simulation: Pythia 8, Delphes (ATLAS-like), 14 TeV
+        papers: [Shlomi:2020ufi]
+        data: [data:secondary-vertices]
+        details: |
+          - **Tracks:** six perigee parameters and their covariance, with
+            noise added.
+          - **Task:** partition each jet's tracks by the vertex they come
+            from.
+
+  - title: Jets in collision data
+    entries:
+      - id: mod
+        name: MIT Open Data jets
+        year: 2019
+        summary: Jets from the CMS 2011A Jet Primary Dataset at 7 TeV, reprocessed into HDF5.
+        content: CMS 2011A jets
+        level: Collision data
+        size: 1.7 M jets
+        simulation: CMS collision data
+        papers: [Komiske:2019jim]
+        data: [data:mod]
+        details: |
+          - **Content:** jets with their particle-flow constituents.
+          - **Tools:** read through the `energyflow` Python package.
+
+      - id: aspen-open-jets
+        name: Aspen Open Jets
+        year: 2024
+        summary: About 178 M jets from CMS 2016 open data, for pre-training foundation models.
+        content: CMS 2016 jets
+        level: Collision data
+        size: 178 M jets
+        simulation: CMS collision data (2016 JetHT)
+        papers: [Amram:2024fjg]
+        data: [data:aspen-open-jets]
+        details: |
+          - **Source:** the CMS 2016 JetHT open data in the MINIAOD format;
+            processing code at <https://github.com/OzAmram/AOJProcessing>.
+          - **Use:** pre-training OmniJet-α on it improves the generation of
+            the simulated top and QCD jets of JetClass.
+          - **Note:** described by its authors as the largest ML-ready dataset
+            for LHC applications.
+
+  - title: Generative models and fast simulation
+    entries:
+      - id: jetnet
+        name: JetNet
+        year: 2021
+        summary: Gluon, light-quark, top, $W$ and $Z$ jets near 1 TeV as particle clouds, for generative models of jets.
+        content: g, q, t, W, Z particle clouds
+        level: Simplified detector
+        size: 0.88 M jets
+        simulation: 13 TeV, simplified detector
+        papers: [Kansal:2021cqp]
+        data: [data:jetnet, data:jetnet150]
+        related: [Kansal:2023iqy]
+        details: |
+          - **Particles:** up to 30 (JetNet) or 150 (JetNet150) per jet, with
+            $\eta$, $\phi$ and $p_T$ relative to the jet and a mask.
+          - **Jets:** $p_T$, $\eta$, mass and multiplicity; between 170,679
+            and 177,945 jets per class.
+          - **Tools:** the `jetnet` package loads both and implements the
+            evaluation metrics, among them the Fréchet and kernel physics
+            distances.
+
+      - id: calochallenge
+        name: CaloChallenge 2022
+        year: 2022
+        summary: Geant4 calorimeter showers in three datasets of increasing granularity, from the Fast Calorimeter Simulation Challenge.
+        content: Calorimeter showers in 3 datasets
+        level: Geant4
+        size: up to 40,500 voxels
+        simulation: Geant4 (ATLAS for Dataset 1)
+        papers: [Krause:2024avx]
+        data: [data:calochallenge-1, data:calochallenge-2, data:calochallenge-3]
+        details: |
+          - **Dataset 1:** ATLAS Geant4 showers of photons and charged pions
+            at $0.2 < \eta < 0.25$, 15 energies from 256 MeV to 4 TeV in powers
+            of two.
+          - **Datasets 2 and 3:** electron showers, energies log-uniform in
+            1 GeV to 1 TeV, in 45 silicon–tungsten layers; 6,480 voxels
+            ($9 \times 16$ per layer) and 40,500 voxels ($18 \times 50$ per
+            layer, produced with the Par04 Geant4 example).
+          - **Splits:** separate files for training and for evaluation.
+          - **Results:** the paper compares 31 submissions.
+
+      - id: calogan
+        name: CaloGAN showers
+        year: 2017
+        summary: Photon, positron and charged-pion showers in a longitudinally segmented electromagnetic calorimeter.
+        content: Photon, positron, pion showers
+        level: Geant4
+        simulation: Geant4
+        papers: [Paganini:2017dwg]
+        data: [data:calogan]
+
+  - title: Anomaly detection
+    entries:
+      - id: lhc-olympics
+        name: LHC Olympics 2020
+        year: 2019
+        summary: Dijet events with a hidden $W' \to XY$ resonance, for resonant anomaly detection.
+        content: Dijets with a hidden resonance
+        level: Delphes
+        size: 5.1 M events
+        simulation: Pythia 8, Delphes 3.4.1
+        papers: [Kasieczka:2021xcg]
+        data: [data:lhc-olympics-rnd, data:lhc-olympics-black-boxes]
+        details: |
+          - **R&D set:** 1 M QCD dijet events and 100,000 $W' \to XY$,
+            $X \to jj$, $Y \to jj$ events with masses 3.5 TeV, 500 GeV and
+            100 GeV, with a truth bit; no pile-up or multiple parton
+            interactions.
+          - **Black boxes:** three samples of 1 M events and a 1 M background
+            sample; solutions for black boxes 1 and 3, and the Delphes cards
+            and Pythia settings, were added after the challenge.
+          - **Content:** reconstructed particles as massless
+            $(p_T, \eta, \phi)$, zero-padded to 700 particles.
+          - **Caution:** the R&D set requires a large-radius ($R = 1$) jet with
+            $p_T > 1.3$ TeV, the black boxes $p_T > 1.2$ TeV.
+
+      - id: dark-machines
+        name: Dark Machines
+        year: 2020
+        summary: Over a billion Standard Model events in four channels, with more than 40 signals, for unsupervised new-physics searches.
+        content: SM events and 40+ signals
+        level: Delphes (ATLAS)
+        size: over 10⁹ events
+        simulation: MadGraph5_aMC@NLO, Pythia 8, Delphes (ATLAS card)
+        papers: [Aarrestad:2021oeb]
+        data: [data:dark-machines-generation, data:dark-machines-hackathon, data:dark-machines-secret]
+        details: |
+          - **Content:** reconstructed objects with $E$, $p_T$, $\eta$,
+            $\phi$, and the missing transverse momentum, in CSV files.
+          - **Records:** the full generation, a labelled hackathon sample, and
+            an unlabelled secret sample kept blinded for future comparisons.
+
+      - id: adc2021
+        name: ADC2021
+        year: 2021
+        summary: Lepton-filtered Standard Model events at 13 TeV, for unsupervised new-physics detection at the first trigger level.
+        content: Lepton-triggered SM events
+        level: Delphes (CMS Phase-2)
+        simulation: Delphes 3.3.2 (CMS Phase-2 card)
+        papers: [Govorkova:2021hqu]
+        data: [data:adc2021-training]
+        details: |
+          - **Filter:** an electron or muon with $p_T > 23$ GeV, chosen to keep
+            the simulation tractable; the detector resolution is not degraded
+            to that of trigger reconstruction.
+          - **Records:** signal samples and a blinded test set are listed at
+            <https://mpp-hep.github.io/ADC2021/>.
+
+  - title: Event classification and inference
+    entries:
+      - id: higgs-susy
+        name: HIGGS and SUSY
+        year: 2014
+        summary: Signal and background events as tabular features, also used outside physics as tabular benchmarks.
+        content: Tabular signal vs background
+        level: Delphes
+        size: 16 M events
+        simulation: MadGraph 5, Pythia, Delphes, 8 TeV
+        papers: [Baldi:2014kfa]
+        data: [data:higgs, data:susy]
+        details: |
+          - **Sizes:** 11 M events (HIGGS), 5 M events (SUSY).
+          - **HIGGS:** heavy-Higgs signal in the $\ell\nu jjb\bar b$ final state
+            against $t\bar t$; 21 low-level features and 7 invariant masses.
+          - **SUSY:** chargino-pair signal; 8 low-level and 10 derived
+            features.
+          - **Finding:** deep networks given only the low-level features
+            outperform shallow networks given the derived ones.
+
+      - id: hepmass
+        name: HEPMASS
+        year: 2016
+        summary: Signal events at several masses of a hypothesised particle, for classifiers that take the mass as an input.
+        content: Mass-parameterised signal
+        level: Delphes (ATLAS-style)
+        size: 10.5 M events
+        simulation: MadGraph 5, Pythia, Delphes (ATLAS-style)
+        papers: [Baldi:2016fzo]
+        data: [data:hepmass]
+
+      - id: higgsml
+        name: HiggsML challenge 2014
+        year: 2014
+        summary: $H \to \tau\tau$ against $Z \to \tau\tau$, $t\bar t$ and $W$ events in official ATLAS simulation, from the 2014 Kaggle challenge.
+        content: H → ττ vs backgrounds
+        level: Full sim (ATLAS)
+        size: 0.82 M events
+        simulation: Full ATLAS simulation
+        papers: [AdamBourdarios:2015hml]
+        data: [data:higgsml]
+        details: |
+          - **Events:** an electron or muon and a hadronically decaying tau;
+            weights normalised to the 2012 data.
+          - **Metric:** submissions were ranked by the approximate median
+            significance of the selected events.
+
+      - id: fair-universe
+        name: FAIR Universe HiggsML Uncertainty
+        year: 2025
+        summary: $H \to \tau\tau$ events with systematic variations, for confidence intervals on the signal strength.
+        content: H → ττ with systematics
+        level: Delphes
+        size: 280 M events
+        simulation: Pythia 8.2, Delphes 3.5.0
+        papers: [Benato:2024lnj]
+        data: [data:fair-universe]
+        details: |
+          - **Task:** a confidence interval for the signal strength $\mu$ with
+            nuisance parameters such as detector calibrations and background
+            normalisations varied.
+          - **Content:** one Parquet file of 16 GB with Croissant metadata,
+            weighted to two weeks of LHC data taking.
+          - **Competition:** held at NeurIPS 2024.
+
+      - id: omnifold
+        name: OmniFold $Z$+jets
+        year: 2019
+        summary: $Z$+jet events from Herwig and Pythia at particle and detector level, for unfolding.
+        content: Z+jets at two levels
+        level: Delphes (CMS)
+        simulation: Herwig 7.1.5, Pythia 8.243, Delphes 3.4.2 (CMS card)
+        papers: [Andreassen:2019cjw]
+        data: [data:omnifold]
+        details: |
+          - **Events:** 14 TeV, $Z$ with $p_T > 150$ GeV; Herwig default tune
+            and Pythia A14 tune with two of its variations.
+          - **Jets:** anti-$k_T$, $R = 0.4$, at particle and detector level, so
+            that one generator can stand in for data and another for
+            simulation.
+
+  - title: Reconstruction
+    entries:
+      - id: trackml
+        name: TrackML
+        year: 2018
+        summary: Silicon-tracker hits of $t\bar t$ events with 200 pile-up interactions, for track finding.
+        content: Tracker hits at pile-up 200
+        level: Fast sim
+        size: 10⁴ events
+        simulation: Pythia 8, fast tracker simulation
+        papers: [Amrouche:2019wmx, Amrouche:2021nbs]
+        data: [data:trackml]
+        details: |
+          - **Content:** hits with their assignment to particles, about
+            $10^8$ tracks in all.
+          - **Challenge:** an accuracy phase on Kaggle in 2018, then a
+            throughput phase that scored speed as well.
+
+      - id: colliderml
+        name: ColliderML
+        year: 2025
+        summary: Full simulation of the OpenDataDetector at 14 TeV with an average pile-up of 200, for detector-level machine learning.
+        content: HL-LHC events at pile-up 200
+        level: Full sim (ODD)
+        size: 10⁶ events
+        simulation: Full simulation (OpenDataDetector)
+        papers: [Elitez:2025aqs]
+        data: [data:colliderml]
+        details: |
+          - **Content:** Standard Model and beyond-Standard-Model processes,
+            and single-particle samples, as Parquet files under CC BY 4.0.
+
+      - id: mlpf-delphes
+        name: MLPF (Delphes)
+        year: 2021
+        summary: $t\bar t$ and QCD events with pile-up 200, for machine-learned particle-flow reconstruction.
+        content: tt̄ and QCD for particle flow
+        level: Delphes (CMS-like)
+        size: 55,000 events
+        simulation: Pythia 8, Delphes (CMS-like), 14 TeV
+        papers: [Pata:2021oez]
+        data: [data:mlpf-delphes]
+        details: |
+          - **Content:** detector hits as input, generator particles as truth,
+            Delphes particle-flow candidates for comparison; compressed pickle
+            files of 100 events.
+
+      - id: mlpf-clic
+        name: MLPF (CLIC)
+        year: 2023
+        summary: Full simulation of $e^+e^-$ collisions at 380 GeV in the CLIC detector, for particle-flow reconstruction.
+        content: e⁺e⁻ events for particle flow
+        level: Full sim (CLIC)
+        simulation: Full CLIC simulation (Key4hep)
+        papers: [Pata:2023rhh]
+        data: [data:mlpf-clic]
+        details: |
+          - **Processes:** $t\bar t$, $Z^* \to q\bar q$, $ZH$ with
+            $H \to \tau\tau$, hadronic $WW$, $t\bar t$ with overlaid
+            background, and single-particle samples.
+          - **Content:** EDM4hep files with generator particles, tracks,
+            calorimeter hits and Pandora particle-flow candidates.
+
+      - id: pilarnet
+        name: PILArNet
+        year: 2020
+        summary: Simulated 2D and 3D images of particle interactions in liquid-argon time projection chambers, for segmentation and clustering.
+        content: LArTPC images
+        level: LArTPC sim
+        size: 300,000 samples
+        simulation: LArTPC simulation
+        papers: [Adams:2020vlj]
+        data: [data:pilarnet]
+        details: |
+          - **Content:** energy deposits with semantic labels and their
+            grouping into particles, under CC BY 4.0.
+          - **Tools:** <https://github.com/DeepLearnPhysics/dlp_opendata_api>.
+
+      - id: icecube-kaggle
+        name: IceCube – Neutrinos in Deep Ice
+        year: 2023
+        summary: Simulated IceCube sensor pulses of neutrino events, for direction reconstruction.
+        content: Neutrino sensor pulses
+        level: IceCube sim
+        size: 1.4 × 10⁸ events
+        simulation: IceCube simulation
+        papers: [Eller:2023myr, Bukhari:2023ezc]
+        data: [data:icecube-kaggle]
+        details: |
+          - **Events:** all flavours and interaction types between 100 GeV
+            and 100 PeV, in 660 sub-samples.
+          - **Results:** the three best solutions are described by Bukhari et
+            al.
+
+see_also: |
+  - The [Living Review of Machine Learning for Particle Physics](papers.md#feickert-2021ajf)
+    lists the papers of the field by topic, with a section on datasets:
+    <https://iml-wg.github.io/HEPML-LivingReview/>.
+  - The [OmniLearned](papers.md#bhimji-2025isp) foundation model pre-trains on
+    about a billion jets pooled from JetClass, the ATLAS top-tagging data and
+    other public samples.
+  - The experiments' own releases are searchable on the CERN Open Data Portal:
+    <https://opendata.cern.ch/>.
+
+records:
+  # ---- With a DOI (DataCite) --------------------------------------------------
+  data:top-tagging: {doi: 10.5281/zenodo.2603256}
+  data:quark-gluon-pythia: {doi: 10.5281/zenodo.3164691, label: Data (Pythia)}
+  data:quark-gluon-herwig: {doi: 10.5281/zenodo.3066475, label: Data (Herwig)}
+  data:jetclass: {doi: 10.5281/zenodo.6619768}
+  data:jetclass-ii:
+    doi: 10.57967/hf/6336
+    # DataCite titles this record "jetclass2" and lists the organisation first.
+    title: JetClass-II
+    creators:
+      - Li, Congqiao
+      - Duarte, Javier
+      - Agapitos, Antonios
+      - Drews, Jovin
+      - Fu, Dawei
+      - Gao, Leyun
+      - Kansal, Raghav
+      - Kasieczka, Gregor
+      - Moureaux, Louis
+      - Qu, Huilin
+      - Mantilla Suarez, Cristina
+      - Li, Qiang
+  data:hls4ml-jets: {doi: 10.5281/zenodo.3602260}
+  data:atlas-top-tagging: {doi: 10.7483/OPENDATA.ATLAS.SOAY.LABE}
+  data:atlas-top-tagging-2022: {doi: 10.7483/OPENDATA.ATLAS.FG5F.96GA}
+  data:cms-hbb: {doi: 10.7483/OPENDATA.CMS.JGJX.MS7Q}
+  data:jet-images: {doi: 10.17632/4r4v785rgx.1}
+  data:secondary-vertices: {doi: 10.5281/zenodo.4044628}
+  data:mod: {doi: 10.5281/zenodo.3340205}
+  data:aspen-open-jets: {doi: 10.25592/uhhfdm.16505}
+  data:jetnet: {doi: 10.5281/zenodo.6975118, label: Data (30)}
+  data:jetnet150: {doi: 10.5281/zenodo.6975117, label: Data (150)}
+  data:calochallenge-1: {doi: 10.5281/zenodo.8099322, label: Dataset 1}
+  data:calochallenge-2: {doi: 10.5281/zenodo.6366271, label: Dataset 2}
+  data:calochallenge-3: {doi: 10.5281/zenodo.6366324, label: Dataset 3}
+  data:calogan: {doi: 10.17632/pvn3xc3wy5.1}
+  data:lhc-olympics-rnd: {doi: 10.5281/zenodo.2629073, label: R&D set}
+  data:lhc-olympics-black-boxes: {doi: 10.5281/zenodo.4536624, label: Black boxes}
+  data:dark-machines-generation: {doi: 10.5281/zenodo.3685861, label: Generation}
+  data:dark-machines-hackathon: {doi: 10.5281/zenodo.3961917, label: Hackathon}
+  data:dark-machines-secret: {doi: 10.5281/zenodo.4443151, label: Secret set}
+  data:adc2021-training: {doi: 10.5281/zenodo.5046428}
+  data:higgs: {doi: 10.24432/C5V312, label: HIGGS}
+  data:susy: {doi: 10.24432/C54606, label: SUSY}
+  data:hepmass: {doi: 10.24432/C5PP5W}
+  data:higgsml: {doi: 10.7483/OPENDATA.ATLAS.ZBP2.M5T8}
+  data:fair-universe: {doi: 10.5281/zenodo.15131565}
+  data:omnifold: {doi: 10.5281/zenodo.3548091}
+  data:mlpf-delphes: {doi: 10.5281/zenodo.4559324}
+  data:mlpf-clic: {doi: 10.5281/zenodo.8260741}
+
+  # ---- Without a DOI -----------------------------------------------------------
+  data:trackml:
+    label: Data (Kaggle)
+    title: TrackML Particle Tracking Challenge
+    publisher: Kaggle
+    year: 2018
+    url: https://www.kaggle.com/c/trackml-particle-identification
+    bibtex: |
+      @misc{data:trackml,
+          title = "{TrackML Particle Tracking Challenge}",
+          howpublished = "Kaggle",
+          year = "2018",
+          url = "https://www.kaggle.com/c/trackml-particle-identification"
+      }
+  data:colliderml:
+    title: ColliderML Release 1
+    creators: [CERN]
+    publisher: Hugging Face
+    year: 2025
+    url: https://huggingface.co/datasets/CERN/ColliderML-Release-1
+    bibtex: |
+      @misc{data:colliderml,
+          author = "{CERN}",
+          title = "{ColliderML Release 1}",
+          howpublished = "Hugging Face",
+          year = "2025",
+          url = "https://huggingface.co/datasets/CERN/ColliderML-Release-1"
+      }
+  data:pilarnet:
+    label: Data (OSF)
+    title: LArTPC 2D/3D – Simulation – Particle Segmentation & Clustering
+    publisher: Open Science Framework
+    year: 2018
+    url: https://osf.io/vruzp
+    bibtex: |
+      @misc{data:pilarnet,
+          title = "{LArTPC 2D/3D -- Simulation -- Particle Segmentation \& Clustering}",
+          howpublished = "Open Science Framework",
+          year = "2018",
+          url = "https://osf.io/vruzp"
+      }
+  data:icecube-kaggle:
+    label: Data (Kaggle)
+    title: IceCube – Neutrinos in Deep Ice
+    publisher: Kaggle
+    year: 2023
+    url: https://www.kaggle.com/competitions/icecube-neutrinos-in-deep-ice
+    bibtex: |
+      @misc{data:icecube-kaggle,
+          title = "{IceCube -- Neutrinos in Deep Ice}",
+          howpublished = "Kaggle",
+          year = "2023",
+          url = "https://www.kaggle.com/competitions/icecube-neutrinos-in-deep-ice"
+      }
